@@ -255,14 +255,14 @@ func (s ProposerSorter) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
 
-func (e *Epocher) CalProbability(amountWin *big.Int, lockTime uint64) *big.Int {
-	//amount := big.NewInt(0).Div(amountWin, big.NewInt(params.Wan))
+func (e *Epocher) CalProbability(amountTsl *big.Int, lockTime uint64) *big.Int {
+	//amount := big.NewInt(0).Div(amountTsl, big.NewInt(params.Wan))
 	pb := big.NewInt(0)
 
 	lockWeight := vm.CalLocktimeWeight(lockTime)
 	timeBig := big.NewInt(int64(lockWeight))
 
-	pb.Mul(amountWin, timeBig)
+	pb.Mul(amountTsl, timeBig)
 
 	log.Debug("CalProbability ", "pb: ", pb)
 

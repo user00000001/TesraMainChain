@@ -2,8 +2,8 @@
 # with Go source code. If you know what GOPATH is then you probably
 # don't need to bother with make.
 
-.PHONY: gwan evm all test testCoin testToken clean
-# .PHONY: gwan android ios geth-cross evm all test clean
+.PHONY: tesramain evm all test testCoin testToken clean
+# .PHONY: tesramain android ios geth-cross evm all test clean
 # .PHONY: geth-linux geth-linux-386 geth-linux-amd64 geth-linux-mips64 geth-linux-mips64le
 # .PHONY: geth-linux-arm geth-linux-arm-5 geth-linux-arm-6 geth-linux-arm-7 geth-linux-arm64
 # .PHONY: geth-darwin geth-darwin-386 geth-darwin-amd64
@@ -12,14 +12,14 @@
 GOBIN = build/bin
 GO ?= latest
 
-linuxDir=$(shell echo gwan-linux-amd64-`cat ./VERSION`-`git rev-parse --short=8 HEAD`)
-windowsDir=$(shell echo gwan-windows-amd64-`cat ./VERSION`-`git rev-parse --short=8 HEAD`)
-darwinDir=$(shell echo gwan-mac-amd64-`cat ./VERSION`-`git rev-parse --short=8 HEAD`)
-# The gwan target build gwan binary
-gwan:
-	build/env.sh  go run   -gcflags "-N -l"    build/ci.go   install ./cmd/gwan
+linuxDir=$(shell echo tesramain-linux-amd64-`cat ./VERSION`-`git rev-parse --short=8 HEAD`)
+windowsDir=$(shell echo tesramain-windows-amd64-`cat ./VERSION`-`git rev-parse --short=8 HEAD`)
+darwinDir=$(shell echo tesramain-mac-amd64-`cat ./VERSION`-`git rev-parse --short=8 HEAD`)
+# The tesramain target build tesramain binary
+tesramain:
+	build/env.sh  go run   -gcflags "-N -l"    build/ci.go   install ./cmd/tesramain
 	@echo "Done building."
-	@echo "Run \"$(GOBIN)/gwan\" to launch gwan."
+	@echo "Run \"$(GOBIN)/tesramain\" to launch tesramain."
 
 # The evm target build EVM emulator binary
 evm:
@@ -28,7 +28,7 @@ evm:
 	@echo "Run \"$(GOBIN)/evm\" to start the evm."
 
 
-# The all target build all the wanchain tools
+# The all target build all the tesramainchain tools
 all:
 	build/env.sh go run build/ci.go install
 
@@ -48,11 +48,11 @@ test: all
 
 # The testCoin target test a simple wancoin privacy transaction
 testCoin: all
-	./build/bin/gwan --dev --nodiscover --networkid 483855466823 --datadir './DOCKER/data-loadScript' --etherbase '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --unlock '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --password './DOCKER/data-loadScript/pwdfile' --mine --minerthreads 1 --nodiscover js './loadScript/wancoin.js'
+	./build/bin/tesramain --dev --nodiscover --networkid 483855466823 --datadir './DOCKER/data-loadScript' --etherbase '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --unlock '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --password './DOCKER/data-loadScript/pwdfile' --mine --minerthreads 1 --nodiscover js './loadScript/wancoin.js'
 
 # The testToken target test a simple token privacy transaction
 testToken: all
-	./build/bin/gwan --dev --nodiscover --networkid 483855466823 --datadir "./DOCKER/data-loadScript" --etherbase '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --unlock '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --password './DOCKER/data-loadScript/pwdfile' --mine --minerthreads 1 --nodiscover js './loadScript/wantoken.js'
+	./build/bin/tesramain --dev --nodiscover --networkid 483855466823 --datadir "./DOCKER/data-loadScript" --etherbase '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --unlock '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --password './DOCKER/data-loadScript/pwdfile' --mine --minerthreads 1 --nodiscover js './loadScript/wantoken.js'
 
 # The clean target clear all the build output
 clean:
@@ -84,13 +84,13 @@ devtools:
 # 	@echo "Linux 386 cross compilation done:"
 # 	@ls -ld $(GOBIN)/geth-linux-* | grep 386
 
-gwan-linux-amd64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/amd64 --ldflags "-s -w"  -v ./cmd/gwan
+tesramain-linux-amd64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/amd64 --ldflags "-s -w"  -v ./cmd/tesramain
 	@echo "Linux amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/gwan-linux-* | grep amd64
+	@ls -ld $(GOBIN)/tesramain-linux-* | grep amd64
 	mkdir -p ${linuxDir}
-	cp ./build/bin/gwan-linux-* ${linuxDir}/gwan
-	tar zcf ${linuxDir}.tar.gz ${linuxDir}/gwan
+	cp ./build/bin/tesramain-linux-* ${linuxDir}/tesramain
+	tar zcf ${linuxDir}.tar.gz ${linuxDir}/tesramain
 
 # geth-linux-arm: geth-linux-arm-5 geth-linux-arm-6 geth-linux-arm-7 geth-linux-arm64
 # 	@echo "Linux ARM cross compilation done:"
@@ -145,13 +145,13 @@ gwan-linux-amd64:
 # 	@echo "Darwin 386 cross compilation done:"
 # 	@ls -ld $(GOBIN)/geth-darwin-* | grep 386
 
-gwan-darwin-amd64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=darwin/amd64 --ldflags "-s -w"  -v ./cmd/gwan
+tesramain-darwin-amd64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=darwin/amd64 --ldflags "-s -w"  -v ./cmd/tesramain
 	@echo "Darwin amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/gwan-darwin-* | grep amd64
+	@ls -ld $(GOBIN)/tesramain-darwin-* | grep amd64
 	mkdir -p ${darwinDir}
-	cp ./build/bin/gwan-darwin-* ${darwinDir}/gwan
-	tar zcf ${darwinDir}.tar.gz ${darwinDir}/gwan
+	cp ./build/bin/tesramain-darwin-* ${darwinDir}/tesramain
+	tar zcf ${darwinDir}.tar.gz ${darwinDir}/tesramain
 
 # geth-windows: geth-windows-386 geth-windows-amd64
 # 	@echo "Windows cross compilation done:"
@@ -162,14 +162,14 @@ gwan-darwin-amd64:
 # 	@echo "Windows 386 cross compilation done:"
 # 	@ls -ld $(GOBIN)/geth-windows-* | grep 386
 
-gwan-windows-amd64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=windows/amd64 --ldflags "-s -w"  -v ./cmd/gwan
+tesramain-windows-amd64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=windows/amd64 --ldflags "-s -w"  -v ./cmd/tesramain
 	@echo "Windows amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/gwan-windows-* | grep amd64
+	@ls -ld $(GOBIN)/tesramain-windows-* | grep amd64
 	mkdir -p ${windowsDir}
-	cp ./build/bin/gwan-windows-* ${windowsDir}/gwan.exe
-	zip ${windowsDir}.zip ${windowsDir}/gwan.exe
+	cp ./build/bin/tesramain-windows-* ${windowsDir}/tesramain.exe
+	zip ${windowsDir}.zip ${windowsDir}/tesramain.exe
 
-release: clean gwan-linux-amd64 gwan-windows-amd64 gwan-darwin-amd64
-#release: clean gwan-linux-amd64
+release: clean tesramain-linux-amd64 tesramain-windows-amd64 tesramain-darwin-amd64
+#release: clean tesramain-linux-amd64
 

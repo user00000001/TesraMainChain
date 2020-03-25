@@ -1,4 +1,4 @@
-// Copyright 2018 Wanchain Foundation Ltd
+// Copyright 2018 TesraSupernet Foundation Ltd
 // Copyright 2017 The go-ethereum Authors
 // This file is part of the go-ethereum library.
 //
@@ -129,7 +129,7 @@ func ecrecover(header *types.Header) (common.Address, error) {
 	var signer common.Address
 	copy(signer[:], crypto.Keccak256(pubkey[1:])[12:])
 
-	// The signer's address should match the coinbase address in Wanchain Release 1, shall we add a warning if it's not?
+	// The signer's address should match the coinbase address in TesraMainChain Release 1, shall we add a warning if it's not?
 	// log.Trace("ecrecover()", "recovered signer", signer)
 
 	return signer, nil

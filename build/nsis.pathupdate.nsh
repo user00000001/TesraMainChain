@@ -1,4 +1,4 @@
-!include "WinMessages.nsh"
+!include "TslMessages.nsh"
 
 ; see https://support.microsoft.com/en-us/kb/104011
 !define Environ 'HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"'

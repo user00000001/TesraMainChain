@@ -20,7 +20,7 @@ serverPwd=""
 serverIps=(
     #"127.0.0.1" #the ip server should be included here
     )
-serverKey="/Users/aaron/wanglu/wanchain_key/wanchain_b.pem.pub"
+serverKey="/Users/aaron/wanglu/TesraMainChain_key/TesraMainChain_b.pem.pub"
 script="set_logrotate_env.sh"
 
 echo "The log rotate script will be run in batch in servers!\n"

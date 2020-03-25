@@ -22,7 +22,7 @@ const (
 	//
 	//    new(big.Int).Mul(value, big.NewInt(params.Douglas))
 	//
-	Win      = 1
+	Tsl      = 1
 	Ada      = 1e3
 	Babbage  = 1e6
 	Shannon  = 1e9

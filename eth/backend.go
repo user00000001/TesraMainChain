@@ -144,7 +144,7 @@ func New(ctx *node.ServiceContext, config *Config) (*Ethereum, error) {
 		inPosStage = true
 	}
 
-	log.Info("Initialising Wanchain protocol", "versions", ProtocolVersions, "network", config.NetworkId)
+	log.Info("Initialising TesraMainChain protocol", "versions", ProtocolVersions, "network", config.NetworkId)
 
 	if !config.SkipBcVersionCheck {
 		bcVersion := core.GetBlockChainVersion(chainDb)

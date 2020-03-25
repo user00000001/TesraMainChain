@@ -39,7 +39,7 @@ ENV GOPATH /go
 RUN \
   apk add --update git go make gcc musl-dev ca-certificates linux-headers                             && \
 	mkdir -p $GOPATH/src/github.com/ethereum                                                            && \
-	(cd $GOPATH/src/github.com/ethereum && git clone --depth=1 https://github.com/wanchain/go-wanchain) && \
+	(cd $GOPATH/src/github.com/ethereum && git clone --depth=1 https://github.com/TesraSupernet/TesraMainChain) && \
   go build -v github.com/TesraSupernet/TesraMainChain/cmd/faucet                                              && \
   apk del git go make gcc musl-dev linux-headers                                                      && \
   rm -rf $GOPATH && rm -rf /var/cache/apk/*

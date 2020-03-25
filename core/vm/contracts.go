@@ -1,4 +1,4 @@
-// Copyright 2018 Wanchain Foundation Ltd
+// Copyright 2018 TesraSupernet Foundation Ltd
 // Copyright 2014 The go-ethereum Authors
 // This file is part of the go-ethereum library.
 //
@@ -527,14 +527,14 @@ func init() {
 
 }
 
-type wanchainStampSC struct{}
+type tesramainchainStampSC struct{}
 
-func (c *wanchainStampSC) RequiredGas(input []byte) uint64 {
+func (c *tesramainchainStampSC) RequiredGas(input []byte) uint64 {
 	// ota balance store gas + ota wanaddr store gas
 	return params.SstoreSetGas * 2
 }
 
-func (c *wanchainStampSC) Run(in []byte, contract *Contract, env *EVM) ([]byte, error) {
+func (c *tesramainchainStampSC) Run(in []byte, contract *Contract, env *EVM) ([]byte, error) {
 	if len(in) < 4 {
 		return nil, errParameters
 	}
@@ -549,7 +549,7 @@ func (c *wanchainStampSC) Run(in []byte, contract *Contract, env *EVM) ([]byte, 
 	return nil, errMethodId
 }
 
-func (c *wanchainStampSC) ValidTx(stateDB StateDB, signer types.Signer, tx *types.Transaction) error {
+func (c *tesramainchainStampSC) ValidTx(stateDB StateDB, signer types.Signer, tx *types.Transaction) error {
 	if stateDB == nil || signer == nil || tx == nil {
 		return errParameters
 	}
@@ -569,7 +569,7 @@ func (c *wanchainStampSC) ValidTx(stateDB StateDB, signer types.Signer, tx *type
 	return errParameters
 }
 
-func (c *wanchainStampSC) ValidBuyStampReq(stateDB StateDB, payload []byte, value *big.Int) (otaAddr []byte, err error) {
+func (c *tesramainchainStampSC) ValidBuyStampReq(stateDB StateDB, payload []byte, value *big.Int) (otaAddr []byte, err error) {
 	if stateDB == nil || len(payload) == 0 || value == nil {
 		return nil, errors.New("unknown error")
 	}
@@ -611,7 +611,7 @@ func (c *wanchainStampSC) ValidBuyStampReq(stateDB StateDB, payload []byte, valu
 	return wanAddr, nil
 }
 
-func (c *wanchainStampSC) buyStamp(in []byte, contract *Contract, evm *EVM) ([]byte, error) {
+func (c *tesramainchainStampSC) buyStamp(in []byte, contract *Contract, evm *EVM) ([]byte, error) {
 	wanAddr, err := c.ValidBuyStampReq(evm.StateDB, in, contract.value)
 	if err != nil {
 		return nil, err

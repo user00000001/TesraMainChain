@@ -56,9 +56,9 @@ func main() {
 		ListenAddr: ":30300",
 		NAT:        nat.Any(),
 	}
-	fmt.Println("Starting Wanchain peer...")
+	fmt.Println("Starting TesraMainChain peer...")
 	if err := server.Start(); err != nil {
-		fmt.Printf("Failed to start Wanchain peer: %v.\n", err)
+		fmt.Printf("Failed to start TesraMainChain peer: %v.\n", err)
 		os.Exit(1)
 	}
 

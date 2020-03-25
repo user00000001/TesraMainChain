@@ -1,4 +1,4 @@
-// Copyright 2018 Wanchain Foundation Ltd
+// Copyright 2018 TesraSupernet Foundation Ltd
 // Copyright 2017 The go-ethereum Authors
 // This file is part of the go-ethereum library.
 //
@@ -27,7 +27,7 @@ import (
 	"time"
 
 	"github.com/karalabe/hid"
-	ethereum "github.com/wanchain/go-wanchain"
+	ethereum "github.com/TesraSupernet/TesraMainChain"
 	"github.com/TesraSupernet/TesraMainChain/accounts"
 	"github.com/TesraSupernet/TesraMainChain/common"
 	"github.com/TesraSupernet/TesraMainChain/core/types"

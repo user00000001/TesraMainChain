@@ -7,8 +7,8 @@
 #      \_/\_/_/   \_\_| \_|\____|_| |_|\__,_|_|_| |_|____/ \___| \_/  
 #                                                                     
 
-echo "run gwan in pluto bootnode testnet"
+echo "run tesramain in pluto bootnode testnet"
 make && \
-#build/bin/gwan --testnet   --etherbase  "0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e"  --unlock "0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e" --password ./pw.txt  --mine --minerthreads=1 $@
-build/bin/gwan --testnet   
+#build/bin/tesramain --testnet   --etherbase  "0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e"  --unlock "0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e" --password ./pw.txt  --mine --minerthreads=1 $@
+build/bin/tesramain --testnet   
 

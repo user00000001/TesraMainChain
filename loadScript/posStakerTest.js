@@ -121,7 +121,7 @@ function stakeRegisterTest() {
   var tx = eth.sendTransaction({
     from: balanceSourceAddress,
     to: address,
-    value: web3.toWin(stakeValue*2),
+    value: web3.toTsl(stakeValue*2),
     gas: 200000,
     gasprice: '0x' + (200000000000).toString(16)
   });
@@ -162,7 +162,7 @@ function stakeRegisterTest() {
   var tx = eth.sendTransaction({
     from: address,
     to: cscContractAddr,
-    value: web3.toWin(stakeValue),
+    value: web3.toTsl(stakeValue),
     data: payload,
     gas: 200000,
     gasprice: '0x' + (20000000000).toString(16)
@@ -196,9 +196,9 @@ function stakeUnregister(address, index) {
   var cscContractAddr = "0x00000000000000000000000000000000000000DA";
   var coinContract = contractDef.at(cscContractAddr);
 
-  //var lockTime = web3.toWin(lockTimeSecond)
+  //var lockTime = web3.toTsl(lockTimeSecond)
 
-  var payload = coinContract.stakeOut.getData(datapks, web3.toWin(stakeValue))
+  var payload = coinContract.stakeOut.getData(datapks, web3.toTsl(stakeValue))
 
   console.log("stakeOut index:" + index)
   console.log("stakeOut payload:")
@@ -209,7 +209,7 @@ function stakeUnregister(address, index) {
   var tx = eth.sendTransaction({
     from: address,
     to: cscContractAddr,
-    value: web3.toWin(0),
+    value: web3.toTsl(0),
     data: payload,
     gas: 200000,
     gasprice: '0x' + (20000000000).toString(16)

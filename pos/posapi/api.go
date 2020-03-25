@@ -725,10 +725,10 @@ func (a PosApi) CalProbability(amountCoin uint64, lockTime uint64) (string, erro
 		return "", errors.New("epocher instance do not exist")
 	}
 
-	amountWin := big.NewInt(0).SetUint64(amountCoin)
-	amountWin.Mul(amountWin, big.NewInt(params.Wan))
+	amountTsl := big.NewInt(0).SetUint64(amountCoin)
+	amountTsl.Mul(amountTsl, big.NewInt(params.Wan))
 
-	probablity := epocherInst.CalProbability(amountWin, lockTime)
+	probablity := epocherInst.CalProbability(amountTsl, lockTime)
 	return biToString(probablity, nil)
 }
 

@@ -17,28 +17,28 @@ echo ''
 echo ''
 echo ''
 
-sudo docker stop gwan
+sudo docker stop tesramain
 
-echo ${PASSWD} | sudo tee -a ~/.wanchain/pw.txt > /dev/null
+echo ${PASSWD} | sudo tee -a ~/.tesramainchain/pw.txt > /dev/null
 
-sudo docker start gwan
+sudo docker start tesramain
 
 echo 'Please wait a few seconds...'
 
 sleep 5
 
-sudo rm ~/.wanchain/pw.txt
+sudo rm ~/.tesramainchain/pw.txt
 
 echo ''
 echo ''
 echo ''
 echo ''
 
-if [ $(ps -ef | grep -c "gwan") -gt 1 ]; 
+if [ $(ps -ef | grep -c "tesramain") -gt 1 ]; 
 then 
     echo "Validator Start Success";
 else
     echo "Validator Start Failed";
-    echo "Please use command 'sudo docker logs gwan' to check reason." 
+    echo "Please use command 'sudo docker logs tesramain' to check reason." 
 fi
 

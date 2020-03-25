@@ -32,7 +32,7 @@
 !verbose push
 !verbose 3
 !include "LogicLib.nsh"
-!include "WinMessages.NSH"
+!include "TslMessages.NSH"
 !include "StrFunc.nsh"
 
 ; ---- Fix for conflict if StrFunc.nsh is already includes in main file -----------------------

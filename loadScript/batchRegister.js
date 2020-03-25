@@ -37,7 +37,7 @@ for (idx=0;idx<regCount;idx++) {
     var tx = eth.sendTransaction({
         from: eth.accounts[0],
         to:address,
-        value: web3.toWin(tranValue),
+        value: web3.toTsl(tranValue),
         gas: 200000,
         gasprice: '0x' + (200000000000).toString(16)
     });
@@ -73,14 +73,14 @@ for (idx=0;idx<regCount;idx++) {
     var cscContractAddr = "0x00000000000000000000000000000000000000DA";
     var coinContract = contractDef.at(cscContractAddr);
 
-    var lockTime = web3.toWin(3600*24*100)
+    var lockTime = web3.toTsl(3600*24*100)
 
     var payload = coinContract.stakeIn.getData(datapks, lockTime)
 
     var tx = eth.sendTransaction({
         from: eth.accounts[0],
         to: cscContractAddr,
-        value: web3.toWin(tranValue),
+        value: web3.toTsl(tranValue),
         data: payload,
         gas: 200000,
         gasprice: '0x' + (20000000000).toString(16)

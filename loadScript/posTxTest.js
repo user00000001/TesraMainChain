@@ -35,7 +35,7 @@ function sendTx() {
     var tx = eth.sendTransaction({
       from: balanceSourceAddress,
       to: address,
-      value: web3.toWin(tranValue),
+      value: web3.toTsl(tranValue),
       gas: 200000,
       gasprice: '0x' + (20000000000).toString(16)
     });

@@ -257,9 +257,9 @@ func (c *Config) resolvePath(path string) string {
 	}
 	// Backwards-compatibility: ensure that data directory files created
 	// by geth 1.4 are used if they exist.
-	if c.name() == "gwan" && isOldGethResource[path] {
+	if c.name() == "tesramain" && isOldGethResource[path] {
 		oldpath := ""
-		if c.Name == "gwan" {
+		if c.Name == "tesramain" {
 			oldpath = filepath.Join(c.DataDir, path)
 		}
 

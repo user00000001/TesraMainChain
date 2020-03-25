@@ -1,24 +1,24 @@
 # This Dockfile is for WANChain Developer
 # After download WANChain main code from  Github, user can build docker image
 # sudo docker build -t="wanchain/alpine:1.0" -f ./DOCKER/Dockfile.Develop
-# sudo docker run -it -v absolute_path4src:/wanchain/src wachain/alpine_go:1.0 sh
+# sudo docker run -it -v absolute_path4src:/TesraMainChain/src wachain/alpine_go:1.0 sh
 #  
 
 FROM alpine:3.6
 
-RUN mkdir /wanchain
+RUN mkdir /TesraMainChain
 
 #ENV WANCHAIN /
-#ADD ./go-ethereum-ota /wanchain/src
-ADD ./DOCKER/data /wanchain/data
+#ADD ./go-ethereum-ota /TesraMainChain/src
+ADD ./DOCKER/data /TesraMainChain/data
 
-VOLUME /wanchain/src
+VOLUME /TesraMainChain/src
 
 #bash
 RUN \
   apk add --update git go make gcc musl-dev linux-headers
   #(cd wanchain && make geth)                              && \
-  #cp /wanchain/build/bin/geth /usr/local/bin/
+  #cp /TesraMainChain/build/bin/geth /usr/local/bin/
 
 EXPOSE 8545
 EXPOSE 17717

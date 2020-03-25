@@ -110,7 +110,7 @@ func defaultNodeConfig() node.Config {
 	cfg.HTTPModules = append(cfg.HTTPModules, "wan", "shh","pos")
 	cfg.WSModules = append(cfg.WSModules, "eth", "shh")
 	cfg.WSModules = append(cfg.WSModules, "wan", "shh")
-	cfg.IPCPath = "gwan.ipc"
+	cfg.IPCPath = "tesramain.ipc"
 	return cfg
 }
 

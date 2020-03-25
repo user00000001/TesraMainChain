@@ -1,18 +1,20 @@
 #!/bin/sh
 
-#   __        ___    _   _  ____ _           _       ____             
-#   \ \      / / \  | \ | |/ ___| |__   __ _(_)_ __ |  _ \  _____   __
-#    \ \ /\ / / _ \ |  \| | |   | '_ \ / _` | | '_ \| | | |/ _ \ \ / /
-#     \ V  V / ___ \| |\  | |___| | | | (_| | | | | | |_| |  __/\ V / 
-#      \_/\_/_/   \_\_| \_|\____|_| |_|\__,_|_|_| |_|____/ \___| \_/  
-#                                                                     
+
+#  _____                   ____                                   _   
+# |_   _|__  ___ _ __ __ _/ ___| _   _ _ __   ___ _ __ _ __   ___| |_ 
+#   | |/ _ \/ __| '__/ _` \___ \| | | | '_ \ / _ \ '__| '_ \ / _ \ __|
+#   | |  __/\__ \ | | (_| |___) | |_| | |_) |  __/ |  | | | |  __/ |_ 
+#   |_|\___||___/_|  \__,_|____/ \__,_| .__/ \___|_|  |_| |_|\___|\__|
+#                                     |_|                             
+
 
 echo "build geth..."
 
-cd /wanchain/src
+cd /TesraMainChain/src
 make clean
 make geth
 cp ./build/bin/geth /usr/local/bin
 
 echo "run geth"
-geth --verbosity 6 --datadir /wanchain/data --etherbase '0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e' --networkid 5201314 --mine --minerthreads 1 --nodiscover --rpc --rpcaddr 0.0.0.0
+geth --verbosity 6 --datadir /TesraMainChain/data --etherbase '0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e' --networkid 5201314 --mine --minerthreads 1 --nodiscover --rpc --rpcaddr 0.0.0.0

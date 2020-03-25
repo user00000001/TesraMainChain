@@ -214,7 +214,7 @@ Print public key of an address`,
 					utils.KeyStoreDirFlag,
 				},
 				Description: `
-    gwan account encrypt <address>
+    tesramain account encrypt <address>
 
 Encrypt an existing account.
 
@@ -231,7 +231,7 @@ The account will be encrypted by AWS KMS, and ciphertext will be saved into new 
 					utils.KeyStoreDirFlag,
 				},
 				Description: `
-    gwan account decrypt <address>
+    tesramain account decrypt <address>
 
 Decrypt an existing account.
 

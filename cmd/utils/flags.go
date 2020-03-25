@@ -146,12 +146,12 @@ var (
 
 	PlutoFlag = cli.BoolFlag{
 		Name:  "pluto",
-		Usage: "Pluto network: pre-configured wanchain proof-of-authority test network",
+		Usage: "Pluto network: pre-configured tesramainchain proof-of-authority test network",
 	}
 
 	PlutoDevFlag = cli.BoolFlag{
 		Name:  "plutodev",
-		Usage: "Pluto dev network: pre-configured wanchain proof-of-authority test network",
+		Usage: "Pluto dev network: pre-configured tesramainchain proof-of-authority test network",
 	}
 
 	//facuet enbale settings
@@ -544,7 +544,7 @@ var (
 	SyslogTagFlag = cli.StringFlag{
 		Name:  "syslogtag",
 		Usage: "syslog tag",
-		Value: "gwan_pos",
+		Value: "tesra_pos",
 	}
 	AwsKmsFlag = cli.BoolFlag{
 		Name:  "kms",
@@ -1048,7 +1048,7 @@ func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *eth.Config) {
 		cfg.EnablePreimageRecording = ctx.GlobalBool(VMEnableDebugFlag.Name)
 	}
 	if ctx.GlobalIsSet(FirstPos.Name) {
-		params.WanchainChainConfig.PosFirstBlock = new(big.Int).SetInt64(ctx.GlobalInt64(FirstPos.Name))
+		params.TesraMainChainChainConfig.PosFirstBlock = new(big.Int).SetInt64(ctx.GlobalInt64(FirstPos.Name))
 	}
 	// Override any default configs for hard coded networks.
 	switch {

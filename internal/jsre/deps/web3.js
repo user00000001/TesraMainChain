@@ -1768,27 +1768,27 @@ var WAN_UNITS = [
     'Gwin',
     'szabo',
     'finney',
-    'femtowan',
-    'picowan',
-    'nanowan',
-    'microwan',
-    'milliwan',
+    'femtotsr',
+    'picotsr',
+    'nanotsr',
+    'microtsr',
+    'millitsr',
     'nano',
     'micro',
     'milli',
-    'wan',
+    'tsr',
     'grand',
-    'Mwan',
-    'Gwan',
-    'Twan',
-    'Pwan',
-    'Ewan',
-    'Zwan',
-    'Ywan',
-    'Nwan',
-    'Dwan',
-    'Vwan',
-    'Uwan'
+    'Mtsr',
+    'Gtsr',
+    'Ttsr',
+    'Ptsr',
+    'Etsr',
+    'Ztsr',
+    'Ytsr',
+    'Ntsr',
+    'Dtsr',
+    'Vtsr',
+    'Utsr'
 ];
 
 module.exports = {
@@ -1884,33 +1884,33 @@ var sha3 = require('./sha3.js');
 var utf8 = require('utf8');
 
 var unitMap = {
-    'nowan':      '0',
+    'notsr':      '0',
     'win':          '1',
     'kwin':         '1000',
     'Kwin':         '1000',
     'babbage':      '1000',
-    'femtowan':   '1000',
+    'femtotsr':   '1000',
     'mwin':         '1000000',
     'Mwin':         '1000000',
     'lovelace':     '1000000',
-    'picowan':    '1000000',
+    'picotsr':    '1000000',
     'gwin':         '1000000000',
     'Gwin':         '1000000000',
     'shannon':      '1000000000',
-    'nanowan':    '1000000000',
+    'nanotsr':    '1000000000',
     'nano':         '1000000000',
     'szabo':        '1000000000000',
-    'microwan':   '1000000000000',
+    'microtsr':   '1000000000000',
     'micro':        '1000000000000',
     'finney':       '1000000000000000',
-    'milliwan':    '1000000000000000',
+    'millitsr':    '1000000000000000',
     'milli':         '1000000000000000',
-    'wan':        '1000000000000000000',
-    'kwan':       '1000000000000000000000',
+    'tsr':        '1000000000000000000',
+    'ktsr':       '1000000000000000000000',
     'grand':        '1000000000000000000000',
-    'mwan':       '1000000000000000000000000',
-    'gwan':       '1000000000000000000000000000',
-    'twan':       '1000000000000000000000000000000'
+    'mtsr':       '1000000000000000000000000',
+    'gtsr':       '1000000000000000000000000000',
+    'ttsr':       '1000000000000000000000000000000'
 };
 
 /**
@@ -2121,15 +2121,15 @@ var toHex = function (val) {
 };
 
 /**
- * Returns value of unit in Win
+ * Returns value of unit in Tsl
  *
  * @method getValueOfUnit
  * @param {String} unit the unit to convert to, default ether
- * @returns {BigNumber} value of the unit (in Win)
+ * @returns {BigNumber} value of the unit (in Tsl)
  * @throws error if the unit is not correct:w
  */
 var getValueOfUnit = function (unit) {
-    unit = unit ? unit.toLowerCase() : 'wan';
+    unit = unit ? unit.toLowerCase() : 'tsr';
     var unitValue = unitMap[unit];
     if (unitValue === undefined) {
         throw new Error('This unit doesn\'t exists, please use the one of the following units' + JSON.stringify(unitMap, null, 2));
@@ -2138,27 +2138,27 @@ var getValueOfUnit = function (unit) {
 };
 
 /**
- * Takes a number of win and converts it to any other wan unit.
+ * Takes a number of win and converts it to any other tsr unit.
  *
  * Possible units are:
  *   SI Short   SI Full        Effigy       Other
- * - kwin       femtowan     babbage
- * - mwin       picowan      lovelace
- * - gwin       nanowan      shannon      nano
- * - --         microwan     szabo        micro
- * - --         milliwan     finney       milli
- * - wan      --             --
- * - kwan                    --           grand
- * - mwan
- * - gwan
- * - twan
+ * - kwin       femtotsr     babbage
+ * - mwin       picotsr      lovelace
+ * - gwin       nanotsr      shannon      nano
+ * - --         microtsr     szabo        micro
+ * - --         millitsr     finney       milli
+ * - tsr      --             --
+ * - ktsr                    --           grand
+ * - mtsr
+ * - gtsr
+ * - ttsr
  *
- * @method fromWin
+ * @method fromTsl
  * @param {Number|String} number can be a number, number string or a HEX of a decimal
- * @param {String} unit the unit to convert to, default wan
+ * @param {String} unit the unit to convert to, default tsr
  * @return {String|Object} When given a BigNumber object it returns one as well, otherwise a number
 */
-var fromWin = function(number, unit) {
+var fromTsl = function(number, unit) {
     var returnValue = toBigNumber(number).dividedBy(getValueOfUnit(unit));
 
     return isBigNumber(number) ? returnValue : returnValue.toString(10);
@@ -2169,24 +2169,24 @@ var fromWin = function(number, unit) {
  *
  * Possible units are:
  *   SI Short   SI Full        Effigy       Other
- * - kwin       femtowan     babbage
- * - mwin       picowan      lovelace
- * - gwin       nanowan      shannon      nano
- * - --         microwan     szabo        micro
- * - --         microwan     szabo        micro
- * - --         milliwan     finney       milli
- * - wan      --             --
- * - kwan                    --           grand
- * - mwan
- * - gwan
- * - twan
+ * - kwin       femtotsr     babbage
+ * - mwin       picotsr      lovelace
+ * - gwin       nanotsr      shannon      nano
+ * - --         microtsr     szabo        micro
+ * - --         microtsr     szabo        micro
+ * - --         millitsr     finney       milli
+ * - tsr      --             --
+ * - ktsr                    --           grand
+ * - mtsr
+ * - gtsr
+ * - ttsr
  *
- * @method toWin
+ * @method toTsl
  * @param {Number|String|BigNumber} number can be a number, number string or a HEX of a decimal
- * @param {String} unit the unit to convert from, default wan
+ * @param {String} unit the unit to convert from, default tsr
  * @return {String|Object} When given a BigNumber object it returns one as well, otherwise a number
 */
-var toWin = function(number, unit) {
+var toTsl = function(number, unit) {
     var returnValue = toBigNumber(number).times(getValueOfUnit(unit));
 
     return isBigNumber(number) ? returnValue : returnValue.toString(10);
@@ -2453,8 +2453,8 @@ module.exports = {
     transformToFullName: transformToFullName,
     extractDisplayName: extractDisplayName,
     extractTypeName: extractTypeName,
-    toWin: toWin,
-    fromWin: fromWin,
+    toTsl: toTsl,
+    fromTsl: fromTsl,
     toBigNumber: toBigNumber,
     toTwosComplement: toTwosComplement,
     toAddress: toAddress,
@@ -2509,7 +2509,7 @@ module.exports={
 var RequestManager = require('./web3/requestmanager');
 var Iban = require('./web3/iban');
 var Eth = require('./web3/methods/eth');
-var Wan = require('./web3/methods/wan');
+var Tsr = require('./web3/methods/tsr');
 var DB = require('./web3/methods/db');
 var Shh = require('./web3/methods/shh');
 var Net = require('./web3/methods/net');
@@ -2532,7 +2532,7 @@ function Web3 (provider) {
     this._requestManager = new RequestManager(provider);
     this.currentProvider = provider;
     this.eth = new Eth(this);
-    this.wan = new Wan(this);
+    this.tsr = new Tsr(this);
     this.db = new DB(this);
     this.shh = new Shh(this);
     this.net = new Net(this);
@@ -2577,8 +2577,8 @@ Web3.prototype.fromUtf8 = utils.fromUtf8;
 Web3.prototype.toDecimal = utils.toDecimal;
 Web3.prototype.fromDecimal = utils.fromDecimal;
 Web3.prototype.toBigNumber = utils.toBigNumber;
-Web3.prototype.toWin = utils.toWin;
-Web3.prototype.fromWin = utils.fromWin;
+Web3.prototype.toTsl = utils.toTsl;
+Web3.prototype.fromTsl = utils.fromTsl;
 Web3.prototype.isAddress = utils.isAddress;
 Web3.prototype.isChecksumAddress = utils.isChecksumAddress;
 Web3.prototype.toChecksumAddress = utils.toChecksumAddress;
@@ -2634,7 +2634,7 @@ Web3.prototype.createBatch = function () {
 module.exports = Web3;
 
 
-},{"./utils/sha3":19,"./utils/utils":20,"./version.json":21,"./web3/batch":24,"./web3/extend":28,"./web3/httpprovider":32,"./web3/iban":33,"./web3/ipcprovider":34,"./web3/methods/db":37,"./web3/methods/eth":38,"./web3/methods/wan":87,"./web3/methods/net":39,"./web3/methods/personal":40,"./web3/methods/shh":41,"./web3/methods/swarm":42,"./web3/property":45,"./web3/requestmanager":46,"./web3/settings":47,"bignumber.js":"bignumber.js"}],23:[function(require,module,exports){
+},{"./utils/sha3":19,"./utils/utils":20,"./version.json":21,"./web3/batch":24,"./web3/extend":28,"./web3/httpprovider":32,"./web3/iban":33,"./web3/ipcprovider":34,"./web3/methods/db":37,"./web3/methods/eth":38,"./web3/methods/tsr":87,"./web3/methods/net":39,"./web3/methods/personal":40,"./web3/methods/shh":41,"./web3/methods/swarm":42,"./web3/property":45,"./web3/requestmanager":46,"./web3/settings":47,"bignumber.js":"bignumber.js"}],23:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -13643,11 +13643,11 @@ module.exports = transfer;
 module.exports = XMLHttpRequest;
 
 },{}],87:[function(require,module,exports){
-/* wan.js */
+/* tsr.js */
     var Method = require('../method');
     var formatters = require('../formatters');
 
-    function Wan(web3) {
+    function Tsr(web3) {
         this._requestManager = web3._requestManager;
 
         var self = this;
@@ -13664,76 +13664,76 @@ module.exports = XMLHttpRequest;
     }
 
     var methods = function () {
-        var getWanAddress = new Method({
-            name: 'getWanAddress',
-            call: 'wan_getWanAddress',
+        var getTsrAddress = new Method({
+            name: 'getTsrAddress',
+            call: 'tsr_getTsrAddress',
             params: 1,
             inputFormatter: [formatters.inputAddressFormatter]
         });
 
         var generateOneTimeAddress = new Method({
             name: 'generateOneTimeAddress',
-            call: 'wan_generateOneTimeAddress',
+            call: 'tsr_generateOneTimeAddress',
             params: 1,
             inputFormatter: [null]
         });
 
         var getOTAMixSet = new Method({
             name: 'getOTAMixSet',
-            call: 'wan_getOTAMixSet',
+            call: 'tsr_getOTAMixSet',
             params: 2,
             inputFormatter: [null, null]
         });
 
         var checkOTAUsed = new Method({
           name: 'checkOTAUsed',
-          call: 'wan_checkOTAUsed',
+          call: 'tsr_checkOTAUsed',
           params: 1,
           inputFormatter: [null]
         });
 
         var computeOTAPPKeys = new Method({
             name: 'computeOTAPPKeys',
-            call: 'wan_computeOTAPPKeys',
+            call: 'tsr_computeOTAPPKeys',
             params: 2,
             inputFormatter: [formatters.inputAddressFormatter, null]
         });
 
         var getOTABalance = new Method({
             name: 'getOTABalance',
-            call: 'wan_getOTABalance',
+            call: 'tsr_getOTABalance',
             params: 2,
             inputFormatter: [null, formatters.inputDefaultBlockNumberFormatter],
             outputFormatter: formatters.outputBigNumberFormatter
         });
 
-        var getSupportWanCoinOTABalances = new Method ({
-            name: 'getSupportWanCoinOTABalances',
-            call: 'wan_getSupportWanCoinOTABalances',
+        var getSupportTsrCoinOTABalances = new Method ({
+            name: 'getSupportTsrCoinOTABalances',
+            call: 'tsr_getSupportTsrCoinOTABalances',
             params: 0,
         });
 
         var getSupportStampOTABalances = new Method ({
             name: 'getSupportStampOTABalances',
-            call: 'wan_getSupportStampOTABalances',
+            call: 'tsr_getSupportStampOTABalances',
             params: 0,
         });
 
         return [
             computeOTAPPKeys,
-            getWanAddress,
+            getTsrAddress,
             generateOneTimeAddress,
             getOTAMixSet,
             checkOTAUsed,
             getOTABalance,
-            getSupportWanCoinOTABalances,
+            getSupportTsrCoinOTABalances,
             getSupportStampOTABalances,
         ];
     };
     var properties = function () {
         return [];
     };
-module.exports = Wan;
+module.exports = Tsr;
 },{"../formatters":30,"../method":36}],"bignumber.js":[function(require,module,exports){
 'use strict';
 

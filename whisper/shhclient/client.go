@@ -19,7 +19,7 @@ package shhclient
 import (
 	"context"
 
-	"github.com/wanchain/go-wanchain"
+	"github.com/TesraSupernet/TesraMainChain"
 	"github.com/TesraSupernet/TesraMainChain/common/hexutil"
 	"github.com/TesraSupernet/TesraMainChain/rpc"
 	whisper "github.com/TesraSupernet/TesraMainChain/whisper/whisperv5"

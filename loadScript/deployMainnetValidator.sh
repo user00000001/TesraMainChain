@@ -15,7 +15,7 @@ read -s PASSWD
 echo 'Confirm your password of validator account:'
 read -s PASSWD2
 echo ''
-DOCKERIMG=wanchain/client-go:2.1.4
+DOCKERIMG=tesramainchain/client-go:2.1.4
 
 if [ ${PASSWD} != ${PASSWD2} ]
 then
@@ -42,18 +42,18 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-getAddr=$(sudo docker run -v ~/.wanchain:/root/.wanchain ${DOCKERIMG} /bin/gwan console --exec "personal.newAccount('${PASSWD}')")
+getAddr=$(sudo docker run -v ~/.tesramainchain:/root/.tesramainchain ${DOCKERIMG} /bin/tesramain console --exec "personal.newAccount('${PASSWD}')")
 
 ADDR=$getAddr
 
 echo $ADDR
 
-getPK=$(sudo docker run -v ~/.wanchain:/root/.wanchain ${DOCKERIMG} /bin/gwan console --exec "personal.showPublicKey(${ADDR},'${PASSWD}')")
+getPK=$(sudo docker run -v ~/.tesramainchain:/root/.tesramainchain ${DOCKERIMG} /bin/tesramain console --exec "personal.showPublicKey(${ADDR},'${PASSWD}')")
 PK=$getPK
 
 echo $PK
 
-echo ${PASSWD} | sudo tee -a ~/.wanchain/pw.txt > /dev/null
+echo ${PASSWD} | sudo tee -a ~/.tesramainchain/pw.txt > /dev/null
 if [ $? -ne 0 ]; then
     echo "write pw.txt failed"
     exit 1
@@ -61,7 +61,7 @@ fi
 
 addrNew=`echo ${ADDR} | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
 
-sudo docker run -d --name gwan -p 17717:17717 -p 17717:17717/udp -v ~/.wanchain:/root/.wanchain ${DOCKERIMG} /bin/gwan --etherbase ${addrNew} --unlock ${addrNew} --password /root/.wanchain/pw.txt --mine --minerthreads=1 --wanstats ${YOUR_NODE_NAME}:wanchainmainnetvalidator@wanstats.io
+sudo docker run -d --name tesramain -p 17717:17717 -p 17717:17717/udp -v ~/.tesramainchain:/root/.tesramainchain ${DOCKERIMG} /bin/tesramain --etherbase ${addrNew} --unlock ${addrNew} --password /root/.tesramainchain/pw.txt --mine --minerthreads=1 --wanstats ${YOUR_NODE_NAME}:tesramainchainmainnetvalidator@wanstats.io
 
 if [ $? -ne 0 ]; then
     echo "docker run failed"
@@ -72,11 +72,11 @@ echo 'Please wait a few seconds...'
 
 sleep 5
 
-sudo rm ~/.wanchain/pw.txt
+sudo rm ~/.tesramainchain/pw.txt
 
-KEYSTOREFILE=$(sudo ls ~/.wanchain/keystore/)
+KEYSTOREFILE=$(sudo ls ~/.tesramainchain/keystore/)
 
-KEYSTORE=$(sudo cat ~/.wanchain/keystore/${KEYSTOREFILE})
+KEYSTORE=$(sudo cat ~/.tesramainchain/keystore/${KEYSTOREFILE})
 
 echo ''
 echo ''
@@ -95,10 +95,10 @@ echo ''
 echo '=================================================='
 echo ''
 
-if [ $(ps -ef | grep -c "gwan") -gt 1 ]; 
+if [ $(ps -ef | grep -c "tesramain") -gt 1 ]; 
 then 
     echo "Validator Start Successfully";
 else
     echo "Validator Start Failed";
-    echo "Please use command 'sudo docker logs gwan' to check reason." 
+    echo "Please use command 'sudo docker logs tesramain' to check reason." 
 fi

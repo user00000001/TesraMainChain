@@ -89,10 +89,10 @@ func (s *Db) DbInit(dbPath string) {
 	} else {
 		nameIdx := strings.LastIndex(dbPath, string(os.PathSeparator))
 		if nameIdx < 0 {
-			dirname = path.Join(posconfig.Cfg().Dbpath, "gwan")
+			dirname = path.Join(posconfig.Cfg().Dbpath, "tesramain")
 			dirname = path.Join(dirname, dbPath)
 		} else {
-			dbPath = path.Join(dbPath, "gwan")
+			dbPath = path.Join(dbPath, "tesramain")
 			dirname = path.Join(dbPath, "wanposdb")
 		}
 	}

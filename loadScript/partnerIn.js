@@ -31,7 +31,7 @@ var cscContractAddr = "0x00000000000000000000000000000000000000DA";
 var coinContract = contractDef.at(cscContractAddr);
 
 var payload = coinContract.partnerIn.getData(validatorAddr, bContinue)
-var tx = eth.sendTransaction({ from: baseAddr, to: cscContractAddr, value: web3.toWin(tranValue), data: payload, gas: 200000, gasprice: '0x' + (200000000000).toString(16) });
+var tx = eth.sendTransaction({ from: baseAddr, to: cscContractAddr, value: web3.toTsl(tranValue), data: payload, gas: 200000, gasprice: '0x' + (200000000000).toString(16) });
 console.log("tx=" + tx)
 
 //------------------RUN CODE DO NOT MODIFY------------------

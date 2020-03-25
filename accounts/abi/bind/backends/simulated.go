@@ -24,7 +24,7 @@ import (
 	"sync"
 	"time"
 
-	ethereum "github.com/wanchain/go-wanchain"
+	ethereum "github.com/TesraSupernet/TesraMainChain"
 	"github.com/TesraSupernet/TesraMainChain/accounts/abi/bind"
 	"github.com/TesraSupernet/TesraMainChain/common"
 	"github.com/TesraSupernet/TesraMainChain/common/math"

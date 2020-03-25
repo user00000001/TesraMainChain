@@ -61,64 +61,7 @@ var PlutoDevAllocJson = `{
 
 const devAllocData = "\xf9\x01\x94\xc2\x01\x01\xc2\x02\x01\xc2\x03\x01\xc2\x04\x01\xf0\x94\x1a&3\x8f\r\x90^)_\u0337\x1f\xa9\ua11f\xfa\x12\xaa\xf4\x9a\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0\x94.\xf4q\x00\xe0x{\x91Q\x05\xfd^?O\xf6u y\xd5\u02da\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0\x94l8jK&\xf7<\x80/4g?rH\xbb\x11\x8f\x97BJ\x9a\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0\x94\xb9\xc0\x15\x91\x8b\u06ba$\xb4\xff\x05z\x92\xa3\x87=n\xb2\x01\xbe\x9a\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0\x94\xcd*=\x9f\x93\x8e\x13\u0354~\xc0Z\xbc\u007f\xe74\u07cd\xd8&\x9a\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0\x94\xdb\xdb\xdb,\xbd#\xb7\x83t\x1e\x8d\u007f\xcfQ\xe4Y\xb4\x97\u499a\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0\x94\xe4\x15{4\xea\x96\x15\u03fd\xe6\xb4\xfd\xa4\x19\x82\x81$\xb7\fx\x9a\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0\x94\xe6qo\x95D\xa5lS\r\x86\x8eK\xfb\xac\xb1r1[\u07ad\x9a\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
 
-/*
-* wanchain balance allocation
-
-* wanchain allocation unit: 1 wan = 1000000000000000000 win
-
-* wanchain wancoin total:210000000 wan
-
-
-* wanchain foundattion balance total: 19%, 39900000 wan
-
-* wanchain foundation address 1 balance:1０％,21000000 wan
-* "0x4A2a82864c2Db7091142C2078543FaB0286251a9": {"balance": "21000000000000000000000000"},
-
-* wanchain foundation address 2 balance:６％, 12600000 wan
-* "0x0dA4512bB81fA50891533d9A956238dCC219aBCf": {"balance": "12600000000000000000000000"},
-
-* wanchain foundation address 3 balance:３％, 6300000 wan
-* "0xD209fe3073Ca6B61A1a8A7b895e1F4aD997103E1": {"balance": "6300000000000000000000000"},
-
-* wanchain miner total: 10%, 21000000 wan
-* "0x01d0689001F18637993948e487a15BF3064b16e4": {"balance": "21000000000000000000000000"},
-
-
-* wanchain open sold balance:total 51%, 107100000 wan
-
-* wanchain open sold address 1 balance:１０％,21000000 wan
-* "0xb3a5c9789A4d882BceF63abBe9B7893aC505bf60": {"balance": "21000000000000000000000000"},
-
-* wanchain open sold address 2 balance:10%,21000000 wan
-* "0xc57FeeC601d5A473fE9d1D70Af26ac639e0c61a1": {"balance": "21000000000000000000000000"},
-
-* wanchain open sold address 3 balance:１０％,21000000 wan
-* "0xEeCABC0900998aFeE0B52438a6003F2388c78A62": {"balance": "21000000000000000000000000"},
-
-* wanchain open sold address 4 balance:１０％,21000000 wan
-* "0x2dC9A6A04Bc004a8f68f0e886a463AeF23D43030": {"balance": "21000000000000000000000000"},
-
-* wanchain open sold address 5 balance:１０％,21000000 wan
-* "0x5866dD6794B8996E5bC745D508AC6901FF3b0427": {"balance": "21000000000000000000000000"},
-
-* wanchain open sold address 6 balance:1%,2100000 wan
-* "0x89442477dC39A2503E30D1f8d7FFD4Ea5f87a2aF": {"balance":  "2100000000000000000000000"},
-
-
-* wanchain develop team balance:20%,42000000 wan
-
-* wanchain develop team address:10%,21000000 wan
-* "0xae8d9B975eC8df8359eA79e50e89b18601816aC3": {"balance": "21000000000000000000000000"},
-
-* wanchain develop team address:5%,10500000 wan
-* "0x53D81A644a0d1081D6C6E8B25f807C2cFb6edE35": {"balance": "10500000000000000000000000"},
-
-* wanchain develop team address:5%,10500000 wan
-* "0x3B9289124f04194F0b3C4F8F862fE1Fbac59c978": {"balance": "10500000000000000000000000"}
-
- */
-
-const wanchainAllocJson = `{
+const tesramainchainAllocJson = `{
 		"0x4A2a82864c2Db7091142C2078543FaB0286251a9": {"balance": "21000000000000000000000000"},
 		"0x0dA4512bB81fA50891533d9A956238dCC219aBCf": {"balance": "12600000000000000000000000"},
 		"0xD209fe3073Ca6B61A1a8A7b895e1F4aD997103E1": {"balance":  "6300000000000000000000000"},
@@ -141,14 +84,14 @@ const wanchainAllocJson = `{
 //public sale
 //Team holding
 //Foundation operation
-const wanchainTestAllocJson = `{
+const tesramainchainTestAllocJson = `{
 	"0x4cb79c7868cd88629df6d4fa8637dda83d13ef27": {"balance": "21000000000000000000000000"},
 	"0xeb71d33d5c7cf05d9177934200c51efa53057c27": {"balance": "107100000000000000000000000"},
 	"0x6b4683cafa549d9f4c06815a2397cef5a540b919": {"balance": "42000000000000000000000000"},
 	"0xbb9003ca8226f411811dd16a3f1a2c1b3f71825d": {"balance": "39900000000000000000000000"}
 }`
 
-const wanchainInternalAllocJson = `{
+const tesramainchainInternalAllocJson = `{
 	"0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8": {"balance": "10000000000000000000000000000000000004"},
 	"0x8b179c2b542f47bb2fb2dc40a3cf648aaae1df16": {"balance": "10000000000000000000000000000000000003"},
 	"0x7a22d4e2dc5c135c4e8a7554157446e206835b05": {"balance": "10000000000000000000000000000000000003"},
@@ -174,13 +117,13 @@ const wanchainInternalAllocJson = `{
 
 //"0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e": {"balance": "10000000000000000000000000000000000003"}
 
-const wanchainPPOWTestAllocJson = `{
+const tesramainchainPPOWTestAllocJson = `{
 	  "0xbd100cf8286136659a7d63a38a154e28dbf3e0fd": {"balance": "3000000000000000000000000000"},
 	  "0xF9b32578b4420a36F132DB32b56f3831A7CC1804": {"balance": "3000000000000000000000000000"},
 	  "0x1631447d041f929595a9c7b0c9c0047de2e76186": {"balance": "1000"}
 }`
 
-const wanchainPPOWDevAllocJson = `{
+const tesramainchainPPOWDevAllocJson = `{
 	  "0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e": {"balance": "999999999999999999999999999999999999999999999999999999"},
 	  "0x8b179c2b542f47bb2fb2dc40a3cf648aaae1df16": {"balance": "999999999999999999999999999999999999999999999999999999"},
 	  "0x7a22d4e2dc5c135c4e8a7554157446e206835b05": {"balance": "999999999999999999999999999999999999999999999999999999"}

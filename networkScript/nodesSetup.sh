@@ -23,7 +23,7 @@ if [ ! -x $gethFile ]; then
 	make all
 fi
 
-containerPrefix="wanchainContainer"
+containerPrefix="tesramainchainContainer"
 nodeDirPrefix="$SRCDIR/networkScript/node"
 ethbase="0x8b179c2b542f47bb2fb2dc40a3cf648aaae1df16"
 
@@ -59,7 +59,7 @@ do
 	docker rm   $containerName
 	docker inspect $containerName > /dev/null 2>&1
 	if [ $? -eq 1 ]; then
-		docker run --restart always --name $containerName -itd -v $SRCDIR:/wanchain/src -p $port1:8545 -p $port2:17717 -p $port2:17717/udp registry.cn-hangzhou.aliyuncs.com/wanglutech/wanchaindev /bin/sh
+		docker run --restart always --name $containerName -itd -v $SRCDIR:/TesraMainChain/src -p $port1:8545 -p $port2:17717 -p $port2:17717/udp registry.cn-hangzhou.aliyuncs.com/wanglutech/TesraMainChaindev /bin/sh
 	fi
 	
 	ip=$(docker exec $containerName ifconfig | grep "inet addr" | grep -v 127.0.0.1 | awk '{print $2}' | awk -F ':' '{print $2}')
@@ -75,15 +75,15 @@ do
  
 	cd $SRCDIR
 
-	docker exec -it $containerName /wanchain/src/build/bin/geth --datadir "/wanchain/src/networkScript/$nodeName/data-loadScript" init /wanchain/src/genesis_example/genesis.json
+	docker exec -it $containerName /TesraMainChain/src/build/bin/geth --datadir "/TesraMainChain/src/networkScript/$nodeName/data-loadScript" init /TesraMainChain/src/genesis_example/genesis.json
 
 	if [ $i -eq 0 ]; then
 		echo " start $i"
-		docker exec -d $containerName /wanchain/src/build/bin/geth --datadir "/wanchain/src/networkScript/$nodeName/data-loadScript" --networkid 314590 --ipcdisable --gasprice 20000 --mine --minerthreads 1 --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,personal,net,admin,wan" --etherbase $ethbase --nodekey "/wanchain/src/networkScript/$nodeName/nodekey"
+		docker exec -d $containerName /TesraMainChain/src/build/bin/geth --datadir "/TesraMainChain/src/networkScript/$nodeName/data-loadScript" --networkid 314590 --ipcdisable --gasprice 20000 --mine --minerthreads 1 --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,personal,net,admin,wan" --etherbase $ethbase --nodekey "/TesraMainChain/src/networkScript/$nodeName/nodekey"
 	else
 		echo " start $i"
 		
-		docker exec -d $containerName /wanchain/src/build/bin/geth --datadir "/wanchain/src/networkScript/$nodeName/data-loadScript" --networkid 314590 --ipcdisable --gasprice 20000 --mine --minerthreads 1 --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,personal,net,admin,wan" --etherbase $ethbase --nodekey "/wanchain/src/networkScript/$nodeName/nodekey" --bootnodes $allEndNodes
+		docker exec -d $containerName /TesraMainChain/src/build/bin/geth --datadir "/TesraMainChain/src/networkScript/$nodeName/data-loadScript" --networkid 314590 --ipcdisable --gasprice 20000 --mine --minerthreads 1 --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,personal,net,admin,wan" --etherbase $ethbase --nodekey "/TesraMainChain/src/networkScript/$nodeName/nodekey" --bootnodes $allEndNodes
 		
 	fi
 

@@ -1,4 +1,4 @@
-// Copyright 2018 Wanchain Foundation Ltd
+// Copyright 2018 TesraSupernet Foundation Ltd
 // Copyright 2014 The go-ethereum Authors
 // This file is part of go-ethereum.
 //
@@ -43,7 +43,7 @@ import (
 )
 
 const (
-	clientIdentifier = "gwan" // Client identifier to advertise over the network
+	clientIdentifier = "tesramain" // Client identifier to advertise over the network
 )
 
 var (
@@ -52,7 +52,7 @@ var (
 	// Ethereum address of the Geth release oracle.
 	relOracle = common.HexToAddress("0x6b4683cafa549d9f4c06815a2397cef5a540b919")
 	// The app that holds all commands and flags.
-	app = utils.NewApp(gitCommit, "the go-wanchain command line interface")
+	app = utils.NewApp(gitCommit, "the TesraMainChain command line interface")
 	// flags that configure the node
 	nodeFlags = []cli.Flag{
 		utils.IdentityFlag,
@@ -163,7 +163,7 @@ func init() {
 	// Initialize the CLI app and start Geth
 	app.Action = geth
 	app.HideVersion = true // we have a command to print the version
-	app.Copyright = "Copyright 2013-2017 The go-ethereum Authors; Copyright 2018 Wanchain Foundation Ltd"
+	app.Copyright = "Copyright 2013-2017 The go-ethereum Authors; Copyright 2018 TesraSupernet Foundation Ltd"
 	app.Commands = []cli.Command{
 		// See chaincmd.go:
 		initCommand,

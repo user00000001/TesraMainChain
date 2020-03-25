@@ -92,12 +92,12 @@ func (w *ledgerDriver) Status() (string, error) {
 		return fmt.Sprintf("Failed: %v", w.failure), w.failure
 	}
 	if w.browser {
-		return "Wanchain app in browser mode", w.failure
+		return "TesraMainChain app in browser mode", w.failure
 	}
 	if w.offline() {
-		return "Wanchain app offline", w.failure
+		return "TesraMainChain app offline", w.failure
 	}
-	return fmt.Sprintf("Wanchain app v%d.%d.%d online", w.version[0], w.version[1], w.version[2]), w.failure
+	return fmt.Sprintf("TesraMainChain app v%d.%d.%d online", w.version[0], w.version[1], w.version[2]), w.failure
 }
 
 // offline returns whether the wallet and the Ethereum app is offline or not.

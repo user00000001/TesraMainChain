@@ -46,4 +46,4 @@ mkdir -p $bakDataDir
 
 cp $logDir"/running.log" $bakLogDir"/"$ipStr"-"$bakDate".log"
 
-cp -r ~/.wanchain/* $bakDataDir
+cp -r ~/.tesramainchain/* $bakDataDir

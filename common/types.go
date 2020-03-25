@@ -139,7 +139,7 @@ func (h UnprefixedHash) MarshalText() ([]byte, error) {
 // Address represents the 20 byte address of an ordinary account.
 type Address [AddressLength]byte
 
-// WAddress represents the 66 byte address of an Wanchain account
+// WAddress represents the 66 byte address of an TesraMainChain account
 type WAddress [WAddressLength]byte
 
 func BytesToAddress(b []byte) Address {

@@ -25,6 +25,6 @@ var cscContractAddr = "0x00000000000000000000000000000000000000DA";
 var coinContract = contractDef.at(cscContractAddr);
 
 var payloadDelegate = coinContract.delegateIn.getData(delegateAddr)
-var tx2 = eth.sendTransaction({from:baseAddr, to:cscContractAddr, value:web3.toWin(tranValue), data:payloadDelegate, gas: 200000, gasprice:'0x' + (200000000000).toString(16)});
+var tx2 = eth.sendTransaction({from:baseAddr, to:cscContractAddr, value:web3.toTsl(tranValue), data:payloadDelegate, gas: 200000, gasprice:'0x' + (200000000000).toString(16)});
 console.log("tx2=" + tx2)
 //------------------RUN CODE DO NOT MODIFY------------------

@@ -12,7 +12,7 @@ var secpub  = pubs[0]
 var g1pub   = pubs[1]
 
 // for pos trsaction gas fee
-eth.sendTransaction({from:eth.coinbase, to: secAddr, value: web3.toWin(1)})
+eth.sendTransaction({from:eth.coinbase, to: secAddr, value: web3.toTsl(1)})
 
 var cscDefinition = [
 	{
@@ -119,25 +119,25 @@ var feeRate = 79
 // add validator
 var payload = coinContract.stakeIn.getData(secpub, g1pub, lockTime, feeRate)
 console.log("payload: ", payload)
-var tx = eth.sendTransaction({from:eth.coinbase, to:cscContractAddr, value:web3.toWin(tranValue), data:payload, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
+var tx = eth.sendTransaction({from:eth.coinbase, to:cscContractAddr, value:web3.toTsl(tranValue), data:payload, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
 console.log("tx= " + tx)
 
 // add delegator
 var payloadDelegate = coinContract.delegateIn.getData(secAddr)
-var tx2 = eth.sendTransaction({from:eth.coinbase, to:cscContractAddr, value:web3.toWin(tranValue), data:payloadDelegate, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
+var tx2 = eth.sendTransaction({from:eth.coinbase, to:cscContractAddr, value:web3.toTsl(tranValue), data:payloadDelegate, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
 console.log("tx2= " + tx2)
 
 // append delegate
 var payloadDelegate3 = coinContract.delegateIn.getData(secAddr)
 var tranValue3 = 140
-var tx3 = eth.sendTransaction({from:eth.coinbase, to:cscContractAddr, value:web3.toWin(tranValue3), data:payloadDelegate3, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
+var tx3 = eth.sendTransaction({from:eth.coinbase, to:cscContractAddr, value:web3.toTsl(tranValue3), data:payloadDelegate3, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
 console.log("tx3= " + tx3)
 
 // append validator
 var tranValue4 = 11111
 var payload4 = coinContract.stakeAppend.getData(secAddr)
 console.log("payload: ", payload)
-var tx = eth.sendTransaction({from:eth.coinbase, to:cscContractAddr, value:web3.toWin(tranValue4), data:payload4, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
+var tx = eth.sendTransaction({from:eth.coinbase, to:cscContractAddr, value:web3.toTsl(tranValue4), data:payload4, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
 console.log("tx4=" + tx)
 
 

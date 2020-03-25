@@ -4,7 +4,7 @@ var initPriBalance = 10000;
 var priTranValue = 888;
 
 var wanBalance = function(addr){
-	return web3.fromWin(web3.eth.getBalance(addr));
+	return web3.fromTsl(web3.eth.getBalance(addr));
 }
 
 var wanUnlock = function(addr){
@@ -12,7 +12,7 @@ var wanUnlock = function(addr){
 }
 
 var sendWanFromUnlock = function (From, To , V){
-	eth.sendTransaction({from:From, to: To, value: web3.toWin(V)});
+	eth.sendTransaction({from:From, to: To, value: web3.toTsl(V)});
 }
 
 var wait = function (conditionFunc) {
@@ -41,19 +41,19 @@ stampContract = contractDef.at(stampContractAddr);
 for (i = 0; i < 3; i++) {
     var wanAddr = wan.getWanAddress(eth.accounts[1]);
     var otaAddrStamp = wan.generateOneTimeAddress(wanAddr);
-    txBuyData = stampContract.buyStamp.getData(otaAddrStamp, web3.toWin(stampBalance));
+    txBuyData = stampContract.buyStamp.getData(otaAddrStamp, web3.toTsl(stampBalance));
 
 
-    sendTx = eth.sendTransaction({from:eth.accounts[1], to:stampContractAddr, value:web3.toWin(stampBalance), data:txBuyData, gas: 1000000});
+    sendTx = eth.sendTransaction({from:eth.accounts[1], to:stampContractAddr, value:web3.toTsl(stampBalance), data:txBuyData, gas: 1000000});
     wait(function(){return eth.getTransaction(sendTx).blockNumber != null;});
 }
 
 var wanAddr = wan.getWanAddress(eth.accounts[1]);
 var otaAddrStamp = wan.generateOneTimeAddress(wanAddr);
-txBuyData = stampContract.buyStamp.getData(otaAddrStamp, web3.toWin(stampBalance));
+txBuyData = stampContract.buyStamp.getData(otaAddrStamp, web3.toTsl(stampBalance));
 
 
-sendTx = eth.sendTransaction({from:eth.accounts[1], to:stampContractAddr, value:web3.toWin(stampBalance), data:txBuyData, gas: 1000000});
+sendTx = eth.sendTransaction({from:eth.accounts[1], to:stampContractAddr, value:web3.toTsl(stampBalance), data:txBuyData, gas: 1000000});
 wait(function(){return eth.getTransaction(sendTx).blockNumber != null;});
 
 

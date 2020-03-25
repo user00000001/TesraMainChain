@@ -11,7 +11,7 @@ build/_workspace/**
 build/bin/**
 build/_vendor/pkg
 tests/testdata/**
-pos/gwan/**
+pos/tesramain/**
 
 #*
 .#*

@@ -198,7 +198,7 @@ How to compile and deploy:
 
 Requirement:
 
-1: a working Wanchain client, go to the github site, https://github.com/wanchain/go-wanchain, to get the latest version
+1: a working tesramainchain client, go to the github site, https://github.com/TesraSupernet/TesraMainChain, to get the latest version
 2: remix https://remix.ethereum.org, which is an amazing online smart contract development IDE
 3: your awesome Dapp consists of one or multiple smart contracts
 
@@ -206,7 +206,7 @@ Steps:
 
 1: go to remix, copy and paste your smart contract code, make static syntax analysis, and compile it
 2: click Details on the right panel of remix, copy all the code of WEB3DEPLOY section from the pop-up
-3: copy the script and run it in gwan console
+3: copy the script and run it in tesramain console
 var erc20simple_contract = web3.eth.contract([{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_toKey","type":"bytes"},{"name":"_value","type":"uint256"}],"name":"otatransfer","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"privacyBalance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"initialBase","type":"address"},{"name":"baseKeyBytes","type":"bytes"},{"name":"value","type":"uint256"}],"name":"initPrivacyAsset","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"otabalanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"otaKey","outputs":[{"name":"","type":"bytes"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_spender","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Approval","type":"event"}]);
 
 var erc20simple = erc20simple_contract.new(
@@ -226,14 +226,14 @@ var erc20simple = erc20simple_contract.new(
 5: now, you can play with your Dapp 
 
 Note:
-	You can locate a demo wanchain token contract and involved scripts under contracts/demo/ directory
+	You can locate a demo tesramainchain token contract and involved scripts under contracts/demo/ directory
 
 
 How to invoke privacy transfer
 
-After deployed above token contract on wanchain,in the wanchain console,you can invoke token privacy transaction according to following ways
+After deployed above token contract on tesramainchain,in the tesramainchain console,you can invoke token privacy transaction according to following ways
 
-Suppose there are at lease 3 account in your wanchain node
+Suppose there are at lease 3 account in your tesramainchain node
 
 1. define assit function and variable
 
@@ -241,7 +241,7 @@ var initPriBalance = 10000;
 var priTranValue = 888;
 
 var wanBalance = function(addr){
-	return web3.fromWin(web3.eth.getBalance(addr));
+	return web3.fromTsl(web3.eth.getBalance(addr));
 }
 
 var wanUnlock = function(addr){
@@ -249,7 +249,7 @@ var wanUnlock = function(addr){
 }
 
 var sendWanFromUnlock = function (From, To , V){
-	eth.sendTransaction({from:From, to: To, value: web3.toWin(V)});
+	eth.sendTransaction({from:From, to: To, value: web3.toTsl(V)});
 }
 
 var wait = function (conditionFunc) {
@@ -279,9 +279,9 @@ stampContract = contractDef.at(stampContractAddr);
 
 var wanAddr = wan.getWanAddress(eth.accounts[1]);
 var otaAddrStamp = wan.generateOneTimeAddress(wanAddr);
-txBuyData = stampContract.buyStamp.getData(otaAddrStamp, web3.toWin(stampBalance));
+txBuyData = stampContract.buyStamp.getData(otaAddrStamp, web3.toTsl(stampBalance));
 
-sendTx = eth.sendTransaction({from:eth.accounts[1], to:stampContractAddr, value:web3.toWin(stampBalance), data:txBuyData, gas: 1000000});
+sendTx = eth.sendTransaction({from:eth.accounts[1], to:stampContractAddr, value:web3.toTsl(stampBalance), data:txBuyData, gas: 1000000});
 wait(function(){return eth.getTransaction(sendTx).blockNumber != null;});
 
 keyPairs = wan.computeOTAPPKeys(eth.accounts[1], otaAddrStamp).split('+');

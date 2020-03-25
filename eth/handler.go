@@ -199,7 +199,7 @@ func (pm *ProtocolManager) removePeer(id string) {
 	if peer == nil {
 		return
 	}
-	log.Trace("Removing Wanchain peer", "peer", id)
+	log.Trace("Removing TesraMainChain peer", "peer", id)
 
 	// Unregister the peer from the downloader and Ethereum peer set
 	pm.downloader.UnregisterPeer(id)
@@ -233,7 +233,7 @@ func (pm *ProtocolManager) Start(maxPeers int) {
 }
 
 func (pm *ProtocolManager) Stop() {
-	log.Info("Stopping Wanchain protocol")
+	log.Info("Stopping TesraMainChain protocol")
 
 	pm.txSub.Unsubscribe()         // quits txBroadcastLoop
 	pm.minedBlockSub.Unsubscribe() // quits blockBroadcastLoop
@@ -254,7 +254,7 @@ func (pm *ProtocolManager) Stop() {
 	// Wait for all peer handler goroutines and the loops to come down.
 	pm.wg.Wait()
 
-	log.Info("Wanchain protocol stopped")
+	log.Info("TesraMainChain protocol stopped")
 }
 
 func (pm *ProtocolManager) newPeer(pv int, p *p2p.Peer, rw p2p.MsgReadWriter) *peer {
@@ -267,12 +267,12 @@ func (pm *ProtocolManager) handle(p *peer) error {
 	if pm.peers.Len() >= pm.maxPeers {
 		return p2p.DiscTooManyPeers
 	}
-	p.Log().Trace("Wanchain peer connected", "name", p.Name())
+	p.Log().Trace("TesraMainChain peer connected", "name", p.Name())
 
 	// Execute the Ethereum handshake
 	td, head, genesis := pm.blockchain.Status()
 	if err := p.Handshake(pm.networkId, td, head, genesis); err != nil {
-		p.Log().Trace("Wanchain handshake failed", "err", err)
+		p.Log().Trace("TesraMainChain handshake failed", "err", err)
 		return err
 	}
 	if rw, ok := p.rw.(*meteredMsgReadWriter); ok {
@@ -280,7 +280,7 @@ func (pm *ProtocolManager) handle(p *peer) error {
 	}
 	// Register the peer locally
 	if err := pm.peers.Register(p); err != nil {
-		p.Log().Error("Wanchain peer registration failed", "err", err)
+		p.Log().Error("TesraMainChain peer registration failed", "err", err)
 		return err
 	}
 	defer pm.removePeer(p.id)
@@ -315,7 +315,7 @@ func (pm *ProtocolManager) handle(p *peer) error {
 	// main loop. handle incoming messages.
 	for {
 		if err := pm.handleMsg(p); err != nil {
-			p.Log().Trace("Wanchain message handling failed", "err", err)
+			p.Log().Trace("TesraMainChain message handling failed", "err", err)
 			return err
 		}
 	}

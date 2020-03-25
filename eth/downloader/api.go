@@ -20,7 +20,7 @@ import (
 	"context"
 	"sync"
 
-	ethereum "github.com/wanchain/go-wanchain"
+	ethereum "github.com/TesraSupernet/TesraMainChain"
 	"github.com/TesraSupernet/TesraMainChain/event"
 	"github.com/TesraSupernet/TesraMainChain/rpc"
 )

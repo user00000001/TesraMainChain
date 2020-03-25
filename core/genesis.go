@@ -1,4 +1,4 @@
-// Copyright 2018 Wanchain Foundation Ltd
+// Copyright 2018 TesraSupernet Foundation Ltd
 // Copyright 2014 The go-ethereum Authors
 // This file is part of the go-ethereum library.
 //
@@ -227,7 +227,7 @@ func (g *Genesis) configOrDefault(ghash common.Hash) *params.ChainConfig {
 	case g != nil:
 		return g.Config
 	case ghash == params.MainnetGenesisHash:
-		return params.WanchainChainConfig
+		return params.TesraMainChainChainConfig
 	case ghash == params.TestnetGenesisHash:
 		return params.TestnetChainConfig
 	case ghash == params.InternalGenesisHash:
@@ -356,7 +356,7 @@ func GenesisBlockForTesting(db ethdb.Database, addr common.Address, balance *big
 	return g.MustCommit(db)
 }
 
-// DefaultPPOWTestingGenesisBlock returns the Wanchain ppow testing genesis block
+// DefaultPPOWTestingGenesisBlock returns the TesraMainChain ppow testing genesis block
 func DefaultPPOWTestingGenesisBlock() *Genesis {
 
 	key, _ := crypto.HexToECDSA("f1572f76b75b40a7da72d6f2ee7fda3d1189c2d28f0a2f096347055abe344d7f")
@@ -375,7 +375,7 @@ func DefaultPPOWTestingGenesisBlock() *Genesis {
 // DefaultGenesisBlock returns the Ethereum main net genesis block.
 func DefaultGenesisBlock() *Genesis {
 	return &Genesis{
-		Config:     params.WanchainChainConfig,
+		Config:     params.TesraMainChainChainConfig,
 		Nonce:      98,
 		ExtraData:  hexutil.MustDecode(getMainNetPpwSignStr()),
 		GasLimit:   0x2fefd8,

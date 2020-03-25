@@ -1,5 +1,5 @@
 var wanBalance = function(addr){
-    return web3.fromWin(web3.eth.getBalance(addr));
+    return web3.fromTsl(web3.eth.getBalance(addr));
 }
 
 var wanUnlock = function(addr){
@@ -7,7 +7,7 @@ var wanUnlock = function(addr){
 }
 
 var sendWanFromUnlock = function (From, To , V){
-    return eth.sendTransaction({from:From, to: To, value: web3.toWin(V)});
+    return eth.sendTransaction({from:From, to: To, value: web3.toTsl(V)});
 }
 
 
@@ -29,7 +29,7 @@ personal.unlockAccount(eth.accounts[2],"wanglu",99999);
 personal.unlockAccount(eth.accounts[9],"wanglu",99999);
 
 cnt = 0;
-//eth.sendTransaction({from:eth.accounts[9], to: eth.accounts[1], value: web3.toWin(100000)});
+//eth.sendTransaction({from:eth.accounts[9], to: eth.accounts[1], value: web3.toTsl(100000)});
 
 
 
@@ -55,8 +55,8 @@ for(;;) {
     var wanAddr = wan.getWanAddress(eth.accounts[2]);
     var otaAddr = wan.generateOneTimeAddress(wanAddr);
 
-    txBuyData = coinContract.buyCoinNote.getData(otaAddr, web3.toWin(tranValue));
-    buyCoinTx = eth.sendTransaction({from:eth.accounts[1], to:coinContractAddr, value:web3.toWin(tranValue), data:txBuyData, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
+    txBuyData = coinContract.buyCoinNote.getData(otaAddr, web3.toTsl(tranValue));
+    buyCoinTx = eth.sendTransaction({from:eth.accounts[1], to:coinContractAddr, value:web3.toTsl(tranValue), data:txBuyData, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
 
     console.log("buy coin index")
     wait(function(){return eth.getTransaction(buyCoinTx).blockNumber != null;});
@@ -71,15 +71,15 @@ for(;;) {
     keyPairs = wan.computeOTAPPKeys(eth.accounts[2], otaAddr).split('+');
     privateKey = keyPairs[0];
 
-    console.log("Balance of ", eth.accounts[2], " is ", web3.fromWin(eth.getBalance(eth.accounts[2])));
+    console.log("Balance of ", eth.accounts[2], " is ", web3.fromTsl(eth.getBalance(eth.accounts[2])));
     var ringSignData = personal.genRingSignData(eth.accounts[2], privateKey, mixSetWith0x.join("+"))
-    var txRefundData = coinContract.refundCoin.getData(ringSignData, web3.toWin(tranValue))
+    var txRefundData = coinContract.refundCoin.getData(ringSignData, web3.toTsl(tranValue))
     var refundTx = eth.sendTransaction({from:eth.accounts[2], to:coinContractAddr, value:0, data:txRefundData, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
     console.log("refund index")
 
     wait(function(){return eth.getTransaction(refundTx).blockNumber != null;});
 
-    console.log("New balance of ", eth.accounts[2], " is ", web3.fromWin(eth.getBalance(eth.accounts[2])));
+    console.log("New balance of ", eth.accounts[2], " is ", web3.fromTsl(eth.getBalance(eth.accounts[2])));
 
     var acc1NewBalance = parseInt(wanBalance(eth.accounts[1]))
     var acc2NewBalance = parseInt(wanBalance(eth.accounts[2]))
@@ -111,10 +111,10 @@ for(;;) {
 
     var wanAddr = wan.getWanAddress(eth.accounts[1]);
     var otaAddrStamp = wan.generateOneTimeAddress(wanAddr);
-    txBuyData = stampContract.buyStamp.getData(otaAddrStamp, web3.toWin(0.005));
+    txBuyData = stampContract.buyStamp.getData(otaAddrStamp, web3.toTsl(0.005));
 
 
-    sendTx = eth.sendTransaction({from:eth.accounts[1], to:stampContractAddr, value:web3.toWin(0.005), data:txBuyData, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
+    sendTx = eth.sendTransaction({from:eth.accounts[1], to:stampContractAddr, value:web3.toTsl(0.005), data:txBuyData, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
 
     console.log("wait buy stamp")
 

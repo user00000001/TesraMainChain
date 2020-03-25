@@ -1,4 +1,4 @@
-// Copyright 2018 Wanchain Foundation Ltd
+// Copyright 2018 TesraSupernet Foundation Ltd
 // Copyright 2016 The go-ethereum Authors
 // This file is part of the go-ethereum library.
 //
@@ -60,7 +60,7 @@ var (
 		},
 	}
 
-	WanchainChainConfig = &ChainConfig{
+	TesraMainChainChainConfig = &ChainConfig{
 		ChainId: big.NewInt(1),
 		//HomesteadBlock: big.NewInt(0),
 		//DAOForkBlock:   nil,

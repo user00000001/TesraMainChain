@@ -14,7 +14,7 @@ var secpub  = pubs[0]
 var g1pub   = pubs[1]
 
 // for pos trsaction gas fee
-//personal.sendTransaction({from:wallet, to: secAddr, value: web3.toWin(1)}, passwd)
+//personal.sendTransaction({from:wallet, to: secAddr, value: web3.toTsl(1)}, passwd)
 
 var cscDefinition = [
 	{
@@ -384,11 +384,11 @@ var feeRate = 9800
 // add validator
 var payload = coinContract.stakeIn.getData(secpub, g1pub, lockTime, feeRate)
 console.log("payload: ", payload)
-var tx = personal.sendTransaction({from:wallet, to:cscContractAddr, value:web3.toWin(tranValue), data:payload, gas: 200000, gasprice:'0x' + (200000000000).toString(16)},passwd);
+var tx = personal.sendTransaction({from:wallet, to:cscContractAddr, value:web3.toTsl(tranValue), data:payload, gas: 200000, gasprice:'0x' + (200000000000).toString(16)},passwd);
 console.log("tx= " + tx)
 // var payload = coinContract.stakeRegister.getData(secpub, g1pub, lockTime, feeRate, 9999)
 // console.log("payload: ", payload)
-// var tx = personal.sendTransaction({from:wallet, to:cscContractAddr, value:web3.toWin(tranValue), data:payload, gas: 200000, gasprice:'0x' + (200000000000).toString(16)},passwd);
+// var tx = personal.sendTransaction({from:wallet, to:cscContractAddr, value:web3.toTsl(tranValue), data:payload, gas: 200000, gasprice:'0x' + (200000000000).toString(16)},passwd);
 // console.log("tx= " + tx)
 
 var addr2 = "0x435b316a70cdb8143d56b3967aacdb6392fd6125"
@@ -397,19 +397,19 @@ console.log("pubs2: ", pubs2)
 var maxFeeRate = 9900
 var payload = coinContract.stakeRegister.getData(pubs2[0], pubs2[1], lockTime, feeRate, maxFeeRate)
 console.log("payload: ", payload)
-tx = personal.sendTransaction({from:wallet, to:cscContractAddr, value:web3.toWin(tranValue), data:payload, gas: 200000, gasprice:'0x' + (200000000000).toString(16)},passwd);
+tx = personal.sendTransaction({from:wallet, to:cscContractAddr, value:web3.toTsl(tranValue), data:payload, gas: 200000, gasprice:'0x' + (200000000000).toString(16)},passwd);
 console.log("stakeRegister tx= " + tx)
 
 // add delegator
 var tranValue2 = 200
 var payloadDelegate = coinContract.delegateIn.getData(secAddr)
-var tx2 = personal.sendTransaction({from:wallet, to:cscContractAddr, value:web3.toWin(tranValue2), data:payloadDelegate, gas: 200000, gasprice:'0x' + (200000000000).toString(16)},passwd);
+var tx2 = personal.sendTransaction({from:wallet, to:cscContractAddr, value:web3.toTsl(tranValue2), data:payloadDelegate, gas: 200000, gasprice:'0x' + (200000000000).toString(16)},passwd);
 console.log("tx2= " + tx2)
 
 // append delegate
 var payloadDelegate3 = coinContract.delegateIn.getData(secAddr)
 var tranValue3 = 100
-var tx3 = personal.sendTransaction({from:wallet, to:cscContractAddr, value:web3.toWin(tranValue3), data:payloadDelegate3, gas: 200000, gasprice:'0x' + (200000000000).toString(16)},passwd);
+var tx3 = personal.sendTransaction({from:wallet, to:cscContractAddr, value:web3.toTsl(tranValue3), data:payloadDelegate3, gas: 200000, gasprice:'0x' + (200000000000).toString(16)},passwd);
 console.log("tx3= " + tx3)
 
 var payloadDelegate31 = coinContract.delegateOut.getData(secAddr)
@@ -420,7 +420,7 @@ console.log("tx31= " + tx31)
 var tranValue4 = 1000
 var payload4 = coinContract.stakeAppend.getData(secAddr)
 console.log("payload: ", payload)
-var tx = personal.sendTransaction({from:wallet, to:cscContractAddr, value:web3.toWin(tranValue4), data:payload4, gas: 200000, gasprice:'0x' + (200000000000).toString(16)},passwd);
+var tx = personal.sendTransaction({from:wallet, to:cscContractAddr, value:web3.toTsl(tranValue4), data:payload4, gas: 200000, gasprice:'0x' + (200000000000).toString(16)},passwd);
 console.log("tx4=" + tx)
 
 
@@ -440,6 +440,6 @@ var bContinue = true
 tranValue = 20000
 var payload7 = coinContract.partnerIn.getData(secAddr, bContinue)
 console.log("payload7: ", payload7)
-tx = personal.sendTransaction({ from: wallet, to: cscContractAddr, value: web3.toWin(tranValue), data: payload7, gas: 200000, gasprice: '0x' + (200000000000).toString(16)}, passwd);
+tx = personal.sendTransaction({ from: wallet, to: cscContractAddr, value: web3.toTsl(tranValue), data: payload7, gas: 200000, gasprice: '0x' + (200000000000).toString(16)}, passwd);
 console.log("partnerIn tx=" + tx)
 /////////////////////////////////unregister staker//////////////////////////////////////////////////////////////////////

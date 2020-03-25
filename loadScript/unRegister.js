@@ -17,11 +17,11 @@ var contractDef = eth.contract(cscDefinition);
 var cscContractAddr = "0x00000000000000000000000000000000000000DA";
 var coinContract = contractDef.at(cscContractAddr);
 
-var lockTime = web3.toWin(3600)
+var lockTime = web3.toTsl(3600)
 
-var payload = coinContract.stakeOut.getData(datapks,web3.toWin(tranValue))
+var payload = coinContract.stakeOut.getData(datapks,web3.toTsl(tranValue))
 
-var tx = eth.sendTransaction({from:eth.accounts[1], to:cscContractAddr, value:web3.toWin(0), data:payload, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
+var tx = eth.sendTransaction({from:eth.accounts[1], to:cscContractAddr, value:web3.toTsl(0), data:payload, gas: 200000, gasprice:'0x' + (20000000000).toString(16)});
 
 console.log("tx=" + tx)
 

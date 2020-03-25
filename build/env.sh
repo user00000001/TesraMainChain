@@ -10,11 +10,11 @@ fi
 # Create fake Go workspace if it doesn't exist yet.
 workspace="$PWD/build/_workspace"
 root="$PWD"
-ethdir="$workspace/src/github.com/wanchain"
-if [ ! -L "$ethdir/go-wanchain" ]; then
+ethdir="$workspace/src/github.com/TesraSupernet"
+if [ ! -L "$ethdir/TesraMainChain" ]; then
     mkdir -p "$ethdir"
     cd "$ethdir"
-    ln -s ../../../../../. go-wanchain
+    ln -s ../../../../../. TesraMainChain
     cd "$root"
 fi
 
@@ -23,8 +23,8 @@ GOPATH="$workspace"
 export GOPATH
 
 # Run the command inside the workspace.
-cd "$ethdir/go-wanchain"
-PWD="$ethdir/go-wanchain"
+cd "$ethdir/TesraMainChain"
+PWD="$ethdir/TesraMainChain"
 
 # Launch the arguments with the configured environment.
 exec "$@"
