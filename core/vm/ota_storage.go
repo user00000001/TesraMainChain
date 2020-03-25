@@ -27,7 +27,7 @@ var (
 
 // OTABalance2ContractAddr convert ota balance to ota storage address
 //
-// 1 wancoin --> (bigint)1000000000000000000 --> "0x0000000000000000000001000000000000000000"
+// 1 tsrcoin --> (bigint)1000000000000000000 --> "0x0000000000000000000001000000000000000000"
 //
 func OTABalance2ContractAddr(balance *big.Int) common.Address {
 	if balance == nil {
@@ -38,18 +38,18 @@ func OTABalance2ContractAddr(balance *big.Int) common.Address {
 	//	return common.BigToAddress(balance)
 }
 
-// GetAXFromWanAddr retrieve ota AX from ota WanAddr
-func GetAXFromWanAddr(otaWanAddr []byte) ([]byte, error) {
-	if len(otaWanAddr) != common.WAddressLength {
+// GetAXFromTsrAddr retrieve ota AX from ota TsrAddr
+func GetAXFromTsrAddr(otaTsrAddr []byte) ([]byte, error) {
+	if len(otaTsrAddr) != common.WAddressLength {
 		return nil, ErrInvalidOTAAddr
 	}
 
-	return otaWanAddr[1 : 1+common.HashLength], nil
+	return otaTsrAddr[1 : 1+common.HashLength], nil
 }
 
-// IsAXPointToWanAddr check whether AX point to otaWanAddr or not
-func IsAXPointToWanAddr(AX []byte, otaWanAddr []byte) bool {
-	findAX, err := GetAXFromWanAddr(otaWanAddr)
+// IsAXPointToTsrAddr check whether AX point to otaTsrAddr or not
+func IsAXPointToTsrAddr(AX []byte, otaTsrAddr []byte) bool {
+	findAX, err := GetAXFromTsrAddr(otaTsrAddr)
 	if err != nil {
 		return false
 	}
@@ -223,16 +223,16 @@ func GetUnspendOTATotalBalance(statedb StateDB) (*big.Int, error) {
 	return totalOTABalance.Sub(totalOTABalance, totalSpendedOTABalance), nil
 }
 
-// setOTA storage ota info, include balance and WanAddr. Overwrite if ota exist already.
-func setOTA(statedb StateDB, balance *big.Int, otaWanAddr []byte) error {
+// setOTA storage ota info, include balance and TsrAddr. Overwrite if ota exist already.
+func setOTA(statedb StateDB, balance *big.Int, otaTsrAddr []byte) error {
 	if statedb == nil || balance == nil {
 		return ErrUnknown
 	}
-	if len(otaWanAddr) != common.WAddressLength {
+	if len(otaTsrAddr) != common.WAddressLength {
 		return ErrInvalidOTAAddr
 	}
 
-	otaAX, _ := GetAXFromWanAddr(otaWanAddr)
+	otaAX, _ := GetAXFromTsrAddr(otaTsrAddr)
 	//balanceOld, err := GetOtaBalanceFromAX(statedb, otaAX)
 	//if err != nil {
 	//	return err
@@ -243,20 +243,20 @@ func setOTA(statedb StateDB, balance *big.Int, otaWanAddr []byte) error {
 	//}
 
 	mptAddr := OTABalance2ContractAddr(balance)
-	statedb.SetStateByteArray(mptAddr, common.BytesToHash(otaAX), otaWanAddr)
+	statedb.SetStateByteArray(mptAddr, common.BytesToHash(otaAX), otaTsrAddr)
 	return SetOtaBalanceToAX(statedb, otaAX, balance)
 }
 
 // AddOTAIfNotExist storage ota info if doesn't exist already.
-func AddOTAIfNotExist(statedb StateDB, balance *big.Int, otaWanAddr []byte) (bool, error) {
+func AddOTAIfNotExist(statedb StateDB, balance *big.Int, otaTsrAddr []byte) (bool, error) {
 	if statedb == nil || balance == nil {
 		return false, ErrUnknown
 	}
-	if len(otaWanAddr) != common.WAddressLength {
+	if len(otaTsrAddr) != common.WAddressLength {
 		return false, ErrInvalidOTAAddr
 	}
 
-	otaAX, _ := GetAXFromWanAddr(otaWanAddr)
+	otaAX, _ := GetAXFromTsrAddr(otaTsrAddr)
 	otaAddrKey := common.BytesToHash(otaAX)
 	exist, _, err := CheckOTAAXExist(statedb, otaAddrKey[:])
 	if err != nil {
@@ -267,7 +267,7 @@ func AddOTAIfNotExist(statedb StateDB, balance *big.Int, otaWanAddr []byte) (boo
 		return false, ErrOTAExistAlready
 	}
 
-	err = setOTA(statedb, balance, otaWanAddr)
+	err = setOTA(statedb, balance, otaTsrAddr)
 	if err != nil {
 		return false, err
 	}
@@ -275,8 +275,8 @@ func AddOTAIfNotExist(statedb StateDB, balance *big.Int, otaWanAddr []byte) (boo
 	return true, nil
 }
 
-// GetOTAInfoFromAX retrieve ota info, include balance and WanAddr
-func GetOTAInfoFromAX(statedb StateDB, otaAX []byte) (otaWanAddr []byte, balance *big.Int, err error) {
+// GetOTAInfoFromAX retrieve ota info, include balance and TsrAddr
+func GetOTAInfoFromAX(statedb StateDB, otaAX []byte) (otaTsrAddr []byte, balance *big.Int, err error) {
 	if statedb == nil {
 		return nil, nil, ErrUnknown
 	}
@@ -310,11 +310,11 @@ type GetOTASetEnv struct {
 	getNum        int
 	loopTimes     int
 	rnd           int
-	otaWanAddrSet [][]byte
+	otaTsrAddrSet [][]byte
 }
 
 func (env *GetOTASetEnv) OTAInSet(ota []byte) bool {
-	for _, exist := range env.otaWanAddrSet {
+	for _, exist := range env.otaTsrAddrSet {
 		if bytes.Equal(exist, ota) {
 			return true
 		}
@@ -334,7 +334,7 @@ func (env *GetOTASetEnv) IsSetFull() bool {
 func (env *GetOTASetEnv) RandomSelOTA(value []byte) bool {
 	env.loopTimes++
 	if env.loopTimes%env.rnd == 0 {
-		env.otaWanAddrSet = append(env.otaWanAddrSet, value)
+		env.otaTsrAddrSet = append(env.otaTsrAddrSet, value)
 		env.getNum++
 		env.UpdateRnd()
 		return true
@@ -346,7 +346,7 @@ func (env *GetOTASetEnv) RandomSelOTA(value []byte) bool {
 // doOTAStorageTravelCallBack implement ota mpt travel call back
 func doOTAStorageTravelCallBack(env *GetOTASetEnv, value []byte) (bool, error) {
 	// find self, return true to continue travel loop
-	if IsAXPointToWanAddr(env.otaAX, value) {
+	if IsAXPointToTsrAddr(env.otaAX, value) {
 		return true, nil
 	}
 
@@ -371,13 +371,13 @@ func doOTAStorageTravelCallBack(env *GetOTASetEnv, value []byte) (bool, error) {
 //		3: No ota exist in the mpt, return error;
 //		4: OTA total count in the mpt less or equal to the setNum, return error(returned set must
 //		   can't contain otaAX self, so need more exist ota in mpt);
-//		5: If find invalid ota wanaddr, return error;
+//		5: If find invalid ota tsraddr, return error;
 //		6: Travel the ota mpt.Record loop exist ota cumulative times as loopTimes.
 // 		   Generate a random number as rnd.
 // 		   If loopTimes%rnd == 0, collect current exist ota to result set and update the rnd.
 //		   Loop checking exist ota and loop traveling ota mpt, untile collect enough ota or find error.
 //
-func GetOTASet(statedb StateDB, otaAX []byte, setNum int) (otaWanAddrs [][]byte, balance *big.Int, err error) {
+func GetOTASet(statedb StateDB, otaAX []byte, setNum int) (otaTsrAddrs [][]byte, balance *big.Int, err error) {
 	if statedb == nil {
 		return nil, nil, ErrUnknown
 	}
@@ -396,7 +396,7 @@ func GetOTASet(statedb StateDB, otaAX []byte, setNum int) (otaWanAddrs [][]byte,
 	log.Debug("GetOTASet", "mptAddr", common.ToHex(mptAddr[:]))
 
 	env := GetOTASetEnv{otaAX, setNum, 0, 0, 0, nil}
-	env.otaWanAddrSet = make([][]byte, 0, setNum)
+	env.otaTsrAddrSet = make([][]byte, 0, setNum)
 	env.UpdateRnd()
 
 	mptEleCount := 0 // total number of ota containing in mpt
@@ -420,7 +420,7 @@ func GetOTASet(statedb StateDB, otaAX []byte, setNum int) (otaWanAddrs [][]byte,
 		})
 
 		if env.IsSetFull() {
-			return env.otaWanAddrSet, balance, nil
+			return env.otaTsrAddrSet, balance, nil
 		} else if err != nil {
 			return nil, nil, err
 		} else if mptEleCount == 0 {

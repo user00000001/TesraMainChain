@@ -1761,11 +1761,11 @@ if (typeof XMLHttpRequest === 'undefined') {
 /// required to define ETH_BIGNUMBER_ROUNDING_MODE
 var BigNumber = require('bignumber.js');
 
-var WAN_UNITS = [
-    'win',
-    'kwin',
-    'Mwin',
-    'Gwin',
+var TSR_UNITS = [
+    'tsl',
+    'ktsl',
+    'Mtsl',
+    'Gtsl',
     'szabo',
     'finney',
     'femtotsr',
@@ -1794,7 +1794,7 @@ var WAN_UNITS = [
 module.exports = {
     ETH_PADDING: 32,
     ETH_SIGNATURE_LENGTH: 4,
-    WAN_UNITS: WAN_UNITS,
+    TSR_UNITS: TSR_UNITS,
     ETH_BIGNUMBER_ROUNDING_MODE: { ROUNDING_MODE: BigNumber.ROUND_DOWN },
     ETH_POLLING_TIMEOUT: 1000/2,
     defaultBlock: 'latest',
@@ -1885,17 +1885,17 @@ var utf8 = require('utf8');
 
 var unitMap = {
     'notsr':      '0',
-    'win':          '1',
-    'kwin':         '1000',
-    'Kwin':         '1000',
+    'tsl':          '1',
+    'ktsl':         '1000',
+    'Ktsl':         '1000',
     'babbage':      '1000',
     'femtotsr':   '1000',
-    'mwin':         '1000000',
-    'Mwin':         '1000000',
+    'mtsl':         '1000000',
+    'Mtsl':         '1000000',
     'lovelace':     '1000000',
     'picotsr':    '1000000',
-    'gwin':         '1000000000',
-    'Gwin':         '1000000000',
+    'gtsl':         '1000000000',
+    'Gtsl':         '1000000000',
     'shannon':      '1000000000',
     'nanotsr':    '1000000000',
     'nano':         '1000000000',
@@ -2132,19 +2132,19 @@ var getValueOfUnit = function (unit) {
     unit = unit ? unit.toLowerCase() : 'tsr';
     var unitValue = unitMap[unit];
     if (unitValue === undefined) {
-        throw new Error('This unit doesn\'t exists, please use the one of the following units' + JSON.stringify(unitMap, null, 2));
+        throw new Error('This unit doesn\'t exists, please use the one of the follotslg units' + JSON.stringify(unitMap, null, 2));
     }
     return new BigNumber(unitValue, 10);
 };
 
 /**
- * Takes a number of win and converts it to any other tsr unit.
+ * Takes a number of tsl and converts it to any other tsr unit.
  *
  * Possible units are:
  *   SI Short   SI Full        Effigy       Other
- * - kwin       femtotsr     babbage
- * - mwin       picotsr      lovelace
- * - gwin       nanotsr      shannon      nano
+ * - ktsl       femtotsr     babbage
+ * - mtsl       picotsr      lovelace
+ * - gtsl       nanotsr      shannon      nano
  * - --         microtsr     szabo        micro
  * - --         millitsr     finney       milli
  * - tsr      --             --
@@ -2165,13 +2165,13 @@ var fromTsl = function(number, unit) {
 };
 
 /**
- * Takes a number of a unit and converts it to win.
+ * Takes a number of a unit and converts it to tsl.
  *
  * Possible units are:
  *   SI Short   SI Full        Effigy       Other
- * - kwin       femtotsr     babbage
- * - mwin       picotsr      lovelace
- * - gwin       nanotsr      shannon      nano
+ * - ktsl       femtotsr     babbage
+ * - mtsl       picotsr      lovelace
+ * - gtsl       nanotsr      shannon      nano
  * - --         microtsr     szabo        micro
  * - --         microtsr     szabo        micro
  * - --         millitsr     finney       milli

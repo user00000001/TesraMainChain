@@ -1,6 +1,6 @@
 
-personal.unlockAccount(eth.accounts[0],"wanglu",99999);
-personal.unlockAccount(eth.accounts[1],"wanglu",99999);
+personal.unlockAccount(eth.accounts[0],"dc",99999);
+personal.unlockAccount(eth.accounts[1],"dc",99999);
 
 var tranValue = 10
 

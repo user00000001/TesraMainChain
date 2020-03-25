@@ -34,7 +34,7 @@ var (
 		ArgsUsage: "",
 		Category:  "TRANSACTION COMMANDS",
 		Description: `
-    geth --datadir ./data transaction export 0x1111111111111111111111111111111111111111111111111111111111111111 ./tx.json
+    tesramain --datadir ./data transaction export 0x1111111111111111111111111111111111111111111111111111111111111111 ./tx.json
 
 will export the transaction using setting as hash from datadir chain, and save as ./tx.json .`,
 		Subcommands: []cli.Command{
@@ -45,7 +45,7 @@ will export the transaction using setting as hash from datadir chain, and save a
 				Category: "TRANSACTION COMMANDS",
 				Flags:    []cli.Flag{},
 				Description: `
-	geth --datadir ./data transaction export 0x1111111111111111111111111111111111111111111111111111111111111111 ./tx.json
+	tesramain --datadir ./data transaction export 0x1111111111111111111111111111111111111111111111111111111111111111 ./tx.json
 
 will export the transaction using setting as hash from datadir chain, and save as ./tx.json .`,
 			},

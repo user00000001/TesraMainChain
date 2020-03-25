@@ -43,19 +43,19 @@
 		  --nodekey is prebuild for bootnodes	
 
 9. Transfer wan from account to an other account, like the accounts[1]
-   personal.unlockAccount("0xbd100cf8286136659a7d63a38a154e28dbf3e0fd","wanglu",9999);
+   personal.unlockAccount("0xbd100cf8286136659a7d63a38a154e28dbf3e0fd","dc",9999);
    eth.sendTransaction({from:eth.accounts[1],to:eth.accounts[2],value:web3.toTsl(10)})
 
 10. Check balance:
    web3.fromTsl(eth.getBalance(eth.accounts[1]))	
    
-11. Test wancoin private transaction:
+11. Test tsrcoin private transaction:
    in the folder $GOPATH/src/github.com/TesraSupernet/TesraMainChain/build/bin
    ./tesramain attach http://118.190.33.66:8545
    
-   loadScript("../../loadScript/wancoin.js")
+   loadScript("../../loadScript/tsrcoin.js")
    
-   loadScript("../../loadScript/wantoken.js")
+   loadScript("../../loadScript/tsrtoken.js")
 
 12. If you need keystore, pwdfile or nodekey, contact the TesraSupernet Chongqing team at info@TesraSupernet.org
    

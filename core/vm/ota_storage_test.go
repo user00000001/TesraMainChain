@@ -510,8 +510,8 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //			db, _      = ethdb.NewMemDatabase()
 //			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 //
-//			otaWanAddr = common.FromHex(otaShortAddrs[6])
-//			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+//			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+//			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 //		)
 //
 //		setLen := 3
@@ -526,8 +526,8 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //			db, _      = ethdb.NewMemDatabase()
 //			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 //
-//			otaWanAddr = common.FromHex(otaShortAddrs[6])
-//			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+//			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+//			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 //			balanceSet = big.NewInt(10)
 //
 //			setLen = 3
@@ -550,14 +550,14 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //			db, _      = ethdb.NewMemDatabase()
 //			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 //
-//			otaWanAddr = common.FromHex(otaShortAddrs[6])
-//			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+//			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+//			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 //			balanceSet = big.NewInt(10)
 //
 //			setLen = 1
 //		)
 //
-//		err := setOTA(statedb, balanceSet, otaWanAddr)
+//		err := setOTA(statedb, balanceSet, otaTsrAddr)
 //		if err != nil {
 //			t.Error("set ota balance fail. err:", err.Error())
 //		}
@@ -576,8 +576,8 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //		}
 //
 //		for _, otaGet := range otaSet {
-//			if !bytes.Equal(otaGet, otaWanAddr) {
-//				t.Error("ota addr in set is wrong! expect:", common.ToHex(otaWanAddr), ", actual:", common.ToHex(otaGet))
+//			if !bytes.Equal(otaGet, otaTsrAddr) {
+//				t.Error("ota addr in set is wrong! expect:", common.ToHex(otaTsrAddr), ", actual:", common.ToHex(otaGet))
 //			}
 //		}
 //
@@ -596,14 +596,14 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //			db, _      = ethdb.NewMemDatabase()
 //			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 //
-//			otaWanAddr = common.FromHex(otaShortAddrs[6])
-//			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+//			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+//			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 //			balanceSet = big.NewInt(10)
 //
 //			setLen = 2
 //		)
 //
-//		err := setOTA(statedb, balanceSet, otaWanAddr)
+//		err := setOTA(statedb, balanceSet, otaTsrAddr)
 //		if err != nil {
 //			t.Error("set ota balance fail. err:", err.Error())
 //		}
@@ -622,8 +622,8 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //		}
 //
 //		for _, otaGet := range otaSet {
-//			if !bytes.Equal(otaGet, otaWanAddr) {
-//				t.Error("ota addr in set is wrong! expect:", common.ToHex(otaWanAddr), ", actual:", common.ToHex(otaGet))
+//			if !bytes.Equal(otaGet, otaTsrAddr) {
+//				t.Error("ota addr in set is wrong! expect:", common.ToHex(otaTsrAddr), ", actual:", common.ToHex(otaGet))
 //			}
 //		}
 //
@@ -642,14 +642,14 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //			db, _      = ethdb.NewMemDatabase()
 //			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 //
-//			otaWanAddr = common.FromHex(otaShortAddrs[6])
-//			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+//			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+//			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 //			balanceSet = big.NewInt(10)
 //
 //			setLen = 3
 //		)
 //
-//		err := setOTA(statedb, balanceSet, otaWanAddr)
+//		err := setOTA(statedb, balanceSet, otaTsrAddr)
 //		if err != nil {
 //			t.Error("set ota balance fail. err:", err.Error())
 //		}
@@ -668,8 +668,8 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //		}
 //
 //		for _, otaGet := range otaSet {
-//			if !bytes.Equal(otaGet, otaWanAddr) {
-//				t.Error("ota addr in set is wrong! expect:", common.ToHex(otaWanAddr), ", actual:", common.ToHex(otaGet))
+//			if !bytes.Equal(otaGet, otaTsrAddr) {
+//				t.Error("ota addr in set is wrong! expect:", common.ToHex(otaTsrAddr), ", actual:", common.ToHex(otaGet))
 //			}
 //		}
 //
@@ -688,19 +688,19 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //			db, _      = ethdb.NewMemDatabase()
 //			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 //
-//			otaWanAddr         = common.FromHex(otaShortAddrs[6])
+//			otaTsrAddr         = common.FromHex(otaShortAddrs[6])
 //			otaMixSetAddrBytes = make([][]byte, 0, 100)
-//			otaAX              = otaWanAddr[1 : 1+common.HashLength]
+//			otaAX              = otaTsrAddr[1 : 1+common.HashLength]
 //			balanceSet         = big.NewInt(10)
 //
 //			setLen = 1
 //		)
 //
-//		for _, otaWanAddr := range otaMixSetAddrs {
-//			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaWanAddr))
+//		for _, otaTsrAddr := range otaMixSetAddrs {
+//			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaTsrAddr))
 //		}
 //
-//		err := setOTA(statedb, balanceSet, otaWanAddr)
+//		err := setOTA(statedb, balanceSet, otaTsrAddr)
 //		if err != nil {
 //			t.Error("set ota balance fail. err:", err.Error())
 //		}
@@ -744,19 +744,19 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //			db, _      = ethdb.NewMemDatabase()
 //			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 //
-//			otaWanAddr         = common.FromHex(otaShortAddrs[6])
+//			otaTsrAddr         = common.FromHex(otaShortAddrs[6])
 //			otaMixSetAddrBytes = make([][]byte, 0, 100)
-//			otaAX              = otaWanAddr[1 : 1+common.HashLength]
+//			otaAX              = otaTsrAddr[1 : 1+common.HashLength]
 //			balanceSet         = big.NewInt(10)
 //
 //			setLen = 2
 //		)
 //
-//		for _, otaWanAddr := range otaMixSetAddrs {
-//			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaWanAddr))
+//		for _, otaTsrAddr := range otaMixSetAddrs {
+//			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaTsrAddr))
 //		}
 //
-//		err := setOTA(statedb, balanceSet, otaWanAddr)
+//		err := setOTA(statedb, balanceSet, otaTsrAddr)
 //		if err != nil {
 //			t.Error("set ota balance fail. err:", err.Error())
 //		}
@@ -782,7 +782,7 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //		var otaGetAX [common.HashLength]byte
 //		otaAXMap := make(map[[common.HashLength]byte]bool)
 //		for _, otaGet := range otaSet {
-//			AXGet, _ := GetAXFromWanAddr(otaGet)
+//			AXGet, _ := GetAXFromTsrAddr(otaGet)
 //			copy(otaGetAX[:], AXGet)
 //			otaAXMap[otaGetAX] = true
 //		}
@@ -812,19 +812,19 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //			db, _      = ethdb.NewMemDatabase()
 //			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 //
-//			otaWanAddr         = common.FromHex(otaShortAddrs[6])
+//			otaTsrAddr         = common.FromHex(otaShortAddrs[6])
 //			otaMixSetAddrBytes = make([][]byte, 0, 100)
-//			otaAX              = otaWanAddr[1 : 1+common.HashLength]
+//			otaAX              = otaTsrAddr[1 : 1+common.HashLength]
 //			balanceSet         = big.NewInt(10)
 //
 //			setLen = 3
 //		)
 //
-//		for _, otaWanAddr := range otaMixSetAddrs {
-//			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaWanAddr))
+//		for _, otaTsrAddr := range otaMixSetAddrs {
+//			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaTsrAddr))
 //		}
 //
-//		err := setOTA(statedb, balanceSet, otaWanAddr)
+//		err := setOTA(statedb, balanceSet, otaTsrAddr)
 //		if err != nil {
 //			t.Error("set ota balance fail. err:", err.Error())
 //		}
@@ -850,7 +850,7 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //		var otaGetAX [common.HashLength]byte
 //		otaAXMap := make(map[[common.HashLength]byte]bool)
 //		for _, otaGet := range otaSet {
-//			AXGet, _ := GetAXFromWanAddr(otaGet)
+//			AXGet, _ := GetAXFromTsrAddr(otaGet)
 //			copy(otaGetAX[:], AXGet)
 //			otaAXMap[otaGetAX] = true
 //		}
@@ -880,19 +880,19 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //			db, _      = ethdb.NewMemDatabase()
 //			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 //
-//			otaWanAddr         = common.FromHex(otaShortAddrs[6])
+//			otaTsrAddr         = common.FromHex(otaShortAddrs[6])
 //			otaMixSetAddrBytes = make([][]byte, 0, 100)
-//			otaAX              = otaWanAddr[1 : 1+common.HashLength]
+//			otaAX              = otaTsrAddr[1 : 1+common.HashLength]
 //			balanceSet         = big.NewInt(10)
 //
 //			setLen = 10
 //		)
 //
-//		for _, otaWanAddr := range otaMixSetAddrs {
-//			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaWanAddr))
+//		for _, otaTsrAddr := range otaMixSetAddrs {
+//			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaTsrAddr))
 //		}
 //
-//		err := setOTA(statedb, balanceSet, otaWanAddr)
+//		err := setOTA(statedb, balanceSet, otaTsrAddr)
 //		if err != nil {
 //			t.Error("set ota balance fail. err:", err.Error())
 //		}
@@ -918,7 +918,7 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //		var otaGetAX [common.HashLength]byte
 //		otaAXMap := make(map[[common.HashLength]byte]bool)
 //		for _, otaGet := range otaSet {
-//			AXGet, _ := GetAXFromWanAddr(otaGet)
+//			AXGet, _ := GetAXFromTsrAddr(otaGet)
 //			copy(otaGetAX[:], AXGet)
 //			otaAXMap[otaGetAX] = true
 //		}
@@ -948,19 +948,19 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //			db, _      = ethdb.NewMemDatabase()
 //			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 //
-//			otaWanAddr         = common.FromHex(otaShortAddrs[6])
+//			otaTsrAddr         = common.FromHex(otaShortAddrs[6])
 //			otaMixSetAddrBytes = make([][]byte, 0, 100)
-//			otaAX              = otaWanAddr[1 : 1+common.HashLength]
+//			otaAX              = otaTsrAddr[1 : 1+common.HashLength]
 //			balanceSet         = big.NewInt(10)
 //
 //			setLen = 10
 //		)
 //
-//		for _, otaWanAddr := range otaMixSetAddrs {
-//			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaWanAddr))
+//		for _, otaTsrAddr := range otaMixSetAddrs {
+//			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaTsrAddr))
 //		}
 //
-//		err := setOTA(statedb, balanceSet, otaWanAddr)
+//		err := setOTA(statedb, balanceSet, otaTsrAddr)
 //		if err != nil {
 //			t.Error("set ota balance fail. err:", err.Error())
 //		}
@@ -988,7 +988,7 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //		var otaGetAX [common.HashLength]byte
 //		otaAXMap := make(map[[common.HashLength]byte]bool)
 //		for _, otaGet := range otaSet {
-//			AXGet, _ := GetAXFromWanAddr(otaGet)
+//			AXGet, _ := GetAXFromTsrAddr(otaGet)
 //			copy(otaGetAX[:], AXGet)
 //			otaAXMap[otaGetAX] = true
 //		}
@@ -1018,14 +1018,14 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //			db, _      = ethdb.NewMemDatabase()
 //			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 //
-//			otaWanAddr         = common.FromHex(otaShortAddrs[6])
+//			otaTsrAddr         = common.FromHex(otaShortAddrs[6])
 //			otaMixSetAddrBytes = make([][]byte, 0, 100)
-//			otaAX              = otaWanAddr[1 : 1+common.HashLength]
+//			otaAX              = otaTsrAddr[1 : 1+common.HashLength]
 //			balanceSet         = big.NewInt(10)
 //		)
 //
-//		for _, otaWanAddr := range otaMixSetAddrs {
-//			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaWanAddr))
+//		for _, otaTsrAddr := range otaMixSetAddrs {
+//			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaTsrAddr))
 //		}
 //
 //		setLen := 3
@@ -1042,7 +1042,7 @@ func TestGetOTAInfoFromAX(t *testing.T) {
 //			t.Errorf("balanceGet is not 0! balanceGet:%s", balanceGet.String())
 //		}
 //
-//		err = setOTA(statedb, balanceSet, otaWanAddr)
+//		err = setOTA(statedb, balanceSet, otaTsrAddr)
 //		if err != nil {
 //			t.Errorf("err:%s", err.Error())
 //		}
@@ -1097,8 +1097,8 @@ func TestGetOTASet(t *testing.T) {
 			db, _      = ethdb.NewMemDatabase()
 			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-			otaWanAddr = common.FromHex(otaShortAddrs[6])
-			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 		)
 
 		setLen := 3
@@ -1114,8 +1114,8 @@ func TestGetOTASet(t *testing.T) {
 			db, _      = ethdb.NewMemDatabase()
 			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-			otaWanAddr = common.FromHex(otaShortAddrs[6])
-			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 			balanceSet = big.NewInt(10)
 
 			setLen = 3
@@ -1138,14 +1138,14 @@ func TestGetOTASet(t *testing.T) {
 			db, _      = ethdb.NewMemDatabase()
 			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-			otaWanAddr = common.FromHex(otaShortAddrs[6])
-			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 			balanceSet = big.NewInt(10)
 
 			setLen = 1
 		)
 
-		err := setOTA(statedb, balanceSet, otaWanAddr)
+		err := setOTA(statedb, balanceSet, otaTsrAddr)
 		if err != nil {
 			t.Error("set ota balance fail. err:", err.Error())
 		}
@@ -1162,14 +1162,14 @@ func TestGetOTASet(t *testing.T) {
 			db, _      = ethdb.NewMemDatabase()
 			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-			otaWanAddr = common.FromHex(otaShortAddrs[6])
-			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 			balanceSet = big.NewInt(10)
 
 			setLen = 1
 		)
 
-		err := setOTA(statedb, balanceSet, otaWanAddr)
+		err := setOTA(statedb, balanceSet, otaTsrAddr)
 		err = setOTA(statedb, balanceSet, common.FromHex(otaShortAddrs[7]))
 
 		otaSet, balanceGet, err := GetOTASet(statedb, otaAX, setLen)
@@ -1203,14 +1203,14 @@ func TestGetOTASet(t *testing.T) {
 			db, _      = ethdb.NewMemDatabase()
 			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-			otaWanAddr = common.FromHex(otaShortAddrs[6])
-			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 			balanceSet = big.NewInt(10)
 
 			setLen = 2
 		)
 
-		err := setOTA(statedb, balanceSet, otaWanAddr)
+		err := setOTA(statedb, balanceSet, otaTsrAddr)
 		err = setOTA(statedb, balanceSet, common.FromHex(otaShortAddrs[7]))
 
 		_, _, err = GetOTASet(statedb, otaAX, setLen)
@@ -1225,14 +1225,14 @@ func TestGetOTASet(t *testing.T) {
 			db, _      = ethdb.NewMemDatabase()
 			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-			otaWanAddr = common.FromHex(otaShortAddrs[6])
-			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 			balanceSet = big.NewInt(10)
 
 			setLen = 1
 		)
 
-		err := setOTA(statedb, balanceSet, otaWanAddr)
+		err := setOTA(statedb, balanceSet, otaTsrAddr)
 		err = setOTA(statedb, balanceSet, common.FromHex(otaShortAddrs[7]))
 		err = setOTA(statedb, balanceSet, common.FromHex(otaShortAddrs[8]))
 
@@ -1249,7 +1249,7 @@ func TestGetOTASet(t *testing.T) {
 			t.Error("otaSet len wrong! expect:", setLen, ", actual:", len(otaSet))
 		}
 
-		if bytes.Equal(otaSet[0], otaWanAddr) {
+		if bytes.Equal(otaSet[0], otaTsrAddr) {
 			t.Error("otaSet value wrong!, contain unexpected ota")
 		}
 
@@ -1267,14 +1267,14 @@ func TestGetOTASet(t *testing.T) {
 			db, _      = ethdb.NewMemDatabase()
 			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-			otaWanAddr = common.FromHex(otaShortAddrs[6])
-			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 			balanceSet = big.NewInt(10)
 
 			setLen = 2
 		)
 
-		err := setOTA(statedb, balanceSet, otaWanAddr)
+		err := setOTA(statedb, balanceSet, otaTsrAddr)
 		err = setOTA(statedb, balanceSet, common.FromHex(otaShortAddrs[7]))
 		err = setOTA(statedb, balanceSet, common.FromHex(otaShortAddrs[8]))
 
@@ -1294,11 +1294,11 @@ func TestGetOTASet(t *testing.T) {
 		var otaGetAX [common.HashLength]byte
 		otaAXMap := make(map[[common.HashLength]byte]bool)
 		for _, otaGet := range otaSet {
-			if bytes.Equal(otaGet, otaWanAddr) {
+			if bytes.Equal(otaGet, otaTsrAddr) {
 				t.Error("otaSet value wrong!, contain unexpected ota")
 			}
 
-			AXGet, _ := GetAXFromWanAddr(otaGet)
+			AXGet, _ := GetAXFromTsrAddr(otaGet)
 			copy(otaGetAX[:], AXGet)
 			otaAXMap[otaGetAX] = true
 		}
@@ -1321,14 +1321,14 @@ func TestGetOTASet(t *testing.T) {
 			db, _      = ethdb.NewMemDatabase()
 			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-			otaWanAddr = common.FromHex(otaShortAddrs[6])
-			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 			balanceSet = big.NewInt(10)
 
 			setLen = 3
 		)
 
-		err := setOTA(statedb, balanceSet, otaWanAddr)
+		err := setOTA(statedb, balanceSet, otaTsrAddr)
 		err = setOTA(statedb, balanceSet, common.FromHex(otaShortAddrs[7]))
 		err = setOTA(statedb, balanceSet, common.FromHex(otaShortAddrs[8]))
 
@@ -1344,14 +1344,14 @@ func TestGetOTASet(t *testing.T) {
 			db, _      = ethdb.NewMemDatabase()
 			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-			otaWanAddr = common.FromHex(otaShortAddrs[6])
-			otaAX      = otaWanAddr[1 : 1+common.HashLength]
+			otaTsrAddr = common.FromHex(otaShortAddrs[6])
+			otaAX      = otaTsrAddr[1 : 1+common.HashLength]
 			balanceSet = big.NewInt(10)
 
 			setLen = 4
 		)
 
-		err := setOTA(statedb, balanceSet, otaWanAddr)
+		err := setOTA(statedb, balanceSet, otaTsrAddr)
 		err = setOTA(statedb, balanceSet, common.FromHex(otaShortAddrs[7]))
 		err = setOTA(statedb, balanceSet, common.FromHex(otaShortAddrs[8]))
 
@@ -1367,19 +1367,19 @@ func TestGetOTASet(t *testing.T) {
 			db, _      = ethdb.NewMemDatabase()
 			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-			otaWanAddr         = common.FromHex(otaShortAddrs[6])
+			otaTsrAddr         = common.FromHex(otaShortAddrs[6])
 			otaMixSetAddrBytes = make([][]byte, 0, 100)
-			otaAX              = otaWanAddr[1 : 1+common.HashLength]
+			otaAX              = otaTsrAddr[1 : 1+common.HashLength]
 			balanceSet         = big.NewInt(10)
 
 			setLen = 10
 		)
 
-		for _, otaWanAddr := range otaMixSetAddrs {
-			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaWanAddr))
+		for _, otaTsrAddr := range otaMixSetAddrs {
+			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaTsrAddr))
 		}
 
-		err := setOTA(statedb, balanceSet, otaWanAddr)
+		err := setOTA(statedb, balanceSet, otaTsrAddr)
 		if err != nil {
 			t.Error("set ota balance fail. err:", err.Error())
 		}
@@ -1407,7 +1407,7 @@ func TestGetOTASet(t *testing.T) {
 		var otaGetAX [common.HashLength]byte
 		otaAXMap := make(map[[common.HashLength]byte]bool)
 		for _, otaGet := range otaSet {
-			AXGet, _ := GetAXFromWanAddr(otaGet)
+			AXGet, _ := GetAXFromTsrAddr(otaGet)
 			copy(otaGetAX[:], AXGet)
 			otaAXMap[otaGetAX] = true
 		}
@@ -1436,14 +1436,14 @@ func TestGetOTASet(t *testing.T) {
 			db, _      = ethdb.NewMemDatabase()
 			statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-			otaWanAddr         = common.FromHex(otaShortAddrs[6])
+			otaTsrAddr         = common.FromHex(otaShortAddrs[6])
 			otaMixSetAddrBytes = make([][]byte, 0, 100)
-			otaAX              = otaWanAddr[1 : 1+common.HashLength]
+			otaAX              = otaTsrAddr[1 : 1+common.HashLength]
 			balanceSet         = big.NewInt(10)
 		)
 
-		for _, otaWanAddr := range otaMixSetAddrs {
-			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaWanAddr))
+		for _, otaTsrAddr := range otaMixSetAddrs {
+			otaMixSetAddrBytes = append(otaMixSetAddrBytes, common.FromHex(otaTsrAddr))
 		}
 
 		setLen := 3
@@ -1461,7 +1461,7 @@ func TestGetOTASet(t *testing.T) {
 			t.Errorf("balanceGet is not 0! balanceGet:%s", balanceGet.String())
 		}
 
-		err = setOTA(statedb, balanceSet, otaWanAddr)
+		err = setOTA(statedb, balanceSet, otaTsrAddr)
 		if err != nil {
 			t.Errorf("err:%s", err.Error())
 		}
@@ -1490,7 +1490,7 @@ func TestGetOTASet(t *testing.T) {
 		var otaGetAX [common.HashLength]byte
 		otaAXMap := make(map[[common.HashLength]byte]bool)
 		for _, otaGet := range otaShortAddrBytesGet {
-			AXGet, _ := GetAXFromWanAddr(otaGet)
+			AXGet, _ := GetAXFromTsrAddr(otaGet)
 			copy(otaGetAX[:], AXGet)
 			otaAXMap[otaGetAX] = true
 		}
@@ -1540,11 +1540,11 @@ func TestCheckOTAImageExist(t *testing.T) {
 		db, _      = ethdb.NewMemDatabase()
 		statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-		otaWanAddr = common.FromHex(otaShortAddrs[7])
+		otaTsrAddr = common.FromHex(otaShortAddrs[7])
 		balanceSet = big.NewInt(10)
 	)
 
-	otaImage := crypto.Keccak256(otaWanAddr)
+	otaImage := crypto.Keccak256(otaTsrAddr)
 	otaImageValue := balanceSet.Bytes()
 
 	exist, otaImageValueGet, err := CheckOTAImageExist(statedb, otaImage)
@@ -1588,11 +1588,11 @@ func TestAddOTAImage(t *testing.T) {
 		db, _      = ethdb.NewMemDatabase()
 		statedb, _ = state.New(common.Hash{}, state.NewDatabase(db))
 
-		otaWanAddr = common.FromHex(otaShortAddrs[7])
+		otaTsrAddr = common.FromHex(otaShortAddrs[7])
 		balanceSet = big.NewInt(10)
 	)
 
-	otaImage := crypto.Keccak256(otaWanAddr)
+	otaImage := crypto.Keccak256(otaTsrAddr)
 	otaImageValue := balanceSet.Bytes()
 
 	err := AddOTAImage(statedb, otaImage, otaImageValue)

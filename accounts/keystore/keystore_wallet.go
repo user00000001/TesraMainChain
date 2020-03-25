@@ -154,7 +154,7 @@ func (w *keystoreWallet) SignTxWithPassphrase(account accounts.Account, passphra
 	return w.keystore.SignTxWithPassphrase(account, passphrase, tx, chainID)
 }
 
-// GetTsrAddress represents the wallet to retrieve corresponding wanchain public address for a specific ordinary account/address
+// GetTsrAddress represents the wallet to retrieve corresponding tesramainchain public address for a specific ordinary account/address
 func (w *keystoreWallet) GetTsrAddress(account accounts.Account) (common.WAddress, error) {
 	// Make sure the requested account is contained within
 	if account.Address != w.account.Address {

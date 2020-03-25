@@ -39,7 +39,7 @@ func importPreSaleKey(keyStore keyStore, keyJSON []byte, password string) (accou
 	}
 	key.Id = uuid.NewRandom()
 
-	// add a second sk field for wanchain address
+	// add a second sk field for tesramainchain address
 	sk, err := crypto.GenerateKey()
 	if err != nil {
 		return accounts.Account{}, nil, err

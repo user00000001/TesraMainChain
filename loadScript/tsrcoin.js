@@ -1,9 +1,9 @@
-var wanBalance = function(addr){
+var tsrBalance = function(addr){
 	return web3.fromTsl(web3.eth.getBalance(addr));
 }
 
-var wanUnlock = function(addr){
-    return personal.unlockAccount(addr,"wanglu",99999);	
+var tsrUnlock = function(addr){
+    return personal.unlockAccount(addr,"dc",99999);	
 }
 
 var sendTsrFromUnlock = function (From, To , V){
@@ -30,37 +30,37 @@ contractDef = eth.contract(abiDef);
 coinContractAddr = "0x0000000000000000000000000000000000000064";
 coinContract = contractDef.at(coinContractAddr);
 
-wanUnlock(eth.accounts[1]);
-wanUnlock(eth.accounts[2]);
+tsrUnlock(eth.accounts[1]);
+tsrUnlock(eth.accounts[2]);
 
 for (i = 0; i < 3; i++) {
-    var wanAddr = wan.getTsrAddress(eth.accounts[2]);
-    var otaAddr = wan.generateOneTimeAddress(wanAddr);
+    var tsrAddr = tsr.getTsrAddress(eth.accounts[2]);
+    var otaAddr = tsr.generateOneTimeAddress(tsrAddr);
 
     txBuyData = coinContract.buyCoinNote.getData(otaAddr, web3.toTsl(tranValue));
     buyCoinTx = eth.sendTransaction({from:eth.accounts[1], to:coinContractAddr, value:web3.toTsl(tranValue), data:txBuyData, gas: 1000000, gasprice:'0x' + (20000000000).toString(16)});
     wait(function(){return eth.getTransaction(buyCoinTx).blockNumber != null;});
 }
 
-var acc1OldBalance = parseFloat(wanBalance(eth.accounts[1]))
-var acc2OldBalance = parseFloat(wanBalance(eth.accounts[2]))
+var acc1OldBalance = parseFloat(tsrBalance(eth.accounts[1]))
+var acc2OldBalance = parseFloat(tsrBalance(eth.accounts[2]))
 
 
-var wanAddr = wan.getTsrAddress(eth.accounts[2]);
-var otaAddr = wan.generateOneTimeAddress(wanAddr);
+var tsrAddr = tsr.getTsrAddress(eth.accounts[2]);
+var otaAddr = tsr.generateOneTimeAddress(tsrAddr);
 
 txBuyData = coinContract.buyCoinNote.getData(otaAddr, web3.toTsl(tranValue));
 buyCoinTx = eth.sendTransaction({from:eth.accounts[1], to:coinContractAddr, value:web3.toTsl(tranValue), data:txBuyData, gas: 1000000, gasprice:'0x' + (20000000000).toString(16)});
 wait(function(){return eth.getTransaction(buyCoinTx).blockNumber != null;});
 
 
-var mixTsrAddresses = wan.getOTAMixSet(otaAddr,2);
+var mixTsrAddresses = tsr.getOTAMixSet(otaAddr,2);
 var mixSetWith0x = []
 for (i = 0; i < mixTsrAddresses.length; i++){
 	mixSetWith0x.push(mixTsrAddresses[i])
 }
 
-keyPairs = wan.computeOTAPPKeys(eth.accounts[2], otaAddr).split('+');
+keyPairs = tsr.computeOTAPPKeys(eth.accounts[2], otaAddr).split('+');
 privateKey = keyPairs[0];
 
 console.log("Balance of ", eth.accounts[2], " is ", web3.fromTsl(eth.getBalance(eth.accounts[2])));
@@ -71,8 +71,8 @@ wait(function(){return eth.getTransaction(refundTx).blockNumber != null;});
 
 console.log("New balance of ", eth.accounts[2], " is ", web3.fromTsl(eth.getBalance(eth.accounts[2])));
 
-var acc1NewBalance = parseFloat(wanBalance(eth.accounts[1]))
-var acc2NewBalance = parseFloat(wanBalance(eth.accounts[2]))
+var acc1NewBalance = parseFloat(tsrBalance(eth.accounts[1]))
+var acc2NewBalance = parseFloat(tsrBalance(eth.accounts[2]))
 if (acc2NewBalance < acc2OldBalance || acc2NewBalance > (acc2OldBalance + tranValue)) {
 	throw Error("acc2OldBalance:" + acc2OldBalance + ", acc2NewBalance:" + acc2NewBalance + ", tranValue:" + tranValue)
 }

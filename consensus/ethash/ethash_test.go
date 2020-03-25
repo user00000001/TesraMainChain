@@ -27,7 +27,7 @@ import (
 )
 
 // func tmpKeyStore(t *testing.T, encrypted bool) (string, *KeyStore) {
-// 	d, err := ioutil.TempDir("", "wanchain-keystore-test")
+// 	d, err := ioutil.TempDir("", "tesramainchain-keystore-test")
 // 	if err != nil {
 // 		t.Fatal(err)
 // 	}

@@ -9,8 +9,8 @@ import (
 )
 
 func testInitDb() {
-	os.RemoveAll("/tmp/pluto/gwan/incentive")
-	initLocalDb("/tmp/pluto/gwan/incentive")
+	os.RemoveAll("/tmp/pluto/tesramainchain/incentive")
+	initLocalDb("/tmp/pluto/tesramainchain/incentive")
 }
 
 func TestInitLocalDB(t *testing.T) {

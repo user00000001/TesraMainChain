@@ -46,13 +46,13 @@ all:
 test: all
 	build/env.sh go run build/ci.go test
 
-# The testCoin target test a simple wancoin privacy transaction
+# The testCoin target test a simple tsrcoin privacy transaction
 testCoin: all
-	./build/bin/tesramain --dev --nodiscover --networkid 483855466823 --datadir './DOCKER/data-loadScript' --etherbase '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --unlock '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --password './DOCKER/data-loadScript/pwdfile' --mine --minerthreads 1 --nodiscover js './loadScript/wancoin.js'
+	./build/bin/tesramain --dev --nodiscover --networkid 483855466823 --datadir './DOCKER/data-loadScript' --etherbase '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --unlock '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --password './DOCKER/data-loadScript/pwdfile' --mine --minerthreads 1 --nodiscover js './loadScript/tsrcoin.js'
 
 # The testToken target test a simple token privacy transaction
 testToken: all
-	./build/bin/tesramain --dev --nodiscover --networkid 483855466823 --datadir "./DOCKER/data-loadScript" --etherbase '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --unlock '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --password './DOCKER/data-loadScript/pwdfile' --mine --minerthreads 1 --nodiscover js './loadScript/wantoken.js'
+	./build/bin/tesramain --dev --nodiscover --networkid 483855466823 --datadir "./DOCKER/data-loadScript" --etherbase '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --unlock '0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8' --password './DOCKER/data-loadScript/pwdfile' --mine --minerthreads 1 --nodiscover js './loadScript/tsrtoken.js'
 
 # The clean target clear all the build output
 clean:

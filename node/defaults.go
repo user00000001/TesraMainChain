@@ -58,7 +58,7 @@ func DefaultDataDir() string {
 		} else if runtime.GOOS == "windows" {
 			return filepath.Join(home, "AppData", "Roaming", "TesraMainChain")
 		} else {
-			return filepath.Join(home, ".wanchain")
+			return filepath.Join(home, ".tesramainchain")
 		}
 	}
 	// As we cannot guess a stable location, return empty and handle later

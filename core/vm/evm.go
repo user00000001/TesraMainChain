@@ -171,7 +171,7 @@ func (evm *EVM) Call(caller ContractRef, addr common.Address, input []byte, gas 
 		evm.StateDB.CreateAccount(addr)
 	}
 
-	if !bytes.Equal(to.Address().Bytes(), wanCoinPrecompileAddr.Bytes()) && !bytes.Equal(to.Address().Bytes(), wanStampPrecompileAddr.Bytes()) {
+	if !bytes.Equal(to.Address().Bytes(), tsrCoinPrecompileAddr.Bytes()) && !bytes.Equal(to.Address().Bytes(), tsrStampPrecompileAddr.Bytes()) {
 		evm.Transfer(evm.StateDB, caller.Address(), to.Address(), value)
 	}
 

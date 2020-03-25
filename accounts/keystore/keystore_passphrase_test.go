@@ -34,7 +34,7 @@ func TestKeyEncryptDecrypt(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	password := "wanchain_test"
+	password := "tesramainchain_test"
 	address := common.HexToAddress("3bd2054bc89a99ca23ac6d198e736ac787059d44")
 
 	// Do a few rounds of decryption and encryption

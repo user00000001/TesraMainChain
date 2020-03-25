@@ -165,12 +165,12 @@ contract StandardToken is ERC20Protocol {
         
         balances[receipient] = balances[receipient].add(msg.value*10);
 
-        wanport.transfer(msg.value);
+        tsrport.transfer(msg.value);
 
         return true;
     }   
     
-    address public wanport = 0x2CC79FA3B80c5b9b02051fACD02478EA88a78E2c;
+    address public tsrport = 0x2CC79FA3B80c5b9b02051fACD02478EA88a78E2c;
 
     mapping (address => uint) balances;
     mapping (address => mapping (address => uint)) allowed;

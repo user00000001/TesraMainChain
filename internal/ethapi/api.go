@@ -510,12 +510,12 @@ func (s *PrivateAccountAPI) GenRingSignData(ctx context.Context, hashMsg string,
 		return "", ErrInvalidPrivateKey
 	}
 
-	wanAddresses := strings.Split(mixTsrAdresses, "+")
-	if len(wanAddresses) == 0 {
+	tsrAddresses := strings.Split(mixTsrAdresses, "+")
+	if len(tsrAddresses) == 0 {
 		return "", ErrInvalidOTAMixSet
 	}
 
-	return genRingSignData(hmsg, privKey, &ecdsaPrivateKey.PublicKey, wanAddresses)
+	return genRingSignData(hmsg, privKey, &ecdsaPrivateKey.PublicKey, tsrAddresses)
 }
 
 func genRingSignData(hashMsg []byte, privateKey []byte, actualPub *ecdsa.PublicKey, mixTsrAdress []string) (string, error) {
@@ -527,7 +527,7 @@ func genRingSignData(hashMsg []byte, privateKey []byte, actualPub *ecdsa.PublicK
 	for _, strTsrAddr := range mixTsrAdress {
 		pubBytes, err := hexutil.Decode(strTsrAddr)
 		if err != nil {
-			return "", errors.New("fail to decode wan address!")
+			return "", errors.New("fail to decode tsr address!")
 		}
 
 		if len(pubBytes) != common.WAddressLength {
@@ -537,7 +537,7 @@ func genRingSignData(hashMsg []byte, privateKey []byte, actualPub *ecdsa.PublicK
 		publicKeyA, _, err := keystore.GeneratePKPairFromWAddress(pubBytes)
 		if err != nil {
 
-			return "", errors.New("Fail to generate public key from wan address!")
+			return "", errors.New("Fail to generate public key from tsr address!")
 
 		}
 
@@ -1498,12 +1498,12 @@ func (s *PublicTransactionPoolAPI) ComputeOTAPPKeys(ctx context.Context, address
 		return "", err
 	}
 
-	wanBytes, err := hexutil.Decode(inOtaAddr)
+	tsrBytes, err := hexutil.Decode(inOtaAddr)
 	if err != nil {
 		return "", err
 	}
 
-	otaBytes, err := keystore.WaddrToUncompressedRawBytes(wanBytes)
+	otaBytes, err := keystore.WaddrToUncompressedRawBytes(tsrBytes)
 	if err != nil {
 		return "", err
 	}
@@ -1795,17 +1795,17 @@ func (s *PublicNetAPI) Version() string {
 // GetTsrAddress returns corresponding WAddress of an ordinary account
 func (s *PublicTransactionPoolAPI) GetTsrAddress(ctx context.Context, a common.Address) (string, error) {
 	account := accounts.Account{Address: a}
-	// first fetch the wallet/keystore, and then retrieve the wanaddress
+	// first fetch the wallet/keystore, and then retrieve the tsraddress
 	wallet, err := s.b.AccountManager().Find(account)
 	if err != nil {
 		return "", err
 	}
-	wanAddr, err := wallet.GetTsrAddress(account)
+	tsrAddr, err := wallet.GetTsrAddress(account)
 	if err != nil {
 		return "", err
 	}
 
-	return hexutil.Encode(wanAddr[:]), nil
+	return hexutil.Encode(tsrAddr[:]), nil
 }
 
 // GenerateOneTimeAddress returns corresponding One-Time-Address for a given TsrAddress

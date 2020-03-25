@@ -14,7 +14,7 @@ import (
 )
 
 func TestDbInitAll(t *testing.T) {
-	os.RemoveAll("/tmp/gwan")
+	os.RemoveAll("/tmp/tesramainchain")
 	DbInitAll("/tmp")
 	db := NewDb(posconfig.PosLocalDB)
 	if db == nil {

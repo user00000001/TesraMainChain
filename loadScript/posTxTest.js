@@ -16,7 +16,7 @@ var balanceSourceAddress = '0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e';
 var toAddresses = []
 console.log("wait for normal tx accout creating...")
 for (var i = 0; i < randomAccountCount; i++) {
-  var address = personal.newAccount("wanglu")
+  var address = personal.newAccount("dc")
   toAddresses.push(address)
   console.log(i)
 }
@@ -28,7 +28,7 @@ setInterval(sendTx, 1000, null);
 //--------------------------------------------------------------------------------------
 var totalSendTx = 0;
 function sendTx() {
-  personal.unlockAccount(balanceSourceAddress, 'wanglu', 9999999)
+  personal.unlockAccount(balanceSourceAddress, 'dc', 9999999)
   for (var i = 0; i < numberTPS; i++) {
     tranValue += 0.00000001 * totalSendTx;
     var address = toAddresses[Math.floor(Math.random() * randomAccountCount)]

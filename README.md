@@ -1,4 +1,4 @@
-## WANChain Go
+## TesraMainChain Go
 
 Branch    | Tests 
 ----------|-------
@@ -27,9 +27,9 @@ or, to build the release version
 
 ## Running tesramain
 
-### Full node on the main wanchain network
+### Full node on the main tesramainchain network
 
-By far the most common scenario is people wanting to simply interact with the wanchain network:
+By far the most common scenario is people wanting to simply interact with the tesramainchain network:
 create accounts; transfer funds; deploy and interact with contracts. For this particular use-case
 the user doesn't care about years-old historical data, so we can fast-sync quickly to the current
 state of the network. To do so:
@@ -41,14 +41,14 @@ $ tesramain console
 This command will:
 
  * Start tesramain in fast sync mode (default, can be changed with the `--syncmode` flag), causing it to
-   download more data in exchange for avoiding processing the entire history of the wanchain network,
+   download more data in exchange for avoiding processing the entire history of the tesramainchain network,
    which is very CPU intensive.
    This too is optional and if you leave it out you can always attach to an already running tesramain instance
    with `tesramain attach`.
 
-### Full node on the wanchain test network
+### Full node on the tesramainchain test network
 
-Transitioning towards developers, if you'd like to play around with creating wanchain contracts, you
+Transitioning towards developers, if you'd like to play around with creating tesramainchain contracts, you
 almost certainly would like to do that without any real money involved until you get the hang of the
 entire system. In other words, instead of attaching to the main network, you want to join the **test**
 network with your node, which is fully equivalent to the main network, but with play-Ether only.
@@ -62,12 +62,12 @@ testnet too. Please see above for their explanations if you've skipped to here.
 
 Specifying the `--testnet` flag however will reconfigure your tesramain instance a bit:
 
- * Instead of using the default data directory (`~/.wanchain` on Linux for example), tesramain will nest
-   itself one level deeper into a `testnet` subfolder (`~/.wanchain/testnet` on Linux). Note, on OSX
+ * Instead of using the default data directory (`~/.tesramainchain` on Linux for example), tesramain will nest
+   itself one level deeper into a `testnet` subfolder (`~/.tesramainchain/testnet` on Linux). Note, on OSX
    and Linux this also means that attaching to a running testnet node requires the use of a custom
    endpoint since `tesramain attach` will try to attach to a production node endpoint by default. E.g.
    `tesramain attach <datadir>/testnet/tesramain.ipc`. Windows users are not affected by this.
- * Instead of connecting the main wanchain network, the client will connect to the test network,
+ * Instead of connecting the main tesramainchain network, the client will connect to the test network,
    which uses different P2P bootnodes, different network IDs and genesis states.
    
 *Note: Although there are some internal protective measures to prevent transactions from crossing
@@ -77,7 +77,7 @@ separate the two networks and will not make any accounts available between them.
 
 ### Programatically interfacing tesramain nodes
 
-As a developer, sooner rather than later you'll want to start interacting with tesramain and the wanchain
+As a developer, sooner rather than later you'll want to start interacting with tesramain and the tesramainchain
 network via your own programs and not manually through the console. To aid this, tesramain has built in
 support for a JSON-RPC based APIs 。These can be
 exposed via HTTP, WebSockets and IPC (unix sockets on unix based platforms, and named pipes on Windows).
@@ -107,7 +107,7 @@ via HTTP, WS or IPC to a tesramain node configured with the above flags and you'
 on all transports. You can reuse the same connection for multiple requests!
 
 **Note: Please understand the security implications of opening up an HTTP/WS based transport before
-doing so! Hackers on the internet are actively trying to subvert wanchain nodes with exposed APIs!
+doing so! Hackers on the internet are actively trying to subvert tesramainchain nodes with exposed APIs!
 Further, all browser tabs can access locally running webservers, so malicious webpages could try to
 subvert locally available APIs!**
 
@@ -145,12 +145,12 @@ need to configure a miner to process transactions and create new blocks for you.
 
 #### Docker quick start
 
-One of the quickest ways to get wanchain up and running on your machine is by using Docker:
+One of the quickest ways to get tesramainchain up and running on your machine is by using Docker:
 
 ```
-docker run -d --name wanchain-node -v /home/ubuntu/TesraMainChain:/root \
+docker run -d --name tesramainchain-node -v /home/ubuntu/TesraMainChain:/root \
            -p 8545:8545 -p 17717:17717 \
-           wanchain/client-go --rpc
+           tesramainchain/client-go --rpc
 ```
 
 This will start tesramain in fast-sync mode with a DB memory allowance of 1GB just as the above command does.  It will also create a persistent volume in your home directory for saving your blockchain as well as map the default ports. 

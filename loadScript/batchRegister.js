@@ -25,7 +25,7 @@ var wait = function (conditionFunc) {
 }
 
 
-personal.unlockAccount(eth.accounts[0],"wanglu",99999);
+personal.unlockAccount(eth.accounts[0],"dc",99999);
 
 var tranValue = 1000
 
@@ -33,7 +33,7 @@ var regCount = 10
 
 for (idx=0;idx<regCount;idx++) {
 
-    var address = personal.newAccount("wanglu")
+    var address = personal.newAccount("dc")
     var tx = eth.sendTransaction({
         from: eth.accounts[0],
         to:address,
@@ -46,7 +46,7 @@ for (idx=0;idx<regCount;idx++) {
     console.log("wait tx in blockchain")
     wait(function(){return eth.getTransaction(tx).blockNumber != null;});
 
-    pubs = personal.showPublicKey(address,"wanglu")
+    pubs = personal.showPublicKey(address,"dc")
     var secpub = pubs[0]
     var g1pub = pubs[1]
 

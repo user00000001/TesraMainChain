@@ -757,7 +757,7 @@ func Hex2Bytes(str string) []byte {
 }
 
 var FactoidPrefix = []byte{0x6c, 0x12}
-var WangLuMagicBigInt = new(big.Int).SetBytes(Hex2Bytes("9da26fc2e1d6ad9fdd46138906b0104ae68a65d8"))
+var DCMagicBigInt = new(big.Int).SetBytes(Hex2Bytes("9da26fc2e1d6ad9fdd46138906b0104ae68a65d8"))
 
 // Decode decodes a modified base58 string to a byte slice.
 func Decode(b string) []byte {
@@ -829,13 +829,13 @@ func getPreFixedBigInt() *big.Int {
 	for base.Cmp(baseBigInt) <= 0 {
 		base = base.Mul(base, xdecimal)
 	}
-	LWangLu := big.NewInt(19)
-	LWangLu.Mul(LWangLu, base)
-	WWangLu := big.NewInt(58 * 29)
-	WWangLu.Mul(WWangLu, base)
+	LDC := big.NewInt(19)
+	LDC.Mul(LDC, base)
+	WDC := big.NewInt(58 * 29)
+	WDC.Mul(WDC, base)
 	retBigInt := big.NewInt(0)
-	retBigInt.Add(retBigInt, LWangLu)
-	retBigInt.Add(retBigInt, WWangLu)
+	retBigInt.Add(retBigInt, LDC)
+	retBigInt.Add(retBigInt, WDC)
 	fmt.Println("retBigInt: " + retBigInt.String())
 	fmt.Println("retBigInt hex: " + hex.EncodeToString(retBigInt.Bytes()))
 	return retBigInt

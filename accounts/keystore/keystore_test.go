@@ -41,7 +41,7 @@ func TestKeyStore(t *testing.T) {
 	defer os.RemoveAll(dir)
 
 	// create an account
-	auth := "wanchain_test"
+	auth := "tesramainchain_test"
 	a, err := ks.NewAccount(auth)
 	if err != nil {
 		t.Fatal(err)
@@ -63,7 +63,7 @@ func TestKeyStore(t *testing.T) {
 		t.Errorf("Unlock error: %v", err)
 	}
 	var wAddr common.WAddress
-	wAddr, err = ks.GetWanAddress(a)
+	wAddr, err = ks.GetTsrAddress(a)
 	if err != nil && len(wAddr) != common.WAddressLength {
 		t.Errorf("Generate waddress error: %v", err)
 	}
@@ -90,7 +90,7 @@ func TestKeyStore(t *testing.T) {
 // 	defer os.RemoveAll(dir)
 
 // 	// create an account
-// 	auth := "wanchain_test"
+// 	auth := "tesramainchain_test"
 // 	a, err := ks.NewAccount(auth)
 // 	if err != nil {
 // 		t.Fatal(err)
@@ -450,7 +450,7 @@ func checkEvents(t *testing.T, want []walletEvent, have []walletEvent) {
 }
 
 func tmpKeyStore(t *testing.T, encrypted bool) (string, *KeyStore) {
-	d, err := ioutil.TempDir("", "wanchain-keystore-test")
+	d, err := ioutil.TempDir("", "tesramainchain-keystore-test")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -461,13 +461,13 @@ func tmpKeyStore(t *testing.T, encrypted bool) (string, *KeyStore) {
 	return d, new(d)
 }
 
-func genOTA(wanStr string) (string, error) {
-	wanRaw, err := hexutil.Decode(wanStr)
+func genOTA(tsrStr string) (string, error) {
+	tsrRaw, err := hexutil.Decode(tsrStr)
 	if err != nil {
 		return "", err
 	}
 
-	PK1, PK2, err := GeneratePKPairFromWAddress(wanRaw)
+	PK1, PK2, err := GeneratePKPairFromWAddress(tsrRaw)
 	if err != nil {
 		return "", err
 	}
@@ -484,12 +484,12 @@ func genOTA(wanStr string) (string, error) {
 		return "", err
 	}
 
-	rawWanAddr, err := WaddrFromUncompressedRawBytes(raw)
-	if err != nil || rawWanAddr == nil {
+	rawTsrAddr, err := WaddrFromUncompressedRawBytes(raw)
+	if err != nil || rawTsrAddr == nil {
 		return "", nil
 	}
 
-	return hexutil.Encode(rawWanAddr[:]), nil
+	return hexutil.Encode(rawTsrAddr[:]), nil
 }
 
 func TestComputeOTAPPKeys(t *testing.T) {
@@ -497,7 +497,7 @@ func TestComputeOTAPPKeys(t *testing.T) {
 	defer os.RemoveAll(dir)
 
 	// create an account
-	auth := "wanchain_test"
+	auth := "tesramainchain_test"
 	a, err := ks.NewAccount(auth)
 	if err != nil {
 		t.Fatal(err)
@@ -509,14 +509,14 @@ func TestComputeOTAPPKeys(t *testing.T) {
 	}
 
 	var wAddr common.WAddress
-	wAddr, err = ks.GetWanAddress(a)
+	wAddr, err = ks.GetTsrAddress(a)
 	if err != nil && len(wAddr) != common.WAddressLength {
 		t.Errorf("Generate waddress error: %v", err)
 	}
 
 	PK1, PK2, err := GeneratePKPairFromWAddress(wAddr[:])
 	if err != nil {
-		t.Errorf("generate PK pair from wan address fail. err:%s", err.Error())
+		t.Errorf("generate PK pair from tsr address fail. err:%s", err.Error())
 	}
 
 	PKPairStr := hexutil.PKPair2HexSlice(PK1, PK2)

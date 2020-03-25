@@ -122,8 +122,8 @@ func FaucetStart(amount uint64,ethereum *eth.Ethereum,url string) {
 	periods := make([]string, *tiersFlag)
 	for i := 0; i < *tiersFlag; i++ {
 		// Calculate the amount for the next tier and format it
-		wanAmount := float64(amount) * math.Pow(2.5, float64(i))
-		amounts[i] = fmt.Sprintf("%s Tsrs", strconv.FormatFloat(wanAmount, 'f', -1, 64))
+		tsrAmount := float64(amount) * math.Pow(2.5, float64(i))
+		amounts[i] = fmt.Sprintf("%s Tsrs", strconv.FormatFloat(tsrAmount, 'f', -1, 64))
 		if amount == 1 {
 			amounts[i] = strings.TrimSuffix(amounts[i], "s")
 		}

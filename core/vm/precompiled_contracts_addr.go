@@ -22,8 +22,8 @@ var (
 	bn256ScalarMulPrecompileAddr = common.BytesToAddress([]byte{7})
 	bn256PairingPrecompileAddr   = common.BytesToAddress([]byte{8})
 
-	wanCoinPrecompileAddr  = common.BytesToAddress([]byte{100})
-	wanStampPrecompileAddr = common.BytesToAddress([]byte{200})
+	tsrCoinPrecompileAddr  = common.BytesToAddress([]byte{100})
+	tsrStampPrecompileAddr = common.BytesToAddress([]byte{200})
 
 	TsrCscPrecompileAddr  = common.BytesToAddress([]byte{218})
 	StakersInfoAddr       = common.BytesToAddress(big.NewInt(400).Bytes())
@@ -33,7 +33,7 @@ var (
 	otaBalanceStorageAddr = common.BytesToAddress(big.NewInt(300).Bytes())
 	otaImageStorageAddr   = common.BytesToAddress(big.NewInt(301).Bytes())
 
-	// 0.01wan --> "0x0000000000000000000000010000000000000000"
+	// 0.01tsr --> "0x0000000000000000000000010000000000000000"
 	otaBalancePercentdot001WStorageAddr = common.HexToAddress(TsrStampdot001)
 	otaBalancePercentdot002WStorageAddr = common.HexToAddress(TsrStampdot002)
 	otaBalancePercentdot005WStorageAddr = common.HexToAddress(TsrStampdot005)
@@ -89,8 +89,8 @@ var PrecompiledContractsHomestead = map[common.Address]PrecompiledContract{
 	ripemd160hashPrecompileAddr: &ripemd160hash{},
 	dataCopyPrecompileAddr:      &dataCopy{},
 
-	wanCoinPrecompileAddr:  &wanCoinSC{},
-	wanStampPrecompileAddr: &wanchainStampSC{},
+	tsrCoinPrecompileAddr:  &tsrCoinSC{},
+	tsrStampPrecompileAddr: &tesramainchainStampSC{},
 }
 
 // PrecompiledContractsByzantium contains the default set of pre-compiled Ethereum
@@ -105,8 +105,8 @@ var PrecompiledContractsByzantium = map[common.Address]PrecompiledContract{
 	bn256ScalarMulPrecompileAddr: &bn256ScalarMul{},
 	bn256PairingPrecompileAddr:   &bn256Pairing{},
 
-	wanCoinPrecompileAddr:  &wanCoinSC{},
-	wanStampPrecompileAddr: &wanchainStampSC{},
+	tsrCoinPrecompileAddr:  &tsrCoinSC{},
+	tsrStampPrecompileAddr: &tesramainchainStampSC{},
 
 	//pos
 	TsrCscPrecompileAddr:       &PosStaking{},

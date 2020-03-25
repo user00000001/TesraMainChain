@@ -23,7 +23,7 @@ pos/tesramain/**
 # used by the Makefile
 # /build/_workspace/
 # /build/bin/
-/geth*.zip
+/tesramain*.zip
 
 # travis
 profile.tmp

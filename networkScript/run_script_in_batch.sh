@@ -1,17 +1,14 @@
 #!/bin/sh
 # set up the logrotate environment to backup wan-chain log data
 
-#   __        ___    _   _  ____ _           _       ____
 
-#   \ \      / / \  | \ | |/ ___| |__   __ _(_)_ __ |  _ \  _____   __
+#  _____                   ____                                   _   
+# |_   _|__  ___ _ __ __ _/ ___| _   _ _ __   ___ _ __ _ __   ___| |_ 
+#   | |/ _ \/ __| '__/ _` \___ \| | | | '_ \ / _ \ '__| '_ \ / _ \ __|
+#   | |  __/\__ \ | | (_| |___) | |_| | |_) |  __/ |  | | | |  __/ |_ 
+#   |_|\___||___/_|  \__,_|____/ \__,_| .__/ \___|_|  |_| |_|\___|\__|
+#                                     |_|                             
 
-#    \ \ /\ / / _ \ |  \| | |   | '_ \ / _` | | '_ \| | | |/ _ \ \ / /
-
-#     \ V  V / ___ \| |\  | |___| | | | (_| | | | | | |_| |  __/\ V /
-
-#      \_/\_/_/   \_\_| \_|\____|_| |_|\__,_|_|_| |_|____/ \___| \_/
-
-#
 
 #set logrotate at the miner server in batch
 
@@ -20,7 +17,7 @@ serverPwd=""
 serverIps=(
     #"127.0.0.1" #the ip server should be included here
     )
-serverKey="/Users/aaron/wanglu/TesraMainChain_key/TesraMainChain_b.pem.pub"
+serverKey="/Users/aaron/dc/TesraMainChain_key/TesraMainChain_b.pem.pub"
 script="set_logrotate_env.sh"
 
 echo "The log rotate script will be run in batch in servers!\n"

@@ -76,8 +76,8 @@ type keyStorePassphrase struct {
 }
 
 var (
-	ErrWAddressFieldNotExist = errors.New("It seems that this account doesn't include a valid wanchain address field, please update your keyfile version")
-	ErrWAddressInvalid       = errors.New("invalid wanchain address")
+	ErrWAddressFieldNotExist = errors.New("It seems that this account doesn't include a valid tesramainchain address field, please update your keyfile version")
+	ErrWAddressInvalid       = errors.New("invalid tesramainchain address")
 	ErrInvalidAccountKey     = errors.New("invalid account key")
 	ErrInvalidPrivateKey     = errors.New("invalid private key")
 )

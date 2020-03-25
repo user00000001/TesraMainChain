@@ -1,4 +1,4 @@
-// This file is wanchain pos random beacon part. It simulates the process of Nr parties working together
+// This file is tesramainchain pos random beacon part. It simulates the process of Nr parties working together
 // to generate a random which will be used in unique leader selection.
 package rbselection
 
@@ -136,9 +136,9 @@ func TestRandomBeacon(t *testing.T) {
 	//---------------------------------------------- Signing Stage ----------------------------------------------//
 	// In this stage, each random proposer computes its signature share and sends it on chain.
 
-	// Fix M = Hase("wanchain")
+	// Fix M = Hase("tesramainchain")
 	// Attention: in our realization, M should be set to Hash(r||τ_r-1)
-	M := crypto.Keccak256([]byte("wanchain"))
+	M := crypto.Keccak256([]byte("tesramainchain"))
 	m := new(big.Int).SetBytes(M)
 
 	// Compute signature share

@@ -142,7 +142,7 @@ func makeConfigNode(ctx *cli.Context) (*node.Node, gethConfig) {
 
 	utils.SetShhConfig(ctx, stack, &cfg.Shh)
 
-	//Init wanpos private db
+	//Init tesrapos private db
 	posdb.DbInitAll(cfg.Node.DataDir)
 	posconfig.Init(&cfg.Node, cfg.Eth.NetworkId)
 

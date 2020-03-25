@@ -52,7 +52,7 @@ type Key struct {
 	PrivateKey *ecdsa.PrivateKey
 	// add a second privkey for privary
 	PrivateKey2 *ecdsa.PrivateKey
-	// compact wanchain address format
+	// compact tesramainchain address format
 	WAddress common.WAddress
 }
 

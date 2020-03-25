@@ -61,7 +61,7 @@ func BenchmarkFilters(b *testing.B) {
 		key1, _    = crypto.HexToECDSA("f1572f76b75b40a7da72d6f2ee7fda3d1189c2d28f0a2f096347055abe344d7f")
 		addr1      = crypto.PubkeyToAddress(key1.PublicKey)
 		addr2      = common.BytesToAddress([]byte("jeff"))
-		addr3      = common.BytesToAddress([]byte("wanchain"))
+		addr3      = common.BytesToAddress([]byte("tesramainchain"))
 		addr4      = common.BytesToAddress([]byte("random addresses please"))
 	)
 	defer db.Close()

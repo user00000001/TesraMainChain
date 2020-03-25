@@ -384,7 +384,7 @@ func (c *bn256Pairing) ValidTx(stateDB StateDB, signer types.Signer, tx *types.T
 	return nil
 }
 
-///////////////////////for wan privacy tx /////////////////////////////////////////////////////////
+///////////////////////for tsr privacy tx /////////////////////////////////////////////////////////
 
 var (
 	coinSCDefinition = `
@@ -410,9 +410,9 @@ var (
 
 	errStampValue = errors.New("stamp value is not support")
 
-	errCoinValue = errors.New("wancoin value is not support")
+	errCoinValue = errors.New("tsrcoin value is not support")
 
-	ErrMismatchedValue = errors.New("mismatched wancoin value")
+	ErrMismatchedValue = errors.New("mismatched tsrcoin value")
 
 	ErrInvalidOTASet = errors.New("invalid OTA mix set")
 
@@ -530,7 +530,7 @@ func init() {
 type tesramainchainStampSC struct{}
 
 func (c *tesramainchainStampSC) RequiredGas(input []byte) uint64 {
-	// ota balance store gas + ota wanaddr store gas
+	// ota balance store gas + ota tsraddr store gas
 	return params.SstoreSetGas * 2
 }
 
@@ -593,12 +593,12 @@ func (c *tesramainchainStampSC) ValidBuyStampReq(stateDB StateDB, payload []byte
 		return nil, errStampValue
 	}
 
-	wanAddr, err := hexutil.Decode(StampInput.OtaAddr)
+	tsrAddr, err := hexutil.Decode(StampInput.OtaAddr)
 	if err != nil {
 		return nil, err
 	}
 
-	ax, err := GetAXFromTsrAddr(wanAddr)
+	ax, err := GetAXFromTsrAddr(tsrAddr)
 	exist, _, err := CheckOTAAXExist(stateDB, ax)
 	if err != nil {
 		return nil, err
@@ -608,16 +608,16 @@ func (c *tesramainchainStampSC) ValidBuyStampReq(stateDB StateDB, payload []byte
 		return nil, ErrOTAReused
 	}
 
-	return wanAddr, nil
+	return tsrAddr, nil
 }
 
 func (c *tesramainchainStampSC) buyStamp(in []byte, contract *Contract, evm *EVM) ([]byte, error) {
-	wanAddr, err := c.ValidBuyStampReq(evm.StateDB, in, contract.value)
+	tsrAddr, err := c.ValidBuyStampReq(evm.StateDB, in, contract.value)
 	if err != nil {
 		return nil, err
 	}
 
-	add, err := AddOTAIfNotExist(evm.StateDB, contract.value, wanAddr)
+	add, err := AddOTAIfNotExist(evm.StateDB, contract.value, tsrAddr)
 	if err != nil || !add {
 		return nil, errBuyStamp
 	}
@@ -634,10 +634,10 @@ func (c *tesramainchainStampSC) buyStamp(in []byte, contract *Contract, evm *EVM
 	}
 }
 
-type wanCoinSC struct {
+type tsrCoinSC struct {
 }
 
-func (c *wanCoinSC) RequiredGas(input []byte) uint64 {
+func (c *tsrCoinSC) RequiredGas(input []byte) uint64 {
 	if len(input) < 4 {
 		return 0
 	}
@@ -669,13 +669,13 @@ func (c *wanCoinSC) RequiredGas(input []byte) uint64 {
 		return ringSigDiffRequiredGas + params.SstoreSetGas
 
 	} else {
-		// ota balance store gas + ota wanaddr store gas
+		// ota balance store gas + ota tsraddr store gas
 		return params.SstoreSetGas * 2
 	}
 
 }
 
-func (c *wanCoinSC) Run(in []byte, contract *Contract, evm *EVM) ([]byte, error) {
+func (c *tsrCoinSC) Run(in []byte, contract *Contract, evm *EVM) ([]byte, error) {
 	if len(in) < 4 {
 		return nil, errParameters
 	}
@@ -692,7 +692,7 @@ func (c *wanCoinSC) Run(in []byte, contract *Contract, evm *EVM) ([]byte, error)
 	return nil, errMethodId
 }
 
-func (c *wanCoinSC) ValidTx(stateDB StateDB, signer types.Signer, tx *types.Transaction) error {
+func (c *tsrCoinSC) ValidTx(stateDB StateDB, signer types.Signer, tx *types.Transaction) error {
 	if stateDB == nil || signer == nil || tx == nil {
 		return errParameters
 	}
@@ -726,7 +726,7 @@ var (
 	ether = new(big.Int).Exp(big.NewInt(10), big.NewInt(18), nil)
 )
 
-func (c *wanCoinSC) ValidBuyCoinReq(stateDB StateDB, payload []byte, txValue *big.Int) (otaAddr []byte, err error) {
+func (c *tsrCoinSC) ValidBuyCoinReq(stateDB StateDB, payload []byte, txValue *big.Int) (otaAddr []byte, err error) {
 	if stateDB == nil || len(payload) == 0 || txValue == nil {
 		return nil, errors.New("unknown error")
 	}
@@ -750,12 +750,12 @@ func (c *wanCoinSC) ValidBuyCoinReq(stateDB StateDB, payload []byte, txValue *bi
 		return nil, errCoinValue
 	}
 
-	wanAddr, err := hexutil.Decode(outStruct.OtaAddr)
+	tsrAddr, err := hexutil.Decode(outStruct.OtaAddr)
 	if err != nil {
 		return nil, err
 	}
 
-	ax, err := GetAXFromTsrAddr(wanAddr)
+	ax, err := GetAXFromTsrAddr(tsrAddr)
 	if err != nil {
 		return nil, err
 	}
@@ -769,10 +769,10 @@ func (c *wanCoinSC) ValidBuyCoinReq(stateDB StateDB, payload []byte, txValue *bi
 		return nil, ErrOTAReused
 	}
 
-	return wanAddr, nil
+	return tsrAddr, nil
 }
 
-func (c *wanCoinSC) buyCoin(in []byte, contract *Contract, evm *EVM) ([]byte, error) {
+func (c *tsrCoinSC) buyCoin(in []byte, contract *Contract, evm *EVM) ([]byte, error) {
 	otaAddr, err := c.ValidBuyCoinReq(evm.StateDB, in, contract.value)
 	if err != nil {
 		return nil, err
@@ -795,7 +795,7 @@ func (c *wanCoinSC) buyCoin(in []byte, contract *Contract, evm *EVM) ([]byte, er
 	}
 }
 
-func (c *wanCoinSC) ValidRefundReq(stateDB StateDB, payload []byte, from []byte) (image []byte, value *big.Int, err error) {
+func (c *tsrCoinSC) ValidRefundReq(stateDB StateDB, payload []byte, from []byte) (image []byte, value *big.Int, err error) {
 	if stateDB == nil || len(payload) == 0 || len(from) == 0 {
 		return nil, nil, errors.New("unknown error")
 	}
@@ -833,7 +833,7 @@ func (c *wanCoinSC) ValidRefundReq(stateDB StateDB, payload []byte, from []byte)
 
 }
 
-func (c *wanCoinSC) refund(all []byte, contract *Contract, evm *EVM) ([]byte, error) {
+func (c *tsrCoinSC) refund(all []byte, contract *Contract, evm *EVM) ([]byte, error) {
 	kix, value, err := c.ValidRefundReq(evm.StateDB, all, contract.CallerAddress.Bytes())
 	if err != nil {
 		fmt.Println("failed refund")
@@ -968,7 +968,7 @@ func GetSupportTsrCoinOTABalances() []*big.Int {
 	cval5000, _ := new(big.Int).SetString(Tsrcoin5000, 10)
 	cval50000, _ := new(big.Int).SetString(Tsrcoin50000, 10)
 
-	wancoinBalances := []*big.Int{
+	tsrcoinBalances := []*big.Int{
 		cval10,
 		cval20,
 		cval50,
@@ -981,7 +981,7 @@ func GetSupportTsrCoinOTABalances() []*big.Int {
 		cval50000,
 	}
 
-	return wancoinBalances
+	return tsrcoinBalances
 }
 
 func GetSupportStampOTABalances() []*big.Int {

@@ -52,7 +52,7 @@ func TestGenerateOneTimeAddress(t *testing.T) {
 	for _, waddr := range invalidWaddr {
 		ota, err := s.GenerateOneTimeAddress(ctx, waddr)
 		if err == nil {
-			t.Errorf("succeed from invalid wanaddress. waddr:%s, ota:%s", waddr, ota)
+			t.Errorf("succeed from invalid tsraddress. waddr:%s, ota:%s", waddr, ota)
 		}
 	}
 }

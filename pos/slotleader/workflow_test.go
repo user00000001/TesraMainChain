@@ -52,7 +52,7 @@ func (t *TestSelectLead) GetCurrentHeader() *types.Header {return nil}
 
 func RmDB(dbName string){
 	var dbPath string
-	dbPath = path.Join(dbPath, "gwan",dbName)
+	dbPath = path.Join(dbPath, "tesramainchain",dbName)
 	os.RemoveAll(dbPath)
 }
 

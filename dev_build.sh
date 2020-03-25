@@ -9,11 +9,11 @@
 #                                     |_|                             
 
 
-echo "build geth..."
+echo "build tesramain..."
 
 cd /TesraMainChain/src
 make clean
-make geth
-cp ./build/bin/geth /usr/local/bin
+make tesramain
+cp ./build/bin/tesramain /usr/local/bin
 
 

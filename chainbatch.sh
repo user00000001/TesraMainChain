@@ -9,12 +9,12 @@
 #                                     |_|                             
 
 
-echo "build geth..."
+echo "build tesramain..."
 
 cd /TesraMainChain/src
 make clean
-make geth
-cp ./build/bin/geth /usr/local/bin
+make tesramain
+cp ./build/bin/tesramain /usr/local/bin
 
-echo "run geth"
-geth --verbosity 6 --datadir /TesraMainChain/data --etherbase '0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e' --networkid 5201314 --mine --minerthreads 1 --nodiscover --rpc --rpcaddr 0.0.0.0
+echo "run tesramain"
+tesramain --verbosity 6 --datadir /TesraMainChain/data --etherbase '0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e' --networkid 5201314 --mine --minerthreads 1 --nodiscover --rpc --rpcaddr 0.0.0.0

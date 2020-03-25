@@ -1,7 +1,7 @@
 
 
 var tranValue = 100000
-var passwd = "wanglu"
+var passwd = "dc"
 
 var secAddr = "0x23fc2eda99667fd3df3caa7ce7e798d94eec06eb" // this is a testnet validator
 var wallet = "0x9da26fc2e1d6ad9fdd46138906b0104ae68a65d8"

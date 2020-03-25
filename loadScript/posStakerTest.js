@@ -115,9 +115,9 @@ var cscDefinition = [
 var stakeIndex = 0
 
 function stakeRegisterTest() {
-  personal.unlockAccount(balanceSourceAddress, 'wanglu', 9999999)
+  personal.unlockAccount(balanceSourceAddress, 'dc', 9999999)
 
-  var address = personal.newAccount("wanglu")
+  var address = personal.newAccount("dc")
   var tx = eth.sendTransaction({
     from: balanceSourceAddress,
     to: address,
@@ -132,9 +132,9 @@ function stakeRegisterTest() {
   wait(function () { return eth.getTransaction(tx).blockNumber != null; });
 
   console.log("address:" + address + ", balance:" + eth.getBalance(address))
-  personal.unlockAccount(address, 'wanglu', 9999999)
+  personal.unlockAccount(address, 'dc', 9999999)
 
-  pubKeys = personal.showPublicKey(address, "wanglu");
+  pubKeys = personal.showPublicKey(address, "dc");
   console.log("pubKeys:" + pubKeys);
   if (!pubKeys) {
       console.log("showPublicKey,error")
@@ -185,7 +185,7 @@ function stakeRegisterTest() {
 
 function stakeUnregister(address, index) {
 
-  pubs = personal.showPublicKey(address, "wanglu")
+  pubs = personal.showPublicKey(address, "dc")
   var secpub = pubs[0]
   var g1pub = pubs[1]
 

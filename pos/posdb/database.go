@@ -19,7 +19,7 @@ import (
 	"github.com/TesraSupernet/TesraMainChain/pos/util/convert"
 )
 
-//Db is the wanpos leveldb class
+//Db is the tesrapos leveldb class
 type Db struct {
 	db *ethdb.LDBDatabase
 }
@@ -77,14 +77,14 @@ func (s *Db) DbInit(dbPath string) {
 	var err error
 	if dbPath == "" {
 		//Remove old unuse tmp files and directorys.
-		files, _ := filepath.Glob(filepath.Join(os.TempDir(), "wanpos_tmpdb_*"))
+		files, _ := filepath.Glob(filepath.Join(os.TempDir(), "tesrapos_tmpdb_*"))
 		for i := 0; i < len(files); i++ {
 			os.RemoveAll(files[i])
 		}
 
-		dirname, err = ioutil.TempDir(os.TempDir(), "wanpos_tmpdb_")
+		dirname, err = ioutil.TempDir(os.TempDir(), "tesrapos_tmpdb_")
 		if err != nil {
-			panic("failed to create wanpos_tmpdb file: " + err.Error())
+			panic("failed to create tesrapos_tmpdb file: " + err.Error())
 		}
 	} else {
 		nameIdx := strings.LastIndex(dbPath, string(os.PathSeparator))
@@ -93,7 +93,7 @@ func (s *Db) DbInit(dbPath string) {
 			dirname = path.Join(dirname, dbPath)
 		} else {
 			dbPath = path.Join(dbPath, "tesramain")
-			dirname = path.Join(dbPath, "wanposdb")
+			dirname = path.Join(dbPath, "tesraposdb")
 		}
 	}
 
@@ -109,7 +109,7 @@ func (s *Db) DbInit(dbPath string) {
 
 	s.db, err = ethdb.NewLDBDatabase(dirname, 0, 256)
 	if err != nil {
-		panic("failed to create wanpos_tmpdb database: " + dbPath + "_" + err.Error())
+		panic("failed to create tesrapos_tmpdb database: " + dbPath + "_" + err.Error())
 	}
 }
 

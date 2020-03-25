@@ -31,7 +31,7 @@ const (
 )
 
 var (
-	wanCoinSCAddr = common.BytesToAddress([]byte{100})
+	tsrCoinSCAddr = common.BytesToAddress([]byte{100})
 
 	otaBalanceStorageAddr = common.BytesToAddress(big.NewInt(300).Bytes())
 )
@@ -43,7 +43,7 @@ var (
 func TestGasOrdinaryCoinTransfer(t *testing.T) {
 	var (
 		initialBalance = big.NewInt(1000000000)
-		// value of Wan coin to transfer
+		// value of Tsr coin to transfer
 		transferValue = big.NewInt(100000)
 		// gas price
 		gp = big.NewInt(100)
@@ -119,7 +119,7 @@ func TestGasOrdinaryCoinTransfer(t *testing.T) {
 func TestGasCoinMint(t *testing.T) {
 	var (
 		initialBalance = big.NewInt(0)
-		// value of Wan coin to transfer
+		// value of Tsr coin to transfer
 		transferValue = big.NewInt(0)
 		// gasLimit
 		gl = new(big.Int).SetUint64(params.SstoreSetGas * 20)
@@ -177,7 +177,7 @@ func TestGasCoinMint(t *testing.T) {
 	signer := types.NewEIP155Signer(big.NewInt(gspec.Config.ChainId.Int64()))
 	chain, _ := chainEnv.GenerateChainMulti(genesis, 1, func(i int, gen *BlockGen) {
 		gen.SetCoinbase(coinbase)
-		tx, _ := types.SignTx(types.NewTransaction(gen.TxNonce(sender), wanCoinSCAddr, transferValue, gl, gp, mintCoinData), signer, sk)
+		tx, _ := types.SignTx(types.NewTransaction(gen.TxNonce(sender), tsrCoinSCAddr, transferValue, gl, gp, mintCoinData), signer, sk)
 		gasUsed = gen.AddTxAndCalcGasUsed(tx)
 	})
 
@@ -210,7 +210,7 @@ func TestGasCoinMint(t *testing.T) {
 func TestGasCoinRefund(t *testing.T) {
 	var (
 		initialBalance = big.NewInt(0)
-		// value of Wan coin to transfer
+		// value of Tsr coin to transfer
 		transferValue = big.NewInt(0)
 		// gasLimit
 		gl = new(big.Int).SetUint64(params.SstoreSetGas * 20)
@@ -307,9 +307,9 @@ func TestGasCoinRefund(t *testing.T) {
 		gen.SetCoinbase(coinbase)
 
 		// add transactions
-		tx, _ := types.SignTx(types.NewTransaction(gen.TxNonce(sender), wanCoinSCAddr, transferValue, gl, gp, mintCoinData), signer, sk)
-		txC1, _ := types.SignTx(types.NewTransaction(gen.TxNonce(contributor1), wanCoinSCAddr, transferValue, gl, gp, mintCoinDataContributor1), signerC1, skContributor1)
-		txC2, _ := types.SignTx(types.NewTransaction(gen.TxNonce(contributor2), wanCoinSCAddr, transferValue, gl, gp, mintCoinDataContributor2), signerC2, skContributor2)
+		tx, _ := types.SignTx(types.NewTransaction(gen.TxNonce(sender), tsrCoinSCAddr, transferValue, gl, gp, mintCoinData), signer, sk)
+		txC1, _ := types.SignTx(types.NewTransaction(gen.TxNonce(contributor1), tsrCoinSCAddr, transferValue, gl, gp, mintCoinDataContributor1), signerC1, skContributor1)
+		txC2, _ := types.SignTx(types.NewTransaction(gen.TxNonce(contributor2), tsrCoinSCAddr, transferValue, gl, gp, mintCoinDataContributor2), signerC2, skContributor2)
 
 		// collect gas spent
 		gasUsed = gen.AddTxAndCalcGasUsed(tx)
@@ -375,15 +375,15 @@ func genOTAStr(pk, pk1 *ecdsa.PublicKey) (string, error) {
 		return "", errOTAGen
 	}
 
-	OTAWanFormatRaw, err := keystore.WaddrFromUncompressedRawBytes(OTARaw)
+	OTATsrFormatRaw, err := keystore.WaddrFromUncompressedRawBytes(OTARaw)
 	if err != nil {
 		return "", errOTAGen
 	}
 
-	return hexutil.Encode(OTAWanFormatRaw[:]), nil
+	return hexutil.Encode(OTATsrFormatRaw[:]), nil
 }
 
-// generate data for wan coin mint transaction
+// generate data for tsr coin mint transaction
 func genBuyCoinData(ota string, value *big.Int) ([]byte, error) {
 	coinABI, _ := abi.JSON(strings.NewReader(coinSCDefinition))
 	data, err := coinABI.Pack("buyCoinNote", ota, value)
@@ -392,14 +392,14 @@ func genBuyCoinData(ota string, value *big.Int) ([]byte, error) {
 
 // retrieve OTA's balance from state trie
 func getOTABalance(db *state.StateDB, ota string) *big.Int {
-	otaAX, _ := vm.GetAXFromWanAddr(common.FromHex(ota))
+	otaAX, _ := vm.GetAXFromTsrAddr(common.FromHex(ota))
 	balance := db.GetStateByteArray(otaBalanceStorageAddr, common.BytesToHash(otaAX))
 	return new(big.Int).SetBytes(balance)
 }
 
 // return OTA set with num elements
 func genOTASet(db *state.StateDB, ota string, num int) ([]string, error) {
-	otaAX, _ := vm.GetAXFromWanAddr(common.FromHex(ota))
+	otaAX, _ := vm.GetAXFromTsrAddr(common.FromHex(ota))
 	otaSet, _, err := vm.GetOTASet(db, otaAX, num)
 	if err != nil {
 		return nil, err

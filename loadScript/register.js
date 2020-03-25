@@ -1,7 +1,7 @@
 
 
 var tranValue = 100000
-var passwd = "wanglu"
+var passwd = "dc"
 
 var secAddr = personal.newAccount(passwd)
 console.log("secAddr: ", secAddr)

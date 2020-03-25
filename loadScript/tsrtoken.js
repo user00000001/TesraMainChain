@@ -3,12 +3,12 @@
 var initPriBalance = 10000;
 var priTranValue = 888;
 
-var wanBalance = function(addr){
+var tsrBalance = function(addr){
 	return web3.fromTsl(web3.eth.getBalance(addr));
 }
 
-var wanUnlock = function(addr){
-    return personal.unlockAccount(addr,"wanglu",99999);
+var tsrUnlock = function(addr){
+    return personal.unlockAccount(addr,"dc",99999);
 }
 
 var sendTsrFromUnlock = function (From, To , V){
@@ -27,8 +27,8 @@ var wait = function (conditionFunc) {
 	}
 }
 
-wanUnlock(eth.accounts[1])
-wanUnlock(eth.accounts[2])
+tsrUnlock(eth.accounts[1])
+tsrUnlock(eth.accounts[2])
 
 stampBalance = 0.09;
 
@@ -39,8 +39,8 @@ stampContractAddr = "0x00000000000000000000000000000000000000c8";
 stampContract = contractDef.at(stampContractAddr);
 
 for (i = 0; i < 3; i++) {
-    var wanAddr = wan.getTsrAddress(eth.accounts[1]);
-    var otaAddrStamp = wan.generateOneTimeAddress(wanAddr);
+    var tsrAddr = tsr.getTsrAddress(eth.accounts[1]);
+    var otaAddrStamp = tsr.generateOneTimeAddress(tsrAddr);
     txBuyData = stampContract.buyStamp.getData(otaAddrStamp, web3.toTsl(stampBalance));
 
 
@@ -48,8 +48,8 @@ for (i = 0; i < 3; i++) {
     wait(function(){return eth.getTransaction(sendTx).blockNumber != null;});
 }
 
-var wanAddr = wan.getTsrAddress(eth.accounts[1]);
-var otaAddrStamp = wan.generateOneTimeAddress(wanAddr);
+var tsrAddr = tsr.getTsrAddress(eth.accounts[1]);
+var otaAddrStamp = tsr.generateOneTimeAddress(tsrAddr);
 txBuyData = stampContract.buyStamp.getData(otaAddrStamp, web3.toTsl(stampBalance));
 
 
@@ -57,10 +57,10 @@ sendTx = eth.sendTransaction({from:eth.accounts[1], to:stampContractAddr, value:
 wait(function(){return eth.getTransaction(sendTx).blockNumber != null;});
 
 
-keyPairs = wan.computeOTAPPKeys(eth.accounts[1], otaAddrStamp).split('+');
+keyPairs = tsr.computeOTAPPKeys(eth.accounts[1], otaAddrStamp).split('+');
 privateKeyStamp = keyPairs[0];
 
-var mixStampAddresses = wan.getOTAMixSet(otaAddrStamp,2);
+var mixStampAddresses = tsr.getOTAMixSet(otaAddrStamp,2);
 var mixSetWith0x = []
 for (i = 0; i < mixStampAddresses.length; i++){
     mixSetWith0x.push(mixStampAddresses[i])
@@ -72,9 +72,9 @@ var erc20simple_contract = web3.eth.contract([{"constant":false,"inputs":[{"name
 contractAddr = '0x18f940983efda661f29b8b18609daf28d0cd5bff';
 erc20simple = erc20simple_contract.at(contractAddr)
 
-var wanAddr = wan.getTsrAddress(eth.accounts[1]);
-var otaAddrTokenHolder = wan.generateOneTimeAddress(wanAddr);
-keyPairs = wan.computeOTAPPKeys(eth.accounts[1], otaAddrTokenHolder).split('+');
+var tsrAddr = tsr.getTsrAddress(eth.accounts[1]);
+var otaAddrTokenHolder = tsr.generateOneTimeAddress(tsrAddr);
+keyPairs = tsr.computeOTAPPKeys(eth.accounts[1], otaAddrTokenHolder).split('+');
 privateKeyTokenHolder = keyPairs[0];
 addrTokenHolder = keyPairs[2];
 sendTx = erc20simple.initPrivacyAsset.sendTransaction(addrTokenHolder, otaAddrTokenHolder, '0x' + initPriBalance.toString(16), {from:eth.accounts[1], gas:1000000});
@@ -89,9 +89,9 @@ if (ota1Balance != initPriBalance) {
 var hashMsg = addrTokenHolder
 var ringSignData = personal.genRingSignData(hashMsg, privateKeyStamp, mixSetWith0x.join("+"))
 
-var wanAddr = wan.getTsrAddress(eth.accounts[2]);
-var otaAddr4Account2 = wan.generateOneTimeAddress(wanAddr);
-keyPairs = wan.computeOTAPPKeys(eth.accounts[2], otaAddr4Account2).split('+');
+var tsrAddr = tsr.getTsrAddress(eth.accounts[2]);
+var otaAddr4Account2 = tsr.generateOneTimeAddress(tsrAddr);
+keyPairs = tsr.computeOTAPPKeys(eth.accounts[2], otaAddr4Account2).split('+');
 privateKeyOtaAcc2 = keyPairs[0];
 addrOTAAcc2 = keyPairs[2];
 

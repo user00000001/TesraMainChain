@@ -211,10 +211,10 @@ func GetEpochSlotIDFromDifficulty(difficulty *big.Int) (epochID, slotID uint64) 
 	return
 }
 
-// FromTsl use to calc win to Tsr
-func FromTsl(win *big.Int) float64 {
-	winStr := win.String()
-	wan, err := strconv.ParseFloat(winStr, 64)
+// FromTsl use to calc tsl to Tsr
+func FromTsl(tsl *big.Int) float64 {
+	tslStr := tsl.String()
+	wan, err := strconv.ParseFloat(tslStr, 64)
 	if err != nil {
 		return 0
 	}
