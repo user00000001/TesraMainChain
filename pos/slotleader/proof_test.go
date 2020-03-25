@@ -4,13 +4,13 @@ import (
 	"bytes"
 	"crypto/ecdsa"
 	"fmt"
-	"github.com/wanchain/go-wanchain/pos/posconfig"
-	"github.com/wanchain/go-wanchain/pos/uleaderselection"
+	"github.com/TesraSupernet/TesraMainChain/pos/posconfig"
+	"github.com/TesraSupernet/TesraMainChain/pos/uleaderselection"
 	"math/big"
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
 )
 
 func Wadd(x1, y1, x2, y2 *big.Int) (*big.Int, *big.Int) {

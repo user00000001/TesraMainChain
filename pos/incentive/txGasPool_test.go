@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
+	"github.com/TesraSupernet/TesraMainChain/common"
 )
 
 func TestAddEpochGas(t *testing.T) {

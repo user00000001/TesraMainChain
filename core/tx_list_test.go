@@ -21,8 +21,8 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/core/types"
-	"github.com/wanchain/go-wanchain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
 )
 
 // Tests that transactions can be added to strict lists and list contents and

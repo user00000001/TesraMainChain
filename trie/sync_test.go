@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/ethdb"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/ethdb"
 )
 
 // makeTestTrie create a sample test trie to test node-wise reconstruction.

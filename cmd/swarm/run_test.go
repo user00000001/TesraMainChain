@@ -27,12 +27,12 @@ import (
 	"time"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/wanchain/go-wanchain/accounts/keystore"
-	"github.com/wanchain/go-wanchain/internal/cmdtest"
-	"github.com/wanchain/go-wanchain/node"
-	"github.com/wanchain/go-wanchain/p2p"
-	"github.com/wanchain/go-wanchain/rpc"
-	"github.com/wanchain/go-wanchain/swarm"
+	"github.com/TesraSupernet/TesraMainChain/accounts/keystore"
+	"github.com/TesraSupernet/TesraMainChain/internal/cmdtest"
+	"github.com/TesraSupernet/TesraMainChain/node"
+	"github.com/TesraSupernet/TesraMainChain/p2p"
+	"github.com/TesraSupernet/TesraMainChain/rpc"
+	"github.com/TesraSupernet/TesraMainChain/swarm"
 )
 
 func init() {

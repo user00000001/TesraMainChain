@@ -1,4 +1,4 @@
-// Copyright 2018 Wanchain Foundation Ltd
+// Copyright 2018 TesraSupernet Foundation Ltd
 
 package ethash
 
@@ -9,10 +9,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/core/types"
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/ethdb"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/ethdb"
 )
 
 type SignerInfo struct {

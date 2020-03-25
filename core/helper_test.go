@@ -20,9 +20,9 @@ import (
 	"container/list"
 	"fmt"
 
-	"github.com/wanchain/go-wanchain/core/types"
-	"github.com/wanchain/go-wanchain/ethdb"
-	"github.com/wanchain/go-wanchain/event"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/ethdb"
+	"github.com/TesraSupernet/TesraMainChain/event"
 )
 
 // Implement our EthTest Manager

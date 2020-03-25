@@ -24,8 +24,8 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common/math"
-	"github.com/wanchain/go-wanchain/crypto/randentropy"
+	"github.com/TesraSupernet/TesraMainChain/common/math"
+	"github.com/TesraSupernet/TesraMainChain/crypto/randentropy"
 )
 
 const TestCount = 1000

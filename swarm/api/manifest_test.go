@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/swarm/storage"
+	"github.com/TesraSupernet/TesraMainChain/swarm/storage"
 )
 
 func manifest(paths ...string) (manifestReader storage.LazySectionReader) {

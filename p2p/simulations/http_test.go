@@ -27,12 +27,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/event"
-	"github.com/wanchain/go-wanchain/node"
-	"github.com/wanchain/go-wanchain/p2p"
-	"github.com/wanchain/go-wanchain/p2p/discover"
-	"github.com/wanchain/go-wanchain/p2p/simulations/adapters"
-	"github.com/wanchain/go-wanchain/rpc"
+	"github.com/TesraSupernet/TesraMainChain/event"
+	"github.com/TesraSupernet/TesraMainChain/node"
+	"github.com/TesraSupernet/TesraMainChain/p2p"
+	"github.com/TesraSupernet/TesraMainChain/p2p/discover"
+	"github.com/TesraSupernet/TesraMainChain/p2p/simulations/adapters"
+	"github.com/TesraSupernet/TesraMainChain/rpc"
 )
 
 // testService implements the node.Service interface and provides protocols

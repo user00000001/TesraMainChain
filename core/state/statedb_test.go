@@ -30,9 +30,9 @@ import (
 
 	check "gopkg.in/check.v1"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/core/types"
-	"github.com/wanchain/go-wanchain/ethdb"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/ethdb"
 )
 
 // Tests that updating a state trie does not leak any database writes prior to

@@ -31,7 +31,7 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/wanchain/go-wanchain/log"
+	"github.com/TesraSupernet/TesraMainChain/log"
 )
 
 func TestClientRequest(t *testing.T) {

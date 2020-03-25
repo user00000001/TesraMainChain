@@ -20,10 +20,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/accounts/abi/bind"
-	"github.com/wanchain/go-wanchain/accounts/abi/bind/backends"
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/core"
+	"github.com/TesraSupernet/TesraMainChain/accounts/abi/bind"
+	"github.com/TesraSupernet/TesraMainChain/accounts/abi/bind/backends"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/core"
 )
 
 var (

@@ -25,11 +25,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/p2p"
-	"github.com/wanchain/go-wanchain/p2p/discover"
-	"github.com/wanchain/go-wanchain/p2p/nat"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/p2p"
+	"github.com/TesraSupernet/TesraMainChain/p2p/discover"
+	"github.com/TesraSupernet/TesraMainChain/p2p/nat"
 )
 
 var keys []string = []string{

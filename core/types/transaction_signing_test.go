@@ -20,10 +20,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/crypto"
-	// "github.com/wanchain/go-wanchain/rlp"
-	"github.com/wanchain/go-wanchain/rlp"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	// "github.com/TesraSupernet/TesraMainChain/rlp"
+	"github.com/TesraSupernet/TesraMainChain/rlp"
 )
 
 func TestEIP155Signing(t *testing.T) {

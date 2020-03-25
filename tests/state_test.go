@@ -22,7 +22,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/core/vm"
+	"github.com/TesraSupernet/TesraMainChain/core/vm"
 )
 
 func TestState(t *testing.T) {

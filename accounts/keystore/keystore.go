@@ -590,8 +590,8 @@ func (ks *KeyStore) GetKey(a accounts.Account,  passphrase string) (*Key, error)
 }
 
 
-// GetWanAddress represents the keystore to retrieve corresponding wanchain public address for a specific ordinary account/address
-func (ks *KeyStore) GetWanAddress(account accounts.Account) (common.WAddress, error) {
+// GetTsrAddress represents the keystore to retrieve corresponding wanchain public address for a specific ordinary account/address
+func (ks *KeyStore) GetTsrAddress(account accounts.Account) (common.WAddress, error) {
 	ks.mu.RLock()
 	defer ks.mu.RUnlock()
 

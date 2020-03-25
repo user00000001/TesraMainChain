@@ -20,7 +20,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common/math"
+	"github.com/TesraSupernet/TesraMainChain/common/math"
 )
 
 func TestBlockNumberJSONUnmarshal(t *testing.T) {

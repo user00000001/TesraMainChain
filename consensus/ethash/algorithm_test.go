@@ -25,9 +25,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/common/hexutil"
-	"github.com/wanchain/go-wanchain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/common/hexutil"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
 )
 
 // Tests that verification caches can be correctly generated.

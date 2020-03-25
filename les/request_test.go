@@ -17,11 +17,11 @@
 package les
 
 import (
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/core"
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/ethdb"
-	"github.com/wanchain/go-wanchain/light"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/core"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/ethdb"
+	"github.com/TesraSupernet/TesraMainChain/light"
 	"testing"
 )
 

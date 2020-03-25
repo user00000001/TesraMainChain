@@ -25,10 +25,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/crypto/sha3"
-	"github.com/wanchain/go-wanchain/log"
-	"github.com/wanchain/go-wanchain/p2p/discover"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/crypto/sha3"
+	"github.com/TesraSupernet/TesraMainChain/log"
+	"github.com/TesraSupernet/TesraMainChain/p2p/discover"
 )
 
 func init() {

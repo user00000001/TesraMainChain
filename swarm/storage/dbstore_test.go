@@ -21,7 +21,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
+	"github.com/TesraSupernet/TesraMainChain/common"
 )
 
 func initDbStore(t *testing.T) *DbStore {

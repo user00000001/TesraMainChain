@@ -31,11 +31,11 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/crypto/ecies"
-	"github.com/wanchain/go-wanchain/crypto/sha3"
-	"github.com/wanchain/go-wanchain/p2p/discover"
-	"github.com/wanchain/go-wanchain/rlp"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/crypto/ecies"
+	"github.com/TesraSupernet/TesraMainChain/crypto/sha3"
+	"github.com/TesraSupernet/TesraMainChain/p2p/discover"
+	"github.com/TesraSupernet/TesraMainChain/rlp"
 )
 
 func TestSharedSecret(t *testing.T) {

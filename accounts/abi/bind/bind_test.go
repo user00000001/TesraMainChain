@@ -26,7 +26,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
+	"github.com/TesraSupernet/TesraMainChain/common"
 	"golang.org/x/tools/imports"
 )
 

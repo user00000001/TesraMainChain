@@ -20,7 +20,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/params"
+	"github.com/TesraSupernet/TesraMainChain/params"
 )
 
 func TestTransaction(t *testing.T) {

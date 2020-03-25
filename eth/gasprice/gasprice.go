@@ -28,7 +28,7 @@ import (
 	"github.com/TesraSupernet/TesraMainChain/rpc"
 )
 
-var maxPrice = big.NewInt(0).Mul(big.NewInt(500 * params.Shannon),params.WanGasTimesFactor)
+var maxPrice = big.NewInt(0).Mul(big.NewInt(500 * params.Shannon),params.TsrGasTimesFactor)
 
 type Config struct {
 	Blocks     int

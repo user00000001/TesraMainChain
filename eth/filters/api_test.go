@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/rpc"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/rpc"
 )
 
 func TestUnmarshalJSONNewFilterArgs(t *testing.T) {

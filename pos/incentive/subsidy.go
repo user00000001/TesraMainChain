@@ -59,10 +59,10 @@ func getBaseSubsidyTotalForEpoch(stateDb *state.StateDB, epochID uint64) *big.In
 	return baseSubsidyReduction
 }
 
-// calcWanFromFoundation returns subsidy Of Epoch from wan foundation by Wei
-func calcWanFromFoundation(stateDb *state.StateDB, epochID uint64) *big.Int {
+// calcTsrFromFoundation returns subsidy Of Epoch from wan foundation by Wei
+func calcTsrFromFoundation(stateDb *state.StateDB, epochID uint64) *big.Int {
 	if stateDb == nil {
-		log.SyslogErr("calcWanFromFoundation with an empty stateDb")
+		log.SyslogErr("calcTsrFromFoundation with an empty stateDb")
 		return big.NewInt(0)
 	}
 
@@ -76,7 +76,7 @@ func calculateIncentivePool(stateDb *state.StateDB, epochID uint64) (total *big.
 		return big.NewInt(0), big.NewInt(0), big.NewInt(0)
 	}
 
-	foundation = calcWanFromFoundation(stateDb, epochID)
+	foundation = calcTsrFromFoundation(stateDb, epochID)
 	gasPool = getEpochGas(stateDb, epochID)
 	total = big.NewInt(0).Add(foundation, gasPool)
 	return

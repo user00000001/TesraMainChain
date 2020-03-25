@@ -19,8 +19,8 @@ package miner
 import (
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
 )
 
 // noopHeaderRetriever is an implementation of headerRetriever that always

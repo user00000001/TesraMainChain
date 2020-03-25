@@ -136,7 +136,7 @@ var (
 	}
 	TestnetFlag = cli.BoolFlag{
 		Name:  "testnet",
-		Usage: "Wan test network: pre-configured proof-of-work test network",
+		Usage: "Tsr test network: pre-configured proof-of-work test network",
 	}
 
 	DevInternalFlag = cli.BoolFlag{

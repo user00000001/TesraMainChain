@@ -563,7 +563,7 @@ func (w *wallet) SignTxWithPassphrase(account accounts.Account, passphrase strin
 }
 
 // TODO: TBI
-func (w *wallet) GetWanAddress(account accounts.Account) (common.WAddress, error) {
+func (w *wallet) GetTsrAddress(account accounts.Account) (common.WAddress, error) {
 	return common.WAddress{}, nil
 }
 

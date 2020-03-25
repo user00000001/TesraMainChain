@@ -10,20 +10,20 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/accounts/keystore"
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/core"
-	"github.com/wanchain/go-wanchain/core/state"
-	"github.com/wanchain/go-wanchain/core/vm"
-	"github.com/wanchain/go-wanchain/ethdb"
-	"github.com/wanchain/go-wanchain/pos/posconfig"
-	"github.com/wanchain/go-wanchain/pos/uleaderselection"
-	"github.com/wanchain/go-wanchain/pos/util/convert"
+	"github.com/TesraSupernet/TesraMainChain/accounts/keystore"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/core"
+	"github.com/TesraSupernet/TesraMainChain/core/state"
+	"github.com/TesraSupernet/TesraMainChain/core/vm"
+	"github.com/TesraSupernet/TesraMainChain/ethdb"
+	"github.com/TesraSupernet/TesraMainChain/pos/posconfig"
+	"github.com/TesraSupernet/TesraMainChain/pos/uleaderselection"
+	"github.com/TesraSupernet/TesraMainChain/pos/util/convert"
 
 	"github.com/btcsuite/btcd/btcec"
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/pos/posdb"
-	"github.com/wanchain/go-wanchain/rlp"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/pos/posdb"
+	"github.com/TesraSupernet/TesraMainChain/rlp"
 )
 
 func TestSlotLeaderSelectionGetInstance(t *testing.T) {

@@ -24,7 +24,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/log"
+	"github.com/TesraSupernet/TesraMainChain/log"
 )
 
 type brokenLimitedReader struct {

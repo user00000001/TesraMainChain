@@ -57,7 +57,7 @@ const (
 )
 
 var (
-	defaultGasPrice = big.NewInt(0).Mul(big.NewInt(18*params.Shannon), params.WanGasTimesFactor)
+	defaultGasPrice = big.NewInt(0).Mul(big.NewInt(18*params.Shannon), params.TsrGasTimesFactor)
 )
 
 var (
@@ -486,7 +486,7 @@ func (s *PrivateAccountAPI) SendPrivacyCxtTransaction(ctx context.Context, args 
 }
 
 // GenRingSignData generate ring sign data
-func (s *PrivateAccountAPI) GenRingSignData(ctx context.Context, hashMsg string, privateKey string, mixWanAdresses string) (string, error) {
+func (s *PrivateAccountAPI) GenRingSignData(ctx context.Context, hashMsg string, privateKey string, mixTsrAdresses string) (string, error) {
 	if !hexutil.Has0xPrefix(privateKey) {
 		return "", ErrInvalidPrivateKey
 	}
@@ -510,7 +510,7 @@ func (s *PrivateAccountAPI) GenRingSignData(ctx context.Context, hashMsg string,
 		return "", ErrInvalidPrivateKey
 	}
 
-	wanAddresses := strings.Split(mixWanAdresses, "+")
+	wanAddresses := strings.Split(mixTsrAdresses, "+")
 	if len(wanAddresses) == 0 {
 		return "", ErrInvalidOTAMixSet
 	}
@@ -518,14 +518,14 @@ func (s *PrivateAccountAPI) GenRingSignData(ctx context.Context, hashMsg string,
 	return genRingSignData(hmsg, privKey, &ecdsaPrivateKey.PublicKey, wanAddresses)
 }
 
-func genRingSignData(hashMsg []byte, privateKey []byte, actualPub *ecdsa.PublicKey, mixWanAdress []string) (string, error) {
+func genRingSignData(hashMsg []byte, privateKey []byte, actualPub *ecdsa.PublicKey, mixTsrAdress []string) (string, error) {
 	otaPrivD := new(big.Int).SetBytes(privateKey)
 
 	publicKeys := make([]*ecdsa.PublicKey, 0)
 	publicKeys = append(publicKeys, actualPub)
 
-	for _, strWanAddr := range mixWanAdress {
-		pubBytes, err := hexutil.Decode(strWanAddr)
+	for _, strTsrAddr := range mixTsrAdress {
+		pubBytes, err := hexutil.Decode(strTsrAddr)
 		if err != nil {
 			return "", errors.New("fail to decode wan address!")
 		}
@@ -694,7 +694,7 @@ func (s *PublicBlockChainAPI) GetOTABalance(ctx context.Context, otaWAddr string
 	case common.HashLength:
 		otaAX = otaWAddrByte
 	case common.WAddressLength:
-		otaAX, _ = vm.GetAXFromWanAddr(otaWAddrByte)
+		otaAX, _ = vm.GetAXFromTsrAddr(otaWAddrByte)
 	default:
 		return nil, ErrInvalidOTAAddr
 	}
@@ -702,8 +702,8 @@ func (s *PublicBlockChainAPI) GetOTABalance(ctx context.Context, otaWAddr string
 	return vm.GetOtaBalanceFromAX(state, otaAX)
 }
 
-func (s *PublicBlockChainAPI) GetSupportWanCoinOTABalances(ctx context.Context) []*big.Int {
-	return vm.GetSupportWanCoinOTABalances()
+func (s *PublicBlockChainAPI) GetSupportTsrCoinOTABalances(ctx context.Context) []*big.Int {
+	return vm.GetSupportTsrCoinOTABalances()
 }
 
 func (s *PublicBlockChainAPI) GetSupportStampOTABalances(ctx context.Context) []*big.Int {
@@ -1453,7 +1453,7 @@ func (s *PublicTransactionPoolAPI) GetOTAMixSet(ctx context.Context, otaAddr str
 
 	otaAX := orgOtaAddr[:common.HashLength]
 	if len(orgOtaAddr) == common.WAddressLength {
-		otaAX, _ = vm.GetAXFromWanAddr(orgOtaAddr)
+		otaAX, _ = vm.GetAXFromTsrAddr(orgOtaAddr)
 	}
 
 	otaByteSet, _, err := vm.GetOTASet(state, otaAX, setLen)
@@ -1792,15 +1792,15 @@ func (s *PublicNetAPI) Version() string {
 }
 
 ////////////////////added for privacy tx ////////////////////////////////////////
-// GetWanAddress returns corresponding WAddress of an ordinary account
-func (s *PublicTransactionPoolAPI) GetWanAddress(ctx context.Context, a common.Address) (string, error) {
+// GetTsrAddress returns corresponding WAddress of an ordinary account
+func (s *PublicTransactionPoolAPI) GetTsrAddress(ctx context.Context, a common.Address) (string, error) {
 	account := accounts.Account{Address: a}
 	// first fetch the wallet/keystore, and then retrieve the wanaddress
 	wallet, err := s.b.AccountManager().Find(account)
 	if err != nil {
 		return "", err
 	}
-	wanAddr, err := wallet.GetWanAddress(account)
+	wanAddr, err := wallet.GetTsrAddress(account)
 	if err != nil {
 		return "", err
 	}
@@ -1808,7 +1808,7 @@ func (s *PublicTransactionPoolAPI) GetWanAddress(ctx context.Context, a common.A
 	return hexutil.Encode(wanAddr[:]), nil
 }
 
-// GenerateOneTimeAddress returns corresponding One-Time-Address for a given WanAddress
+// GenerateOneTimeAddress returns corresponding One-Time-Address for a given TsrAddress
 func (s *PublicTransactionPoolAPI) GenerateOneTimeAddress(ctx context.Context, wAddr string) (string, error) {
 	strlen := len(wAddr)
 	if strlen != (common.WAddressLength<<1)+2 {
@@ -1838,12 +1838,12 @@ func (s *PublicTransactionPoolAPI) GenerateOneTimeAddress(ctx context.Context, w
 		return "", err
 	}
 
-	rawWanAddr, err := keystore.WaddrFromUncompressedRawBytes(raw)
-	if err != nil || rawWanAddr == nil {
+	rawTsrAddr, err := keystore.WaddrFromUncompressedRawBytes(raw)
+	if err != nil || rawTsrAddr == nil {
 		return "", err
 	}
 
-	return hexutil.Encode(rawWanAddr[:]), nil
+	return hexutil.Encode(rawTsrAddr[:]), nil
 }
 
 func (args *SendTxArgs) toOTATransaction() *types.Transaction {

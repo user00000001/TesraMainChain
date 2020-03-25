@@ -3,7 +3,7 @@ package compress
 //import (
 //	"testing"
 //	"fmt"
-//	"github.com/wanchain/go-wanchain/common"
+//	"github.com/TesraSupernet/TesraMainChain/common"
 //	"bytes"
 //)
 //

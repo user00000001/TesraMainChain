@@ -24,12 +24,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/accounts/abi/bind"
-	"github.com/wanchain/go-wanchain/accounts/abi/bind/backends"
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/contracts/chequebook/contract"
-	"github.com/wanchain/go-wanchain/core"
-	"github.com/wanchain/go-wanchain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/accounts/abi/bind"
+	"github.com/TesraSupernet/TesraMainChain/accounts/abi/bind/backends"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/contracts/chequebook/contract"
+	"github.com/TesraSupernet/TesraMainChain/core"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
 )
 
 var (

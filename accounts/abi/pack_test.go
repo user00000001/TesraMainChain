@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
+	"github.com/TesraSupernet/TesraMainChain/common"
 )
 
 func TestPack(t *testing.T) {

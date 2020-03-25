@@ -20,8 +20,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/p2p"
-	"github.com/wanchain/go-wanchain/p2p/discover"
+	"github.com/TesraSupernet/TesraMainChain/p2p"
+	"github.com/TesraSupernet/TesraMainChain/p2p/discover"
 )
 
 type testPeer struct {

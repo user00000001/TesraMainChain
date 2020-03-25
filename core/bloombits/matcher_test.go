@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/common"
+	"github.com/TesraSupernet/TesraMainChain/common"
 )
 
 const testSectionSize = 4096

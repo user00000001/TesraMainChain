@@ -29,7 +29,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/params"
+	"github.com/TesraSupernet/TesraMainChain/params"
 )
 
 var (

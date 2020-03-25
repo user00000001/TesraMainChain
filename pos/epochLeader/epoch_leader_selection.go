@@ -256,7 +256,7 @@ func (s ProposerSorter) Swap(i, j int) {
 }
 
 func (e *Epocher) CalProbability(amountTsl *big.Int, lockTime uint64) *big.Int {
-	//amount := big.NewInt(0).Div(amountTsl, big.NewInt(params.Wan))
+	//amount := big.NewInt(0).Div(amountTsl, big.NewInt(params.Tsr))
 	pb := big.NewInt(0)
 
 	lockWeight := vm.CalLocktimeWeight(lockTime)
@@ -779,7 +779,7 @@ func StakeOutRun(stateDb *state.StateDB, epochID uint64) bool {
 		for j := 0; j < len(staker.Clients); j++ {
 			// edit the validator Amount
 			if epochID >= staker.Clients[j].QuitEpoch && staker.Clients[j].QuitEpoch != 0 {
-				coreTransfer(stateDb, vm.WanCscPrecompileAddr, staker.Clients[j].Address, staker.Clients[j].Amount)
+				coreTransfer(stateDb, vm.TsrCscPrecompileAddr, staker.Clients[j].Address, staker.Clients[j].Amount)
 				stakeOutInfo = recordStakeOut(stakeOutInfo, staker.Clients[j].Address, staker.Clients[j].Amount)
 				clientChanged = true
 			} else {
@@ -796,7 +796,7 @@ func StakeOutRun(stateDb *state.StateDB, epochID uint64) bool {
 		for j := 0; j < len(staker.Partners); j++ {
 			// edit the validator Amount
 			if epochID >= staker.Partners[j].StakingEpoch+staker.Partners[j].LockEpochs {
-				coreTransfer(stateDb, vm.WanCscPrecompileAddr, staker.Partners[j].Address, staker.Partners[j].Amount)
+				coreTransfer(stateDb, vm.TsrCscPrecompileAddr, staker.Partners[j].Address, staker.Partners[j].Amount)
 				stakeOutInfo = recordStakeOut(stakeOutInfo, staker.Partners[j].Address, staker.Partners[j].Amount)
 				partnerchanged = true
 			} else {
@@ -809,16 +809,16 @@ func StakeOutRun(stateDb *state.StateDB, epochID uint64) bool {
 
 		if epochID >= staker.StakingEpoch+staker.LockEpochs {
 			for j := 0; j < len(staker.Clients); j++ {
-				coreTransfer(stateDb, vm.WanCscPrecompileAddr, staker.Clients[j].Address, staker.Clients[j].Amount)
+				coreTransfer(stateDb, vm.TsrCscPrecompileAddr, staker.Clients[j].Address, staker.Clients[j].Amount)
 				stakeOutInfo = recordStakeOut(stakeOutInfo,staker.Clients[j].Address, staker.Clients[j].Amount)
 			}
 			for j := 0; j < len(staker.Partners); j++ {
-				coreTransfer(stateDb, vm.WanCscPrecompileAddr, staker.Partners[j].Address, staker.Partners[j].Amount)
+				coreTransfer(stateDb, vm.TsrCscPrecompileAddr, staker.Partners[j].Address, staker.Partners[j].Amount)
 				stakeOutInfo = recordStakeOut(stakeOutInfo, staker.Partners[j].Address, staker.Partners[j].Amount)
 			}
 			key := vm.GetStakeInKeyHash(staker.Address)
 			// quit the validator
-			coreTransfer(stateDb, vm.WanCscPrecompileAddr, staker.From, staker.Amount)
+			coreTransfer(stateDb, vm.TsrCscPrecompileAddr, staker.From, staker.Amount)
 			stakeOutInfo = recordStakeOut(stakeOutInfo, staker.From, staker.Amount)
 			vm.UpdateInfo(stateDb, vm.StakersInfoAddr, key, nil)
 			newFeeBytes, err := vm.GetInfo(stateDb, vm.StakersFeeAddr, key)

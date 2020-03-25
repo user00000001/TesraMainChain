@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"crypto/rand"
 	"encoding/binary"
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/rlp"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/rlp"
 	"math/big"
 	"testing"
 )

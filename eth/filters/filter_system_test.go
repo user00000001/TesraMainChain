@@ -25,16 +25,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/consensus/ethash"
-	"github.com/wanchain/go-wanchain/core"
-	"github.com/wanchain/go-wanchain/core/bloombits"
-	"github.com/wanchain/go-wanchain/core/types"
-	"github.com/wanchain/go-wanchain/core/vm"
-	"github.com/wanchain/go-wanchain/ethdb"
-	"github.com/wanchain/go-wanchain/event"
-	"github.com/wanchain/go-wanchain/params"
-	"github.com/wanchain/go-wanchain/rpc"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/consensus/ethash"
+	"github.com/TesraSupernet/TesraMainChain/core"
+	"github.com/TesraSupernet/TesraMainChain/core/bloombits"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/core/vm"
+	"github.com/TesraSupernet/TesraMainChain/ethdb"
+	"github.com/TesraSupernet/TesraMainChain/event"
+	"github.com/TesraSupernet/TesraMainChain/params"
+	"github.com/TesraSupernet/TesraMainChain/rpc"
 )
 
 type testBackend struct {

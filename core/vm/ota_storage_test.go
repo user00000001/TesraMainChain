@@ -1,14 +1,14 @@
-// Copyright 2018 Wanchain Foundation Ltd
+// Copyright 2018 TesraSupernet Foundation Ltd
 
 package vm
 
 import (
 	"bytes"
 	//"bytes"
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/core/state"
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/ethdb"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/core/state"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/ethdb"
 	"math/big"
 	"testing"
 )

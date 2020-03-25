@@ -22,8 +22,8 @@ package node
 import (
 	"reflect"
 
-	"github.com/wanchain/go-wanchain/p2p"
-	"github.com/wanchain/go-wanchain/rpc"
+	"github.com/TesraSupernet/TesraMainChain/p2p"
+	"github.com/TesraSupernet/TesraMainChain/rpc"
 )
 
 // NoopService is a trivial implementation of the Service interface.

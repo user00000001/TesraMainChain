@@ -16,7 +16,7 @@
 
 package ethclient
 
-import "github.com/wanchain/go-wanchain"
+import "github.com/TesraSupernet/TesraMainChain"
 
 // Verify that Client implements the ethereum interfaces.
 var (

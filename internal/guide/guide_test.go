@@ -30,8 +30,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/accounts/keystore"
-	"github.com/wanchain/go-wanchain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/accounts/keystore"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
 )
 
 // Tests that the account management snippets work correctly.

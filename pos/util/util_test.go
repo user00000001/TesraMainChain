@@ -6,7 +6,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
 )
 
 func TestGetEpochSlotID(t *testing.T) {

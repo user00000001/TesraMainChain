@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/p2p/discover"
+	"github.com/TesraSupernet/TesraMainChain/p2p/discover"
 )
 
 func TestMocker(t *testing.T) {

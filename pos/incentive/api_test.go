@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/core/vm"
+	"github.com/TesraSupernet/TesraMainChain/core/vm"
 )
 
 func testInitDb() {

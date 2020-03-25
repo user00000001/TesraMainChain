@@ -22,9 +22,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/eth/downloader"
-	"github.com/wanchain/go-wanchain/p2p"
-	"github.com/wanchain/go-wanchain/p2p/discover"
+	"github.com/TesraSupernet/TesraMainChain/eth/downloader"
+	"github.com/TesraSupernet/TesraMainChain/p2p"
+	"github.com/TesraSupernet/TesraMainChain/p2p/discover"
 )
 
 // Tests that fast sync gets disabled as soon as a real block is successfully

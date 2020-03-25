@@ -5,8 +5,8 @@ package rbselection
 import (
 	"crypto/rand"
 	"fmt"
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/crypto/bn256/cloudflare"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/crypto/bn256/cloudflare"
 	"math/big"
 	"testing"
 )

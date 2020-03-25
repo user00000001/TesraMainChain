@@ -1,4 +1,4 @@
-// Copyright 2018 Wanchain Foundation Ltd
+// Copyright 2018 TesraSupernet Foundation Ltd
 
 package core
 
@@ -12,17 +12,17 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/accounts/abi"
-	"github.com/wanchain/go-wanchain/accounts/keystore"
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/common/hexutil"
-	"github.com/wanchain/go-wanchain/consensus/ethash"
-	"github.com/wanchain/go-wanchain/core/state"
-	"github.com/wanchain/go-wanchain/core/types"
-	"github.com/wanchain/go-wanchain/core/vm"
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/ethdb"
-	"github.com/wanchain/go-wanchain/params"
+	"github.com/TesraSupernet/TesraMainChain/accounts/abi"
+	"github.com/TesraSupernet/TesraMainChain/accounts/keystore"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/common/hexutil"
+	"github.com/TesraSupernet/TesraMainChain/consensus/ethash"
+	"github.com/TesraSupernet/TesraMainChain/core/state"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/core/vm"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/ethdb"
+	"github.com/TesraSupernet/TesraMainChain/params"
 )
 
 const (

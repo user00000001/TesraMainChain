@@ -24,8 +24,8 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/wanchain/go-wanchain/p2p/discover"
-	"github.com/wanchain/go-wanchain/p2p/netutil"
+	"github.com/TesraSupernet/TesraMainChain/p2p/discover"
+	"github.com/TesraSupernet/TesraMainChain/p2p/netutil"
 )
 
 func init() {

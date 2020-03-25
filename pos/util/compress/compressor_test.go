@@ -3,7 +3,7 @@ package compress
 import (
 	"testing"
 	"bytes"
-	"github.com/wanchain/go-wanchain/common"
+	"github.com/TesraSupernet/TesraMainChain/common"
 	"fmt"
 )
 func TestCompress(t *testing.T) {

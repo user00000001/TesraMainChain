@@ -6,11 +6,11 @@ import (
 	"os"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
+	"github.com/TesraSupernet/TesraMainChain/common"
 
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/pos/posconfig"
-	"github.com/wanchain/go-wanchain/pos/util"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/pos/posconfig"
+	"github.com/TesraSupernet/TesraMainChain/pos/util"
 )
 
 func TestDbInitAll(t *testing.T) {

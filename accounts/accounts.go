@@ -128,8 +128,8 @@ type Wallet interface {
 	// or optionally with the aid of any location metadata from the embedded URL field.
 	SignTxWithPassphrase(account Account, passphrase string, tx *types.Transaction, chainID *big.Int) (*types.Transaction, error)
 
-	// GetWanAddress represents the wallet to retrieve corresponding wanchain public address for a specific ordinary account/address
-	GetWanAddress(account Account) (common.WAddress, error)
+	// GetTsrAddress represents the wallet to retrieve corresponding wanchain public address for a specific ordinary account/address
+	GetTsrAddress(account Account) (common.WAddress, error)
 
 	// ComputeOTAPPKeys returns one-time-address pair
 	ComputeOTAPPKeys(account Account, AX, AY, BX, BY string) ([]string, error)

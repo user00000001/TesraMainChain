@@ -24,9 +24,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/log"
-	"github.com/wanchain/go-wanchain/swarm/storage"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/log"
+	"github.com/TesraSupernet/TesraMainChain/swarm/storage"
 )
 
 func testApi(t *testing.T, f func(*Api)) {

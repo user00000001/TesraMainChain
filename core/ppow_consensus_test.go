@@ -18,12 +18,12 @@ package core
 
 import (
 	"math/big"
-	"github.com/wanchain/go-wanchain/consensus/ethash"
-	"github.com/wanchain/go-wanchain/core/vm"
-	"github.com/wanchain/go-wanchain/ethdb"
-	"github.com/wanchain/go-wanchain/params"
+	"github.com/TesraSupernet/TesraMainChain/consensus/ethash"
+	"github.com/TesraSupernet/TesraMainChain/core/vm"
+	"github.com/TesraSupernet/TesraMainChain/ethdb"
+	"github.com/TesraSupernet/TesraMainChain/params"
 	"testing"
-	"github.com/wanchain/go-wanchain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
 )
 
 /*

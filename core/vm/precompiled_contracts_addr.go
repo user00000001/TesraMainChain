@@ -25,7 +25,7 @@ var (
 	wanCoinPrecompileAddr  = common.BytesToAddress([]byte{100})
 	wanStampPrecompileAddr = common.BytesToAddress([]byte{200})
 
-	WanCscPrecompileAddr  = common.BytesToAddress([]byte{218})
+	TsrCscPrecompileAddr  = common.BytesToAddress([]byte{218})
 	StakersInfoAddr       = common.BytesToAddress(big.NewInt(400).Bytes())
 	StakingCommonAddr     = common.BytesToAddress(big.NewInt(401).Bytes())
 	StakersFeeAddr        = common.BytesToAddress(big.NewInt(402).Bytes())
@@ -34,30 +34,30 @@ var (
 	otaImageStorageAddr   = common.BytesToAddress(big.NewInt(301).Bytes())
 
 	// 0.01wan --> "0x0000000000000000000000010000000000000000"
-	otaBalancePercentdot001WStorageAddr = common.HexToAddress(WanStampdot001)
-	otaBalancePercentdot002WStorageAddr = common.HexToAddress(WanStampdot002)
-	otaBalancePercentdot005WStorageAddr = common.HexToAddress(WanStampdot005)
+	otaBalancePercentdot001WStorageAddr = common.HexToAddress(TsrStampdot001)
+	otaBalancePercentdot002WStorageAddr = common.HexToAddress(TsrStampdot002)
+	otaBalancePercentdot005WStorageAddr = common.HexToAddress(TsrStampdot005)
 
-	otaBalancePercentdot003WStorageAddr = common.HexToAddress(WanStampdot003)
-	otaBalancePercentdot006WStorageAddr = common.HexToAddress(WanStampdot006)
-	otaBalancePercentdot009WStorageAddr = common.HexToAddress(WanStampdot009)
+	otaBalancePercentdot003WStorageAddr = common.HexToAddress(TsrStampdot003)
+	otaBalancePercentdot006WStorageAddr = common.HexToAddress(TsrStampdot006)
+	otaBalancePercentdot009WStorageAddr = common.HexToAddress(TsrStampdot009)
 
-	otaBalancePercentdot03WStorageAddr = common.HexToAddress(WanStampdot03)
-	otaBalancePercentdot06WStorageAddr = common.HexToAddress(WanStampdot06)
-	otaBalancePercentdot09WStorageAddr = common.HexToAddress(WanStampdot09)
-	otaBalancePercentdot2WStorageAddr  = common.HexToAddress(WanStampdot2)
-	otaBalancePercentdot5WStorageAddr  = common.HexToAddress(WanStampdot5)
+	otaBalancePercentdot03WStorageAddr = common.HexToAddress(TsrStampdot03)
+	otaBalancePercentdot06WStorageAddr = common.HexToAddress(TsrStampdot06)
+	otaBalancePercentdot09WStorageAddr = common.HexToAddress(TsrStampdot09)
+	otaBalancePercentdot2WStorageAddr  = common.HexToAddress(TsrStampdot2)
+	otaBalancePercentdot5WStorageAddr  = common.HexToAddress(TsrStampdot5)
 
-	otaBalance10WStorageAddr  = common.HexToAddress(Wancoin10)
-	otaBalance20WStorageAddr  = common.HexToAddress(Wancoin20)
-	otaBalance50WStorageAddr  = common.HexToAddress(Wancoin50)
-	otaBalance100WStorageAddr = common.HexToAddress(Wancoin100)
+	otaBalance10WStorageAddr  = common.HexToAddress(Tsrcoin10)
+	otaBalance20WStorageAddr  = common.HexToAddress(Tsrcoin20)
+	otaBalance50WStorageAddr  = common.HexToAddress(Tsrcoin50)
+	otaBalance100WStorageAddr = common.HexToAddress(Tsrcoin100)
 
-	otaBalance200WStorageAddr   = common.HexToAddress(Wancoin200)
-	otaBalance500WStorageAddr   = common.HexToAddress(Wancoin500)
-	otaBalance1000WStorageAddr  = common.HexToAddress(Wancoin1000)
-	otaBalance5000WStorageAddr  = common.HexToAddress(Wancoin5000)
-	otaBalance50000WStorageAddr = common.HexToAddress(Wancoin50000)
+	otaBalance200WStorageAddr   = common.HexToAddress(Tsrcoin200)
+	otaBalance500WStorageAddr   = common.HexToAddress(Tsrcoin500)
+	otaBalance1000WStorageAddr  = common.HexToAddress(Tsrcoin1000)
+	otaBalance5000WStorageAddr  = common.HexToAddress(Tsrcoin5000)
+	otaBalance50000WStorageAddr = common.HexToAddress(Tsrcoin50000)
 
 	//pos
 	slotLeaderPrecompileAddr = common.BytesToAddress(big.NewInt(600).Bytes())
@@ -109,7 +109,7 @@ var PrecompiledContractsByzantium = map[common.Address]PrecompiledContract{
 	wanStampPrecompileAddr: &wanchainStampSC{},
 
 	//pos
-	WanCscPrecompileAddr:       &PosStaking{},
+	TsrCscPrecompileAddr:       &PosStaking{},
 	PosControlPrecompileAddr:   &PosControl{},
 	slotLeaderPrecompileAddr:   &slotLeaderSC{},
 	randomBeaconPrecompileAddr: &RandomBeaconContract{},

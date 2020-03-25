@@ -27,8 +27,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/swarm/api"
-	"github.com/wanchain/go-wanchain/swarm/storage"
+	"github.com/TesraSupernet/TesraMainChain/swarm/api"
+	"github.com/TesraSupernet/TesraMainChain/swarm/storage"
 )
 
 type fileInfo struct {

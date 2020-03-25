@@ -274,7 +274,7 @@ func (g *Genesis) ToBlock() (*types.Block, *state.StateDB) {
 			}
 			addr := crypto.PubkeyToAddress(*crypto.ToECDSAPub(account.Staking.S256pk))
 			addrHash := common.BytesToHash(addr[:])
-			statedb.AddBalance(vm.WanCscPrecompileAddr, staker.Amount)
+			statedb.AddBalance(vm.TsrCscPrecompileAddr, staker.Amount)
 
 			statedb.SetStateByteArray(vm.StakersInfoAddr, addrHash, infoArray)
 		}

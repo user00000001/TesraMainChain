@@ -6,7 +6,7 @@ var wanUnlock = function(addr){
     return personal.unlockAccount(addr,"wanglu",99999);	
 }
 
-var sendWanFromUnlock = function (From, To , V){
+var sendTsrFromUnlock = function (From, To , V){
 	return eth.sendTransaction({from:From, to: To, value: web3.toTsl(V)});
 }
 
@@ -34,7 +34,7 @@ wanUnlock(eth.accounts[1]);
 wanUnlock(eth.accounts[2]);
 
 for (i = 0; i < 3; i++) {
-    var wanAddr = wan.getWanAddress(eth.accounts[2]);
+    var wanAddr = wan.getTsrAddress(eth.accounts[2]);
     var otaAddr = wan.generateOneTimeAddress(wanAddr);
 
     txBuyData = coinContract.buyCoinNote.getData(otaAddr, web3.toTsl(tranValue));
@@ -46,7 +46,7 @@ var acc1OldBalance = parseFloat(wanBalance(eth.accounts[1]))
 var acc2OldBalance = parseFloat(wanBalance(eth.accounts[2]))
 
 
-var wanAddr = wan.getWanAddress(eth.accounts[2]);
+var wanAddr = wan.getTsrAddress(eth.accounts[2]);
 var otaAddr = wan.generateOneTimeAddress(wanAddr);
 
 txBuyData = coinContract.buyCoinNote.getData(otaAddr, web3.toTsl(tranValue));
@@ -54,10 +54,10 @@ buyCoinTx = eth.sendTransaction({from:eth.accounts[1], to:coinContractAddr, valu
 wait(function(){return eth.getTransaction(buyCoinTx).blockNumber != null;});
 
 
-var mixWanAddresses = wan.getOTAMixSet(otaAddr,2);
+var mixTsrAddresses = wan.getOTAMixSet(otaAddr,2);
 var mixSetWith0x = []
-for (i = 0; i < mixWanAddresses.length; i++){
-	mixSetWith0x.push(mixWanAddresses[i])
+for (i = 0; i < mixTsrAddresses.length; i++){
+	mixSetWith0x.push(mixTsrAddresses[i])
 }
 
 keyPairs = wan.computeOTAPPKeys(eth.accounts[2], otaAddr).split('+');

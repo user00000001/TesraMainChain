@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/wanchain/go-wanchain/rpc"
+	"github.com/TesraSupernet/TesraMainChain/rpc"
 )
 
 // In this example, our client whishes to track the latest 'block number'

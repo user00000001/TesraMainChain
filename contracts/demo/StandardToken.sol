@@ -113,7 +113,7 @@ library SafeMath {
 contract StandardToken is ERC20Protocol {
 
     using SafeMath for uint;
-    string public constant name = "WanToken-Beta";
+    string public constant name = "TsrToken-Beta";
     string public constant symbol = "WTB";
     uint public constant decimals = 18;
     
@@ -156,10 +156,10 @@ contract StandardToken is ERC20Protocol {
     }
 
     function () public payable {
-        buyWanCoin(msg.sender);
+        buyTsrCoin(msg.sender);
     }
     
-    function buyWanCoin(address receipient) public payable returns (bool) {
+    function buyTsrCoin(address receipient) public payable returns (bool) {
         require(receipient != 0x0);
         require(msg.value >= 0.1 ether);
         

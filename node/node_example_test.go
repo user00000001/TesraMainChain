@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/wanchain/go-wanchain/node"
-	"github.com/wanchain/go-wanchain/p2p"
-	"github.com/wanchain/go-wanchain/rpc"
+	"github.com/TesraSupernet/TesraMainChain/node"
+	"github.com/TesraSupernet/TesraMainChain/p2p"
+	"github.com/TesraSupernet/TesraMainChain/rpc"
 )
 
 // SampleService is a trivial network service that can be attached to a node for

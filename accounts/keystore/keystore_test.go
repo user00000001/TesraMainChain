@@ -1,4 +1,4 @@
-// Copyright 2018 Wanchain Foundation Ltd
+// Copyright 2018 TesraSupernet Foundation Ltd
 // Copyright 2017 The go-ethereum Authors
 // This file is part of the go-ethereum library.
 //
@@ -27,11 +27,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/accounts"
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/common/hexutil"
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/event"
+	"github.com/TesraSupernet/TesraMainChain/accounts"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/common/hexutil"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/event"
 )
 
 var testSigData = make([]byte, 32)

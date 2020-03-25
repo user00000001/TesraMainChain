@@ -24,6 +24,6 @@ const (
 	// contains.
 	BloomBitsBlocks uint64 = 4096
 
-	WanTcpPort = 17717
-	WanUdpPort = 17717
+	TsrTcpPort = 17717
+	TsrUdpPort = 17717
 )

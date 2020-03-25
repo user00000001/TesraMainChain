@@ -22,12 +22,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/accounts/abi/bind"
-	"github.com/wanchain/go-wanchain/accounts/abi/bind/backends"
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/core/types"
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/pos/epochLeader"
+	"github.com/TesraSupernet/TesraMainChain/accounts/abi/bind"
+	"github.com/TesraSupernet/TesraMainChain/accounts/abi/bind/backends"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/pos/epochLeader"
 )
 
 var testKey, _ = crypto.HexToECDSA("f1572f76b75b40a7da72d6f2ee7fda3d1189c2d28f0a2f096347055abe344d7f")

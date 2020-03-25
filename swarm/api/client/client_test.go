@@ -25,8 +25,8 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/swarm/api"
-	"github.com/wanchain/go-wanchain/swarm/testutil"
+	"github.com/TesraSupernet/TesraMainChain/swarm/api"
+	"github.com/TesraSupernet/TesraMainChain/swarm/testutil"
 )
 
 // TestClientUploadDownloadRaw test uploading and downloading raw data to swarm

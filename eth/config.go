@@ -42,7 +42,7 @@ var DefaultConfig = Config{
 	NetworkId:            1,
 	LightPeers:           20,
 	DatabaseCache:        128,
-	GasPrice:             big.NewInt(0).Mul(big.NewInt(18 * params.Shannon),params.WanGasTimesFactor),
+	GasPrice:             big.NewInt(0).Mul(big.NewInt(18 * params.Shannon),params.TsrGasTimesFactor),
 
 	TxPool: core.DefaultTxPoolConfig,
 	GPO: gasprice.Config{
@@ -59,7 +59,7 @@ func init() {
 		}
 	}
 	if runtime.GOOS == "windows" {
-		DefaultConfig.EthashDatasetDir = filepath.Join(home, "AppData", "Wanhash")
+		DefaultConfig.EthashDatasetDir = filepath.Join(home, "AppData", "Tsrhash")
 	} else {
 		DefaultConfig.EthashDatasetDir = filepath.Join(home, ".wanhash")
 	}

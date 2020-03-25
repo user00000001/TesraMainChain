@@ -952,7 +952,7 @@ func (p *PosStaking) doStakeIn(contract *Contract, evm *EVM, info StakeInParam) 
 	// no max limit
 	//  amount >= PSMinStakeholderStake,
 	if contract.value.Cmp(minStakeholderStake) < 0 {
-		return nil, errors.New("need more Wan to be a stake holder")
+		return nil, errors.New("need more Tsr to be a stake holder")
 	}
 	// TODO: or return value - 10,500,000 to the sender?
 	if contract.value.Cmp(maxTotalStake) > 0 {
@@ -962,7 +962,7 @@ func (p *PosStaking) doStakeIn(contract *Contract, evm *EVM, info StakeInParam) 
 	// NOTE: if a validator has no MinValidatorStake, but want delegate, he can partnerIn or stakeAppend later.
 	// SO, don't need all in the first stakeIn.
 	//if info.FeeRate.Cmp(noDelegateFeeRate) != 0 &&  contract.value.Cmp(MinValidatorStake) < 0 {
-	//	return nil, errors.New("need more Wan to be a validator")
+	//	return nil, errors.New("need more Tsr to be a validator")
 	//}
 	secAddr := crypto.PubkeyToAddress(*(info.pub))
 

@@ -20,18 +20,18 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"github.com/wanchain/go-wanchain/pos/posconfig"
+	"github.com/TesraSupernet/TesraMainChain/pos/posconfig"
 	"io/ioutil"
 	"os"
 	"strings"
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/core"
-	"github.com/wanchain/go-wanchain/eth"
-	"github.com/wanchain/go-wanchain/internal/jsre"
-	"github.com/wanchain/go-wanchain/node"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/core"
+	"github.com/TesraSupernet/TesraMainChain/eth"
+	"github.com/TesraSupernet/TesraMainChain/internal/jsre"
+	"github.com/TesraSupernet/TesraMainChain/node"
 )
 
 const (

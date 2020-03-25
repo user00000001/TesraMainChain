@@ -6,16 +6,16 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/crypto"
-	"github.com/wanchain/go-wanchain/crypto/bn256"
+	"github.com/TesraSupernet/TesraMainChain/crypto"
+	"github.com/TesraSupernet/TesraMainChain/crypto/bn256"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/core/types"
-	"github.com/wanchain/go-wanchain/core/vm"
-	"github.com/wanchain/go-wanchain/params"
-	"github.com/wanchain/go-wanchain/pos/posconfig"
-    "github.com/wanchain/go-wanchain/pos/util"
-    "github.com/wanchain/go-wanchain/pos/util/convert"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/core/vm"
+	"github.com/TesraSupernet/TesraMainChain/params"
+	"github.com/TesraSupernet/TesraMainChain/pos/posconfig"
+    "github.com/TesraSupernet/TesraMainChain/pos/util"
+    "github.com/TesraSupernet/TesraMainChain/pos/util/convert"
 )
 
 type TestChainReader struct {

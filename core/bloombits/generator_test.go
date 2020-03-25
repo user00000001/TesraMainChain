@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/wanchain/go-wanchain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
 )
 
 // Tests that batched bloom bits are correctly rotated from the input bloom

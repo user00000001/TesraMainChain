@@ -23,9 +23,9 @@ import (
 	//"path/filepath"
 	//"testing"
 
-	"github.com/wanchain/go-wanchain/common/math"
-	//"github.com/wanchain/go-wanchain/core/types"
-	//"github.com/wanchain/go-wanchain/params"
+	"github.com/TesraSupernet/TesraMainChain/common/math"
+	//"github.com/TesraSupernet/TesraMainChain/core/types"
+	//"github.com/TesraSupernet/TesraMainChain/params"
 	//"testing"
 	//"os"
 	//"path/filepath"

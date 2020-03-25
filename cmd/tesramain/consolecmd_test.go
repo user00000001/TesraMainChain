@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/params"
+	"github.com/TesraSupernet/TesraMainChain/params"
 )
 
 const (

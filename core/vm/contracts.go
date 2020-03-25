@@ -419,35 +419,35 @@ var (
 	ErrOTAReused = errors.New("OTA is reused")
 
 	StampValueSet   = make(map[string]string, 5)
-	WanCoinValueSet = make(map[string]string, 10)
+	TsrCoinValueSet = make(map[string]string, 10)
 )
 
 const (
-	Wancoin10  = "10000000000000000000"  //10
-	Wancoin20  = "20000000000000000000"  //20
-	Wancoin50  = "50000000000000000000"  //50
-	Wancoin100 = "100000000000000000000" //100
+	Tsrcoin10  = "10000000000000000000"  //10
+	Tsrcoin20  = "20000000000000000000"  //20
+	Tsrcoin50  = "50000000000000000000"  //50
+	Tsrcoin100 = "100000000000000000000" //100
 
-	Wancoin200   = "200000000000000000000"   //200
-	Wancoin500   = "500000000000000000000"   //500
-	Wancoin1000  = "1000000000000000000000"  //1000
-	Wancoin5000  = "5000000000000000000000"  //5000
-	Wancoin50000 = "50000000000000000000000" //50000
+	Tsrcoin200   = "200000000000000000000"   //200
+	Tsrcoin500   = "500000000000000000000"   //500
+	Tsrcoin1000  = "1000000000000000000000"  //1000
+	Tsrcoin5000  = "5000000000000000000000"  //5000
+	Tsrcoin50000 = "50000000000000000000000" //50000
 
-	WanStampdot001 = "1000000000000000" //0.001
-	WanStampdot002 = "2000000000000000" //0.002
-	WanStampdot005 = "5000000000000000" //0.005
+	TsrStampdot001 = "1000000000000000" //0.001
+	TsrStampdot002 = "2000000000000000" //0.002
+	TsrStampdot005 = "5000000000000000" //0.005
 
-	WanStampdot003 = "3000000000000000" //0.003
-	WanStampdot006 = "6000000000000000" //0.006
-	WanStampdot009 = "9000000000000000" //0.009
+	TsrStampdot003 = "3000000000000000" //0.003
+	TsrStampdot006 = "6000000000000000" //0.006
+	TsrStampdot009 = "9000000000000000" //0.009
 
-	WanStampdot03 = "30000000000000000"  //0.03
-	WanStampdot06 = "60000000000000000"  //0.06
-	WanStampdot09 = "90000000000000000"  //0.09
-	WanStampdot2  = "200000000000000000" //0.2
-	WanStampdot3  = "300000000000000000" //0.3
-	WanStampdot5  = "500000000000000000" //0.5
+	TsrStampdot03 = "30000000000000000"  //0.03
+	TsrStampdot06 = "60000000000000000"  //0.06
+	TsrStampdot09 = "90000000000000000"  //0.09
+	TsrStampdot2  = "200000000000000000" //0.2
+	TsrStampdot3  = "300000000000000000" //0.3
+	TsrStampdot5  = "500000000000000000" //0.5
 
 )
 
@@ -462,68 +462,68 @@ func init() {
 
 	copy(stBuyId[:], stampAbi.Methods["buyStamp"].Id())
 
-	svaldot001, _ := new(big.Int).SetString(WanStampdot001, 10)
-	StampValueSet[svaldot001.Text(16)] = WanStampdot001
+	svaldot001, _ := new(big.Int).SetString(TsrStampdot001, 10)
+	StampValueSet[svaldot001.Text(16)] = TsrStampdot001
 
-	svaldot002, _ := new(big.Int).SetString(WanStampdot002, 10)
-	StampValueSet[svaldot002.Text(16)] = WanStampdot002
+	svaldot002, _ := new(big.Int).SetString(TsrStampdot002, 10)
+	StampValueSet[svaldot002.Text(16)] = TsrStampdot002
 
-	svaldot005, _ := new(big.Int).SetString(WanStampdot005, 10)
-	StampValueSet[svaldot005.Text(16)] = WanStampdot005
+	svaldot005, _ := new(big.Int).SetString(TsrStampdot005, 10)
+	StampValueSet[svaldot005.Text(16)] = TsrStampdot005
 
-	svaldot003, _ := new(big.Int).SetString(WanStampdot003, 10)
-	StampValueSet[svaldot003.Text(16)] = WanStampdot003
+	svaldot003, _ := new(big.Int).SetString(TsrStampdot003, 10)
+	StampValueSet[svaldot003.Text(16)] = TsrStampdot003
 
-	svaldot006, _ := new(big.Int).SetString(WanStampdot006, 10)
-	StampValueSet[svaldot006.Text(16)] = WanStampdot006
+	svaldot006, _ := new(big.Int).SetString(TsrStampdot006, 10)
+	StampValueSet[svaldot006.Text(16)] = TsrStampdot006
 
-	svaldot009, _ := new(big.Int).SetString(WanStampdot009, 10)
-	StampValueSet[svaldot009.Text(16)] = WanStampdot009
+	svaldot009, _ := new(big.Int).SetString(TsrStampdot009, 10)
+	StampValueSet[svaldot009.Text(16)] = TsrStampdot009
 
-	svaldot03, _ := new(big.Int).SetString(WanStampdot03, 10)
-	StampValueSet[svaldot03.Text(16)] = WanStampdot03
+	svaldot03, _ := new(big.Int).SetString(TsrStampdot03, 10)
+	StampValueSet[svaldot03.Text(16)] = TsrStampdot03
 
-	svaldot06, _ := new(big.Int).SetString(WanStampdot06, 10)
-	StampValueSet[svaldot06.Text(16)] = WanStampdot06
+	svaldot06, _ := new(big.Int).SetString(TsrStampdot06, 10)
+	StampValueSet[svaldot06.Text(16)] = TsrStampdot06
 
-	svaldot09, _ := new(big.Int).SetString(WanStampdot09, 10)
-	StampValueSet[svaldot09.Text(16)] = WanStampdot09
+	svaldot09, _ := new(big.Int).SetString(TsrStampdot09, 10)
+	StampValueSet[svaldot09.Text(16)] = TsrStampdot09
 
-	svaldot2, _ := new(big.Int).SetString(WanStampdot2, 10)
-	StampValueSet[svaldot2.Text(16)] = WanStampdot2
+	svaldot2, _ := new(big.Int).SetString(TsrStampdot2, 10)
+	StampValueSet[svaldot2.Text(16)] = TsrStampdot2
 
-	svaldot3, _ := new(big.Int).SetString(WanStampdot3, 10)
-	StampValueSet[svaldot3.Text(16)] = WanStampdot3
+	svaldot3, _ := new(big.Int).SetString(TsrStampdot3, 10)
+	StampValueSet[svaldot3.Text(16)] = TsrStampdot3
 
-	svaldot5, _ := new(big.Int).SetString(WanStampdot5, 10)
-	StampValueSet[svaldot5.Text(16)] = WanStampdot5
+	svaldot5, _ := new(big.Int).SetString(TsrStampdot5, 10)
+	StampValueSet[svaldot5.Text(16)] = TsrStampdot5
 
-	cval10, _ := new(big.Int).SetString(Wancoin10, 10)
-	WanCoinValueSet[cval10.Text(16)] = Wancoin10
+	cval10, _ := new(big.Int).SetString(Tsrcoin10, 10)
+	TsrCoinValueSet[cval10.Text(16)] = Tsrcoin10
 
-	cval20, _ := new(big.Int).SetString(Wancoin20, 10)
-	WanCoinValueSet[cval20.Text(16)] = Wancoin20
+	cval20, _ := new(big.Int).SetString(Tsrcoin20, 10)
+	TsrCoinValueSet[cval20.Text(16)] = Tsrcoin20
 
-	cval50, _ := new(big.Int).SetString(Wancoin50, 10)
-	WanCoinValueSet[cval50.Text(16)] = Wancoin50
+	cval50, _ := new(big.Int).SetString(Tsrcoin50, 10)
+	TsrCoinValueSet[cval50.Text(16)] = Tsrcoin50
 
-	cval100, _ := new(big.Int).SetString(Wancoin100, 10)
-	WanCoinValueSet[cval100.Text(16)] = Wancoin100
+	cval100, _ := new(big.Int).SetString(Tsrcoin100, 10)
+	TsrCoinValueSet[cval100.Text(16)] = Tsrcoin100
 
-	cval200, _ := new(big.Int).SetString(Wancoin200, 10)
-	WanCoinValueSet[cval200.Text(16)] = Wancoin200
+	cval200, _ := new(big.Int).SetString(Tsrcoin200, 10)
+	TsrCoinValueSet[cval200.Text(16)] = Tsrcoin200
 
-	cval500, _ := new(big.Int).SetString(Wancoin500, 10)
-	WanCoinValueSet[cval500.Text(16)] = Wancoin500
+	cval500, _ := new(big.Int).SetString(Tsrcoin500, 10)
+	TsrCoinValueSet[cval500.Text(16)] = Tsrcoin500
 
-	cval1000, _ := new(big.Int).SetString(Wancoin1000, 10)
-	WanCoinValueSet[cval1000.Text(16)] = Wancoin1000
+	cval1000, _ := new(big.Int).SetString(Tsrcoin1000, 10)
+	TsrCoinValueSet[cval1000.Text(16)] = Tsrcoin1000
 
-	cval5000, _ := new(big.Int).SetString(Wancoin5000, 10)
-	WanCoinValueSet[cval5000.Text(16)] = Wancoin5000
+	cval5000, _ := new(big.Int).SetString(Tsrcoin5000, 10)
+	TsrCoinValueSet[cval5000.Text(16)] = Tsrcoin5000
 
-	cval50000, _ := new(big.Int).SetString(Wancoin50000, 10)
-	WanCoinValueSet[cval50000.Text(16)] = Wancoin50000
+	cval50000, _ := new(big.Int).SetString(Tsrcoin50000, 10)
+	TsrCoinValueSet[cval50000.Text(16)] = Tsrcoin50000
 
 }
 
@@ -598,7 +598,7 @@ func (c *tesramainchainStampSC) ValidBuyStampReq(stateDB StateDB, payload []byte
 		return nil, err
 	}
 
-	ax, err := GetAXFromWanAddr(wanAddr)
+	ax, err := GetAXFromTsrAddr(wanAddr)
 	exist, _, err := CheckOTAAXExist(stateDB, ax)
 	if err != nil {
 		return nil, err
@@ -745,7 +745,7 @@ func (c *wanCoinSC) ValidBuyCoinReq(stateDB StateDB, payload []byte, txValue *bi
 		return nil, ErrMismatchedValue
 	}
 
-	_, ok := WanCoinValueSet[outStruct.Value.Text(16)]
+	_, ok := TsrCoinValueSet[outStruct.Value.Text(16)]
 	if !ok {
 		return nil, errCoinValue
 	}
@@ -755,7 +755,7 @@ func (c *wanCoinSC) ValidBuyCoinReq(stateDB StateDB, payload []byte, txValue *bi
 		return nil, err
 	}
 
-	ax, err := GetAXFromWanAddr(wanAddr)
+	ax, err := GetAXFromTsrAddr(wanAddr)
 	if err != nil {
 		return nil, err
 	}
@@ -956,17 +956,17 @@ func FetchRingSignInfo(stateDB StateDB, hashInput []byte, ringSignedStr string) 
 	return infoTmp, nil
 }
 
-func GetSupportWanCoinOTABalances() []*big.Int {
-	cval10, _ := new(big.Int).SetString(Wancoin10, 10)
-	cval20, _ := new(big.Int).SetString(Wancoin20, 10)
-	cval50, _ := new(big.Int).SetString(Wancoin50, 10)
-	cval100, _ := new(big.Int).SetString(Wancoin100, 10)
+func GetSupportTsrCoinOTABalances() []*big.Int {
+	cval10, _ := new(big.Int).SetString(Tsrcoin10, 10)
+	cval20, _ := new(big.Int).SetString(Tsrcoin20, 10)
+	cval50, _ := new(big.Int).SetString(Tsrcoin50, 10)
+	cval100, _ := new(big.Int).SetString(Tsrcoin100, 10)
 
-	cval200, _ := new(big.Int).SetString(Wancoin200, 10)
-	cval500, _ := new(big.Int).SetString(Wancoin500, 10)
-	cval1000, _ := new(big.Int).SetString(Wancoin1000, 10)
-	cval5000, _ := new(big.Int).SetString(Wancoin5000, 10)
-	cval50000, _ := new(big.Int).SetString(Wancoin50000, 10)
+	cval200, _ := new(big.Int).SetString(Tsrcoin200, 10)
+	cval500, _ := new(big.Int).SetString(Tsrcoin500, 10)
+	cval1000, _ := new(big.Int).SetString(Tsrcoin1000, 10)
+	cval5000, _ := new(big.Int).SetString(Tsrcoin5000, 10)
+	cval50000, _ := new(big.Int).SetString(Tsrcoin50000, 10)
 
 	wancoinBalances := []*big.Int{
 		cval10,
@@ -986,9 +986,9 @@ func GetSupportWanCoinOTABalances() []*big.Int {
 
 func GetSupportStampOTABalances() []*big.Int {
 
-	svaldot09, _ := new(big.Int).SetString(WanStampdot09, 10)
-	svaldot2, _ := new(big.Int).SetString(WanStampdot2, 10)
-	svaldot5, _ := new(big.Int).SetString(WanStampdot5, 10)
+	svaldot09, _ := new(big.Int).SetString(TsrStampdot09, 10)
+	svaldot2, _ := new(big.Int).SetString(TsrStampdot2, 10)
+	svaldot5, _ := new(big.Int).SetString(TsrStampdot5, 10)
 
 	stampBalances := []*big.Int{
 		//svaldot03,

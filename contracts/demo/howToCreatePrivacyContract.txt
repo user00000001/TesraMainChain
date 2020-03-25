@@ -115,8 +115,8 @@ contract ERC20Protocol {
 contract StandardToken is ERC20Protocol {
 
     using SafeMath for uint;
-    string public constant name = "WanToken-Beta";
-    string public constant symbol = "WanToken";
+    string public constant name = "TsrToken-Beta";
+    string public constant symbol = "TsrToken";
     uint public constant decimals = 18;
     
     function transfer(address _to, uint _value) public returns (bool success) {
@@ -248,7 +248,7 @@ var wanUnlock = function(addr){
     return personal.unlockAccount(addr,"wanglu",99999);
 }
 
-var sendWanFromUnlock = function (From, To , V){
+var sendTsrFromUnlock = function (From, To , V){
 	eth.sendTransaction({from:From, to: To, value: web3.toTsl(V)});
 }
 
@@ -277,7 +277,7 @@ contractDef = eth.contract(abiDefStamp);
 stampContractAddr = "0x00000000000000000000000000000000000000c8";
 stampContract = contractDef.at(stampContractAddr);
 
-var wanAddr = wan.getWanAddress(eth.accounts[1]);
+var wanAddr = wan.getTsrAddress(eth.accounts[1]);
 var otaAddrStamp = wan.generateOneTimeAddress(wanAddr);
 txBuyData = stampContract.buyStamp.getData(otaAddrStamp, web3.toTsl(stampBalance));
 
@@ -305,7 +305,7 @@ erc20simple = erc20simple_contract.at(contractAddr)
 
 5. create one time address for account1
 
-var wanAddr = wan.getWanAddress(eth.accounts[1]);
+var wanAddr = wan.getTsrAddress(eth.accounts[1]);
 var otaAddrTokenHolder = wan.generateOneTimeAddress(wanAddr);
 keyPairs = wan.computeOTAPPKeys(eth.accounts[1], otaAddrTokenHolder).split('+');
 privateKeyTokenHolder = keyPairs[0];
@@ -325,7 +325,7 @@ var ringSignData = personal.genRingSignData(hashMsg, privateKeyStamp, mixSetWith
 
 7. create one time address for account2
 
-var wanAddr = wan.getWanAddress(eth.accounts[2]);
+var wanAddr = wan.getTsrAddress(eth.accounts[2]);
 var otaAddr4Account2 = wan.generateOneTimeAddress(wanAddr);
 keyPairs = wan.computeOTAPPKeys(eth.accounts[2], otaAddr4Account2).split('+');
 privateKeyOtaAcc2 = keyPairs[0];

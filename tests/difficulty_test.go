@@ -21,7 +21,7 @@ import (
 	"testing"
 	"math/big"
 
-	"github.com/wanchain/go-wanchain/params"
+	"github.com/TesraSupernet/TesraMainChain/params"
 )
 
 var (

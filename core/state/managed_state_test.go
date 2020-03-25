@@ -19,8 +19,8 @@ package state
 import (
 	"testing"
 
-	"github.com/wanchain/go-wanchain/common"
-	"github.com/wanchain/go-wanchain/ethdb"
+	"github.com/TesraSupernet/TesraMainChain/common"
+	"github.com/TesraSupernet/TesraMainChain/ethdb"
 )
 
 var addr = common.BytesToAddress([]byte("test"))

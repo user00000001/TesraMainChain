@@ -23,8 +23,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wanchain/go-wanchain/core/types"
-	"github.com/wanchain/go-wanchain/ethdb"
+	"github.com/TesraSupernet/TesraMainChain/core/types"
+	"github.com/TesraSupernet/TesraMainChain/ethdb"
 )
 
 // Runs multiple tests with randomized parameters.
