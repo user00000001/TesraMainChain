@@ -33,9 +33,8 @@ const (
 	PosLocalDB       = "pos"
 	IncentiveLocalDB = "incentive"
 	ReorgLocalDB     = "forkdb"
-	ApolloEpochID     = 18104
-	AugustEpochID     = 18116  //TODO change it as mainnet 8.8
-
+	ApolloEpochID    = 18104
+	AugustEpochID    = 18116 //TODO change it as mainnet 8.8
 
 )
 
@@ -62,7 +61,8 @@ const (
 
 	// K count of each epoch
 	KCount = 12
-	K      = 1440
+	K      = 120
+	// K      = 1440
 	// SlotCount is slot count in an epoch
 	SlotCount = K * KCount
 

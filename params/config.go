@@ -25,14 +25,16 @@ import (
 )
 
 var (
-	MainnetGenesisHash = common.HexToHash("0x0376899c001618fc7d5ab4f31cfd7f57ca3a896ccc1581a57d8f129ecf40b840") // Mainnet genesis hash to enforce below configs on
+	MainnetGenesisHash = common.HexToHash("0x67fdc748f527b404d7a968d0888d2a24a24726af07ced977e5d5677c7fd55607") // Mainnet genesis hash to enforce below configs on
 	TestnetGenesisHash = common.HexToHash("0xa37b811609a9d1e898fb49b3901728023e5e72e18e58643d9a7a82db483bfeb0") // Testnet genesis hash to enforce below configs on
 	PlutoGenesisHash   = common.HexToHash("0x4ff7e18e5842c540f49d827e67894c39783ef1e0494ea52f569db0bcf63786e6") // Pluto genesis hash to enforce below configs on
 
 	InternalGenesisHash = common.HexToHash("0xb1dc31a86510003c23b9ddee0e194775807262529b8dafa6dc23d9315364d2b3")
 )
 
-const MainnetPow2PosUpgradeBlockNumber = 4046000
+const MainnetPow2PosUpgradeBlockNumber = 10
+
+// const MainnetPow2PosUpgradeBlockNumber = 4046000
 const TestnetPow2PosUpgradeBlockNumber = 3560000
 const InternalPow2PosUpgradeBlockNumber = 200
 
