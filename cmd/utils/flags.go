@@ -351,8 +351,8 @@ var (
 	}
 	// Logging and debug settings
 	EthStatsURLFlag = cli.StringFlag{
-		Name:  "wanstats",
-		Usage: "Reporting URL of a wanstats service (nodename:secret@host:port)",
+		Name:  "tsrstats",
+		Usage: "Reporting URL of a tsrstats service (nodename:secret@host:port)",
 	}
 	MetricsEnabledFlag = cli.BoolFlag{
 		Name:  metrics.MetricsEnabledFlag,

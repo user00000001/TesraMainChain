@@ -311,7 +311,7 @@ func testGetNodeData(t *testing.T, protocol int) {
 	generator := func(i int, block *core.BlockGen) {
 		switch i {
 		case 0:
-			// In block 1, the test bank sends account #1 some wan.
+			// In block 1, the test bank sends account #1 some tsr.
 			tx, _ := types.SignTx(types.NewTransaction(block.TxNonce(testBank), acc1Addr, big.NewInt(10000), bigTxGas, nil, nil), signer, testBankKey)
 			block.AddTx(tx)
 		case 1:

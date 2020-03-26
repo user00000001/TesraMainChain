@@ -59,7 +59,7 @@ func getBaseSubsidyTotalForEpoch(stateDb *state.StateDB, epochID uint64) *big.In
 	return baseSubsidyReduction
 }
 
-// calcTsrFromFoundation returns subsidy Of Epoch from wan foundation by Wei
+// calcTsrFromFoundation returns subsidy Of Epoch from tsr foundation by Wei
 func calcTsrFromFoundation(stateDb *state.StateDB, epochID uint64) *big.Int {
 	if stateDb == nil {
 		log.SyslogErr("calcTsrFromFoundation with an empty stateDb")

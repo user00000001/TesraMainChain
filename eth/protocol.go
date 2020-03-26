@@ -35,7 +35,7 @@ const (
 )
 
 // Official short name of the protocol used during capability negotiation.
-var ProtocolName = "wan"
+var ProtocolName = "wsr"
 
 // Supported versions of the eth protocol (first is primary).
 var ProtocolVersions = []uint{eth63, eth62}
@@ -63,7 +63,7 @@ const (
 	GetReceiptsMsg = 0x0f
 	ReceiptsMsg    = 0x10
 
-	// Protocol messages belonging to wan/64
+	// Protocol messages belonging to tsr/64
 	GetEpochGenesisMsg 	= 0x11
 	EpochGenesisMsg    	= 0x12
 	GetPivotMsg    		= 0x13

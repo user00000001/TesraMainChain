@@ -107,9 +107,9 @@ func defaultNodeConfig() node.Config {
 	cfg.Name = clientIdentifier
 	cfg.Version = params.VersionWithCommit(gitCommit)
 	cfg.HTTPModules = append(cfg.HTTPModules, "eth", "shh")
-	cfg.HTTPModules = append(cfg.HTTPModules, "wan", "shh","pos")
+	cfg.HTTPModules = append(cfg.HTTPModules, "tsr", "shh","pos")
 	cfg.WSModules = append(cfg.WSModules, "eth", "shh")
-	cfg.WSModules = append(cfg.WSModules, "wan", "shh")
+	cfg.WSModules = append(cfg.WSModules, "tsr", "shh")
 	cfg.IPCPath = "tesramain.ipc"
 	return cfg
 }

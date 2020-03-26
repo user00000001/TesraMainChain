@@ -483,11 +483,11 @@ type UpdateFeeRateParam struct {
 //
 type StakerInfo struct {
 	Address   common.Address
-	PubSec256 []byte //stakeholder’s wan public key
+	PubSec256 []byte //stakeholder’s tsr public key
 	PubBn256  []byte //stakeholder’s bn256 public key
 
-	Amount         *big.Int //staking wan value
-	StakeAmount    *big.Int //staking wan value
+	Amount         *big.Int //staking tsr value
+	StakeAmount    *big.Int //staking tsr value
 	LockEpochs     uint64   //lock time which is input by user. 0 means unexpired.
 	NextLockEpochs uint64   //lock time which is input by user. 0 means unexpired.
 	From           common.Address
@@ -509,13 +509,13 @@ type ValidatorInfo struct {
 type ClientInfo struct {
 	Address     common.Address
 	Amount      *big.Int
-	StakeAmount *big.Int //staking wan value
+	StakeAmount *big.Int //staking tsr value
 	QuitEpoch   uint64
 }
 type PartnerInfo struct {
 	Address      common.Address
 	Amount       *big.Int
-	StakeAmount  *big.Int //staking wan value
+	StakeAmount  *big.Int //staking tsr value
 	Renewal      bool
 	LockEpochs   uint64
 	StakingEpoch uint64
@@ -785,7 +785,7 @@ func (p *PosStaking) PartnerIn(payload []byte, contract *Contract, evm *EVM) ([]
 	eidNow, _ := util.CalEpochSlotID(evm.Time.Uint64())
 	if eidNow >= posconfig.ApolloEpochID &&  eidNow < posconfig.AugustEpochID{
 		if contract.Value().Cmp(minPartnerIn) < 0 {
-			return nil, errors.New("min wan amount should >= 10000")
+			return nil, errors.New("min tsr amount should >= 10000")
 		}
 	}
 
@@ -827,7 +827,7 @@ func (p *PosStaking) PartnerIn(payload []byte, contract *Contract, evm *EVM) ([]
 
 		if eidNow >= posconfig.ApolloEpochID {
 			if contract.Value().Cmp(minPartnerIn) < 0 {
-				return nil, errors.New("min wan amount should >= 10000")
+				return nil, errors.New("min tsr amount should >= 10000")
 			}
 		}
 		partner = &PartnerInfo{

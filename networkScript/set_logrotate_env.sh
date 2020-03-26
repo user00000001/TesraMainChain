@@ -1,5 +1,5 @@
 #!/bin/sh
-# set up the logrotate environment to backup wan-chain log data
+# set up the logrotate environment to backup TesraMainChain log data
 
 #  _____                   ____                                   _   
 # |_   _|__  ___ _ __ __ _/ ___| _   _ _ __   ___ _ __ _ __   ___| |_ 

@@ -58,7 +58,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-sudo docker run -d --name tesramain -p 17717:17717 -p 17717:17717/udp -v ~/.tesramainchain:/root/.tesramainchain ${DOCKERIMG} /bin/tesramain ${NETWORK} --etherbase ${addrNew} --unlock ${addrNew} --password /root/.tesramainchain/pw.txt --mine --minerthreads=1 --wanstats ${YOUR_NODE_NAME}:admin@testnet.wanstats.io
+sudo docker run -d --name tesramain -p 17717:17717 -p 17717:17717/udp -v ~/.tesramainchain:/root/.tesramainchain ${DOCKERIMG} /bin/tesramain ${NETWORK} --etherbase ${addrNew} --unlock ${addrNew} --password /root/.tesramainchain/pw.txt --mine --minerthreads=1 --tsrstats ${YOUR_NODE_NAME}:admin@testnet.tsrstats.io
 
 if [ $? -ne 0 ]; then
     echo "docker run failed"

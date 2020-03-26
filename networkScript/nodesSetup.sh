@@ -80,11 +80,11 @@ do
 
 	if [ $i -eq 0 ]; then
 		echo " start $i"
-		docker exec -d $containerName /TesraMainChain/src/build/bin/tesramain --datadir "/TesraMainChain/src/networkScript/$nodeName/data-loadScript" --networkid 314590 --ipcdisable --gasprice 20000 --mine --minerthreads 1 --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,personal,net,admin,wan" --etherbase $ethbase --nodekey "/TesraMainChain/src/networkScript/$nodeName/nodekey"
+		docker exec -d $containerName /TesraMainChain/src/build/bin/tesramain --datadir "/TesraMainChain/src/networkScript/$nodeName/data-loadScript" --networkid 314590 --ipcdisable --gasprice 20000 --mine --minerthreads 1 --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,personal,net,admin,tsr" --etherbase $ethbase --nodekey "/TesraMainChain/src/networkScript/$nodeName/nodekey"
 	else
 		echo " start $i"
 		
-		docker exec -d $containerName /TesraMainChain/src/build/bin/tesramain --datadir "/TesraMainChain/src/networkScript/$nodeName/data-loadScript" --networkid 314590 --ipcdisable --gasprice 20000 --mine --minerthreads 1 --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,personal,net,admin,wan" --etherbase $ethbase --nodekey "/TesraMainChain/src/networkScript/$nodeName/nodekey" --bootnodes $allEndNodes
+		docker exec -d $containerName /TesraMainChain/src/build/bin/tesramain --datadir "/TesraMainChain/src/networkScript/$nodeName/data-loadScript" --networkid 314590 --ipcdisable --gasprice 20000 --mine --minerthreads 1 --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,personal,net,admin,tsr" --etherbase $ethbase --nodekey "/TesraMainChain/src/networkScript/$nodeName/nodekey" --bootnodes $allEndNodes
 		
 	fi
 

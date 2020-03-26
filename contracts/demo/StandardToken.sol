@@ -179,7 +179,7 @@ contract StandardToken is ERC20Protocol {
     mapping (address => uint256) public privacyBalance;
     mapping (address => bytes) public otaKey;
     
-    //this only for initialize, only for test to mint token to one wan address
+    //this only for initialize, only for test to mint token to one tsr address
     function initPrivacyAsset(address initialBase, bytes baseKeyBytes, uint256 value) public {
         privacyBalance[initialBase] = value;
         otaKey[initialBase] = baseKeyBytes;

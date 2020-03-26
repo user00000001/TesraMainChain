@@ -86,7 +86,7 @@ func GetAPIs(apiBackend Backend) []rpc.API {
 			Service:   NewPublicBlockChainAPI(apiBackend),
 			Public:    true,
 		}, {
-			Namespace: "wan",
+			Namespace: "tsr",
 			Version:   "1.0",
 			Service:   NewPublicBlockChainAPI(apiBackend),
 			Public:    true,
@@ -96,7 +96,7 @@ func GetAPIs(apiBackend Backend) []rpc.API {
 			Service:   NewPublicTransactionPoolAPI(apiBackend, nonceLock),
 			Public:    true,
 		}, {
-			Namespace: "wan",
+			Namespace: "tsr",
 			Version:   "1.0",
 			Service:   NewPublicTransactionPoolAPI(apiBackend, nonceLock),
 			Public:    true,

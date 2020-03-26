@@ -476,7 +476,7 @@ func TestPartnerIn(t *testing.T) {
 	}
 	err = doPartnerOne(common.HexToAddress("0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e"), 9999)
 	if err == nil {
-		t.Fatal("should be error, min wan amount should >= 10000")
+		t.Fatal("should be error, min tsr amount should >= 10000")
 	}
 	err = doPartnerOne(common.HexToAddress("0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e"), 30000)
 	if err != nil {

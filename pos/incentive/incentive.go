@@ -25,7 +25,7 @@ var (
 	subsidyReductionInterval = uint64((365 * 24 * 3600 * redutionYears) / (posconfig.SlotTime * posconfig.SlotCount)) // Epoch count in 1 years
 	ceilingPercentS0         = 100.0                                                                                  //100% Turn off in current version.
 	openIncentive            = true                                                                                   //If the incentive function is open
-	firstPeriodReward        = big.NewInt(0).Mul(big.NewInt(2.5e6), big.NewInt(1e18))                                 // 2500000 wan coin for first year
+	firstPeriodReward        = big.NewInt(0).Mul(big.NewInt(2.5e6), big.NewInt(1e18))                                 // 2500000 tsr coin for first year
 )
 
 const (

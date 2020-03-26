@@ -214,11 +214,11 @@ func GetEpochSlotIDFromDifficulty(difficulty *big.Int) (epochID, slotID uint64) 
 // FromTsl use to calc tsl to Tsr
 func FromTsl(tsl *big.Int) float64 {
 	tslStr := tsl.String()
-	wan, err := strconv.ParseFloat(tslStr, 64)
+	tsr, err := strconv.ParseFloat(tslStr, 64)
 	if err != nil {
 		return 0
 	}
-	return wan
+	return tsr
 }
 
 func IsPosBlock(number uint64) bool {

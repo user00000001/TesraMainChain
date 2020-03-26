@@ -13,5 +13,5 @@ echo "run tesramain in pluto bootnode testnet"
 make && \
 rm -rf ~/.tesramainchain/pluto/tesramain && \
 echo -n 'dc' > pw.txt && \
-build/bin/tesramain --plutodev --rpc --rpcapi="wan,eth,pos,personal,admin"     --nodiscover --etherbase  "0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e"  --unlock "0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e" --password ./pw.txt  --mine --minerthreads=1 $@
+build/bin/tesramain --plutodev --rpc --rpcapi="tsr,eth,pos,personal,admin"     --nodiscover --etherbase  "0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e"  --unlock "0x2d0e7c0813a51d3bd1d08246af2a8a7a57d8922e" --password ./pw.txt  --mine --minerthreads=1 $@
 

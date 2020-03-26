@@ -213,7 +213,7 @@ func (s *Service) loop() {
 
 	HandleLoop:
 		for {
-			log.Debug("wanstats handle loop begin..")
+			log.Debug("tsrstats handle loop begin..")
 			select {
 			// Notify of chain head events, but drop if too frequent
 			case head := <-chainHeadCh:
@@ -264,7 +264,7 @@ func (s *Service) loop() {
 	}()
 	// Loop reporting until termination
 	for {
-		log.Info("wanstats report big loop begin..")
+		log.Info("tsrstats report big loop begin..")
 		// Resolve the URL, defaulting to TLS, but falling back to none too
 		path := fmt.Sprintf("%s/api", s.host)
 		urls := []string{path}
@@ -284,7 +284,7 @@ func (s *Service) loop() {
 			}
 			conf.Dialer = &net.Dialer{Timeout: 5 * time.Second}
 			if conn, err = websocket.DialConfig(conf); err == nil {
-				log.Info("connect wanstats server successful", "url", url)
+				log.Info("connect tsrstats server successful", "url", url)
 				break
 			}
 		}
@@ -329,7 +329,7 @@ func (s *Service) loop() {
 		fullReport := time.NewTicker(posconfig.SlotTime * time.Second)
 
 		for err == nil {
-			log.Debug("wanstats report small loop begin..")
+			log.Debug("tsrstats report small loop begin..")
 
 			s.initApi()
 
@@ -461,7 +461,7 @@ func (s *Service) isPos() bool {
 // it, if they themselves are requests it initiates a reply, and lastly it drops
 // unknown packets.
 func (s *Service) readLoop(conn *websocket.Conn) {
-	log.Info("wanstats readloop begin")
+	log.Info("tsrstats readloop begin")
 	// If the read loop exists, close the connection
 	defer conn.Close()
 
@@ -568,13 +568,13 @@ func (s *Service) login(conn *websocket.Conn) error {
 	if s.eth != nil {
 		coinBase, err := s.eth.Etherbase()
 		if err != nil {
-			log.Info("wanstats cant get coinbase", "err", err)
+			log.Info("tsrstats cant get coinbase", "err", err)
 		} else {
 			validatorAddr = coinBase.String()
 			account := accounts.Account{Address: coinBase}
 			wallet, err := s.eth.AccountManager().Find(account)
 			if err != nil {
-				log.Info("wanstats cant find wallet from account", "err", err)
+				log.Info("tsrstats cant find wallet from account", "err", err)
 			} else {
 				signContent := fmt.Sprintf("%d%s%s", clientTime, infos.ID, validatorAddr)
 				hasher := sha3.NewKeccak256()
@@ -583,7 +583,7 @@ func (s *Service) login(conn *websocket.Conn) error {
 				hasher.Sum(hash[:0])
 				signed, err := wallet.SignHash(account, hash[:])
 				if err != nil {
-					log.Info("wanstats sign the hello msg fail", "err", err)
+					log.Info("tsrstats sign the hello msg fail", "err", err)
 				} else {
 					signature = common.ToHex(signed)
 				}
@@ -601,7 +601,7 @@ func (s *Service) login(conn *websocket.Conn) error {
 	}
 
 	var network, protocol string
-	if info := infos.Protocols["wan"]; info != nil {
+	if info := infos.Protocols["wsr"]; info != nil {
 		network = fmt.Sprintf("%d", info.(*eth.EthNodeInfo).Network)
 		protocol = fmt.Sprintf("eth/%d", eth.ProtocolVersions[0])
 	} else {
@@ -1363,7 +1363,7 @@ func (s *Service) getSelfActivity(api *posapi.PosApi, epochId uint64) (uint64, u
 }
 
 func (s *Service) doSendReportData(conn *websocket.Conn, v interface{}) error {
-	log.Debug("wanstats send report data", "data", v)
+	log.Debug("tsrstats send report data", "data", v)
 	return websocket.JSON.Send(conn, v)
 }
 

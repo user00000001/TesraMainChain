@@ -44,8 +44,8 @@ func TestGetEpochIDFromDifficulty(t *testing.T) {
 	}
 }
 
-func TestFromWin(t *testing.T) {
+func TestFromTsl(t *testing.T) {
 	a, _ := big.NewInt(0).SetString("83713850837138508370", 10)
-	f := FromWin(a)
+	f := FromTsl(a)
 	fmt.Println(f)
 }

@@ -81,7 +81,7 @@ type PartnerInfo struct {
 }
 type StakerJson struct {
 	Address   common.Address `json:"address"`
-	PubSec256 string         `json:"pubSec256"` //stakeholder’s wan public key
+	PubSec256 string         `json:"pubSec256"` //stakeholder’s tsr public key
 	PubBn256  string         `json:"pubBn256"`  //stakeholder’s bn256 public key
 
 	Amount         *math.HexOrDecimal256 `json:"amount"`

@@ -61,7 +61,7 @@ fi
 
 addrNew=`echo ${ADDR} | sed 's/.\(.*\)/\1/' | sed 's/\(.*\)./\1/'`
 
-sudo docker run -d --name tesramain -p 17717:17717 -p 17717:17717/udp -v ~/.tesramainchain:/root/.tesramainchain ${DOCKERIMG} /bin/tesramain --etherbase ${addrNew} --unlock ${addrNew} --password /root/.tesramainchain/pw.txt --mine --minerthreads=1 --wanstats ${YOUR_NODE_NAME}:tesramainchainmainnetvalidator@wanstats.io
+sudo docker run -d --name tesramain -p 17717:17717 -p 17717:17717/udp -v ~/.tesramainchain:/root/.tesramainchain ${DOCKERIMG} /bin/tesramain --etherbase ${addrNew} --unlock ${addrNew} --password /root/.tesramainchain/pw.txt --mine --minerthreads=1 --tsrstats ${YOUR_NODE_NAME}:tesramainchainmainnetvalidator@tsrstats.io
 
 if [ $? -ne 0 ]; then
     echo "docker run failed"
